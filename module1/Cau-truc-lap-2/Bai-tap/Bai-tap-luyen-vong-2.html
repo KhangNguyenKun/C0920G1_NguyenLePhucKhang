@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap 2</title>
+</head>
+<body>
+<script>
+    let temp = parseInt(prompt(" Nhap nhiet do vao di em "));
+    let check = true;
+    while (check) {
+        if (temp > 100) {
+            alert("Nhap lai di em");
+            temp = parseInt(prompt(" Nhap nhiet do vao di em "));
+        } else if (temp < 20) {
+            alert("Tang nhiep do lai di em");
+            temp = parseInt(prompt(" Nhap nhiet do vao di em "));
+        } else {
+            check = false;
+            alert("Nhiet do du roi ");
+        }
+    }
+</script>
+</body>
+</html>

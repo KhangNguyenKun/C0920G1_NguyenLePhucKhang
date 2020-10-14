@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap bang cuu chuong</title>
+</head>
+<body>
+ <script>
+     let sout=1;
+     sout="<table border='1'>";
+     for ( let i =0; i<= 9; i++){
+         sout = sout + "<tr>";
+         for (let j= 1; j <=9 ; j ++){
+             sout= sout +"<td>"+j+"x"+i +"=" + i*j + "</td>";
+         }
+         sout = sout + "</tr>";
+     }
+     sout = sout + "</table>";
+     document.write(sout);
+ </script>
+</body>
+</html>

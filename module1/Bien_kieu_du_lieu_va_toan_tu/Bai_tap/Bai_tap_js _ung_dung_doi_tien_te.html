@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng đổi tiền tệ</title>
+</head>
+<body>
+<form>
+<p>
+    Amount
+    <input id="sotien" type="text">
+</p> <br>
+
+<p>
+    From currency
+    <select id="vao" name="tiền">
+        <option  value="vn"> Viet Nam</option>
+        <option  value="nhat"> Nhat ban</option>
+        <option  value="han"> Han Quoc</option>
+    </select>
+</p>
+<p>
+    To currency
+    <select id="ra" name="tiền">
+        <option  value="my"> USD</option>
+        <option  value="chauau"> Euro</option>
+        <option  value="sing"> Singdollar</option>
+    </select>
+    <button type="button" onclick="doSomething()">aaa</button>
+    <p id="ab"></p>
+</form>
+<script>
+    function doSomething() {
+        var fromcur= document.getElementById("vao").value;
+        var tocur = document.getElementById("ra").value;
+        let amount = document.getElementById('sotien').value;
+        let result = 0;
+        if (fromcur == 'vn' && tocur == 'my'){
+            result = amount / 23000;
+            document.getElementById('ab').innerHTML= " Ket qua : " + result;
+        }
+
+        if (fromcur =='vn' && tocur == 'chauau'){
+            result = amount /30000;
+            document.getElementById('ab').innerHTML= " Ket qua : " + result;
+        }
+        if (fromcur =='vn' && tocur == 'sing'){
+            result = amount /18000;
+            document.getElementById('ab').innerHTML= " Ket qua : " + result;
+        }
+
+
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p> Tempature Converter</p>
+<input type="number" id="doF" oninput="nhietdo()">Farenheit;
+<p id="ab"></p>;
+<script>
+    function nhietdo() {
+        let a = parseInt(document.getElementById("doF").value);
+        let doC = ""
+        doC = (a - 32) / 1.8;
+        document.getElementById("ab").innerHTML = doC
+    }
+</script>
+</body>
+</html>

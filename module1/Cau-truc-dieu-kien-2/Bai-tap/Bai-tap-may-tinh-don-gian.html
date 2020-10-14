@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap may tinh don gian</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 20px;
+            border: 1px solid black;
+        }
+        th{
+            font-family: 'Patua One', cursive;
+            font-size:16px;
+            font-weight:400;
+            color:#fff;
+            text-align:center;
+            padding:20px;
+            background-color: #d61b06;
+            border-color: white;
+        }
+        td{
+            font-family: 'Open Sans', sans-serif;
+            font-weight:400;
+            color:#5f6062;
+            font-size:13px;
+            padding:20px 20px 20px 20px;
+            border-bottom:1px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .hover {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<input id="num">
+<table border="1" width="500px" >
+    <tr>
+        <td onclick="inputNumber(1)">1</td>
+        <td onclick="inputNumber(2)">2</td>
+        <td onclick="inputNumber(3)">3</td>
+        <td onclick="inputNumber('+')">+</td>
+    </tr>
+    <tr>
+        <td onclick="inputNumber(4)">4</td>
+        <td onclick="inputNumber(5)">5</td>
+        <td onclick="inputNumber(6)">6</td>
+        <td onclick="inputNumber('-')">-</td>
+    </tr>
+    <tr>
+        <td onclick="inputNumber(7)">7</td>
+        <td onclick="inputNumber(8)">8</td>
+        <td onclick="inputNumber(9)">9</td>
+        <td onclick="inputNumber('*')">*</td>
+    </tr>
+    <tr>
+        <td onclick="clearNumber()">C</td>
+        <td onclick="inputNumber(0)">0</td>
+        <td onclick="calculator()">=</td>
+        <td onclick="inputNumber('/')">/</td>
+    </tr>
+</table>
+<script>
+    let temp =false;
+    function clearNumber() {
+        document.getElementById("num").value ="";
+    }
+    function inputNumber(number) {
+        if(temp) {
+            if (number == "+" || number == "-" || number == "*" || number == "/") {
+                document.getElementById("num").value += number;
+            } else {
+                document.getElementById("num").value = number;
+            }
+        } else {
+            document.getElementById("num").value += number;
+        }
+        temp =false;
+    }
+    function calculator() {
+        document.getElementById("num").value=(eval(document.getElementById("num").value));
+        temp =true;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<input type="number" id="so1">Nhap so 1;
+<input type="number" id="so2">Nhap so 2;
+<button type="button" onclick="submit()">Submit</button>
+
+<script>
+ function submit() {
+let a = document.getElementById("so1").value;
+let b = document.getElementById("so2").value;
+if (a < b){
+    alert("So 1 nho hon so 2");
+} else
+    return a + b;
+ }
+</script>
+</body>
+</html>

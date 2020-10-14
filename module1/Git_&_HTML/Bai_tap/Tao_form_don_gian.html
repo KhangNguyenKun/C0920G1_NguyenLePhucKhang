@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form đơn giản</title>
+    <style>
+        .div-1 {
+            color: white;
+            width: 500px;
+            height: 40px;
+            background-color: orange;
+            margin-left: 500px;
+            margin-top: 100px
+        }
+
+        .div-2 {
+            width: 100%;
+            float: left;
+        }
+
+        .label-1 {
+            color: black;
+            width: 30%;
+            float: left;
+            text-align: right
+        }
+
+        .input-1 {
+            width: 40%;
+            float: left;
+            margin-left: 5px
+        }
+
+        .label-2 {
+            float: left;
+            text-align: right;
+            color: black;
+            width: 30%
+        }
+
+        .div-3 {
+            color: red;
+            display: inline;
+            float: left
+        }
+    </style>
+
+
+</head>
+<body>
+<fieldset style="width: 1000px;height: 1000px;  border: 10px solid green">
+
+    <form method="post">
+
+
+        <div class="div-1">
+            <h3 style="text-align: center"> SỞ THÍCH CỦA BẠN </h3>
+            </br>
+            <div class="div-2">
+                <label class="label-1" style=""> Họ và tên </label><input class="input-1"
+                                                                          name="name" size="20" type="text">
+            </div>
+            <div class="div-2">
+                <label class="label-1"> Email </label><input
+                    class="input-1" name="mail" size="20" type="email">
+            </div>
+
+            <div class="div-2">
+                <label class="label-2">Sở thích</label>
+                <div class="div-3">
+                    <input name="hobby" type="checkbox"> Thể thao
+                    <input name="hobby" type="checkbox"> Âm nhạc
+                    <input name="hobby" type="checkbox"> Đọc sách </br>
+                    <input name="hobby" type="checkbox"> Lướt web
+                    <input name="hobby" type="checkbox"> Chơi game
+                    <input name="hobby" type="checkbox"> Điện ảnh</br>
+                    <input name="hobby" type="checkbox"> Du lịch
+
+                    </br>
+                    </br>
+                    <button style="float: left" type="button">Gửi thông tin</button>
+                    <button style="float: left" type="button">Nhập lại</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="nhap">
+<button type="button" onclick="dich()">Translate</button>
+<script>
+    let a = document.getElementById("nhap");
+    tienganh = ["dog", "cat", "house"];
+    tiengviet = ["cho", "meo", "nha"];
+    let check = false;
+    function dich() {
+        if (!check) {
+            for (let i in tienganh) {
+                if (a.value === tienganh[i]) {
+                    alert(tiengviet[i]);
+                    break;
+                }
+                else
+                    alert("Hay nhap tu khac ");
+            }
+        }
+    }
+</script>
+</body>
+</html>

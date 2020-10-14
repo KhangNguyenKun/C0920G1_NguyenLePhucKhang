@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="met">Nhap vao
+<button type="button"  onclick="mettofeet()"> Meters to Feets</button>
+<button type="button" onclick="feettomet()">Feets to Meters</button>
+<p id="hienthi"></p>
+<script>
+    let a =document.getElementById("met");
+function mettofeet() {
+    let met1= 0.305 * a.value;
+    document.getElementById("hienthi").innerHTML= met1 ;
+
+}
+function feettomet() {
+    let feet1= 3.279 * a.value;
+    document.getElementById("hienthi").innerHTML= feet1 ;
+
+}
+</script>
+</body>
+</html>

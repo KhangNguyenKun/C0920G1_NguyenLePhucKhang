@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" onchange="display(this.value)">
+
+<script>
+    function display(kk) {
+        let ngoisao = ["Polaris", "Aldebaren", "Deneb", "Vega", "Altair", "Dubhe"];
+        let chomsao = ["Ursa Minor", "Tarurus", "Cynus", "Lyra", "Aquila", "Ursa Major"];
+        let index =-1;
+        for (let i = 0; i < chomsao.length; i++) {
+            if (ngoisao[i] === kk) {
+               index =i;
+                break;
+            }
+        }
+        if(index!=-1) {
+            document.write(chomsao[index]);
+        } else {
+            document.write("Khong tim thay");
+        }
+    }
+</script>
+</body>
+</html>

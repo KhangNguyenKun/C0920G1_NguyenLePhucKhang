@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="mycanvas" width="300" height="100" style="border: 2px; color: #333333"></canvas>
+<script>
+    class Rectangle {
+        constructor(height, width) {
+            this.height = height;
+            this.width = width;
+        }
+        // getheight() {
+        //     return this.height;
+        // }
+        // getwidth(){
+        //     return this.width;
+        // }
+        getarea() {
+            return this.height * this.width;
+        }
+        getperimeter() {
+            return 2*(this.width + this.height);
+        }
+    };
+    let rectangle = new Rectangle(43,34);
+    // let height1 = rectangle.getheight();
+    // let width1 = rectangle.getwidth();
+    let area = rectangle.getarea();
+    let peri = rectangle.getperimeter();
+    alert( peri );
+    alert( area );
+ let canvas =document.getElementById("mycanvas");
+ let ctx =canvas.getContext("2d");
+ ctx.fillStyle = "red";
+ ctx.fillRect(0,0,100,200);
+</script>
+</body>
+</html>

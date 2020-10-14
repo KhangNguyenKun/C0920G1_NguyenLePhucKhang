@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>So nguyen to</title>
+</head>
+<body>
+<script>
+    let number;
+    let temp = 2;
+    let count = 0;
+    let check = false;
+    do {
+        number = parseInt(prompt("Nhap so luong so nguyen to can vao day :"));
+    } while (isNaN(number));
+    while (count < number) {
+        for (let i = 2; i <= Math.sqrt(temp); i++) {
+            if (temp % i === 0) {
+                check = true;
+                break;
+            }
+        }
+        if (!check) {
+            document.write("Day la so nguyen to : " +temp +"<br>");
+            count++;
+        }
+        check = false;
+        temp++;
+    }
+
+
+</script>
+</body>
+</html>

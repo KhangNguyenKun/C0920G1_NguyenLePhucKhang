@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="number" id="so" oninput="songuyento()">Nhap so nguyen to
+<script>
+
+    function songuyento() {
+        let a = document.getElementById("so").value;
+        let check = true;
+        for (let i = 2; i < a; i++) {
+            if (a % i === 0) {
+                alert("day khong phai la so nguyen to ");
+                break;
+            } else
+        }
+    }
+</script>
+</body>
+</html>

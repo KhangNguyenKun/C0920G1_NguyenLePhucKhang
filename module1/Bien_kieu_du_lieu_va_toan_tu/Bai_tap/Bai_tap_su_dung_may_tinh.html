@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Su dung may tinh</title>
+    <style>
+        button {
+            width: 110px;
+            height: 30px;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<h2>Calculator</h2><br>
+<form >
+    <input id="so_1" type="number">
+    <input id="so_2" type="number"><br><br>
+    <button type="button" onclick="f()">Addition(+)</button>
+    <button type="button" onclick="f1()">Subtraction(-)</button>
+    <button type="button" onclick="f2()">Multiplication(x)</button>
+    <button type="button"onclick="f3()">Division(/)</button>
+
+</form>
+<p id="kq"></p>
+<script>
+    function f() {
+         let selection_1= parseInt(document.getElementById("so_1").value);
+         let selection_2= parseInt(document.getElementById("so_2").value);
+        let add = selection_1 + selection_2;
+        document.getElementById("kq").innerHTML="Result Add: " + add; }
+
+    function f1() {
+            let selection_1= parseInt(document.getElementById("so_1").value);
+            let selection_2= parseInt(document.getElementById("so_2").value);
+        let sub = selection_1 - selection_2;
+        document.getElementById("kq").innerHTML= "Result Sub: " + sub;}
+        function f2() {
+            let selection_1 = parseInt(document.getElementById("so_1").value);
+            let selection_2 = parseInt(document.getElementById("so_2").value);
+            let multi = selection_1 * selection_2;
+            document.getElementById("kq").innerHTML = "Result Multi: " + multi;
+        }
+        function f3() {
+            var selection_1 = parseInt(document.getElementById("so_1").value);
+            var selection_2 = parseInt(document.getElementById("so_2").value);
+            let divi = selection_1 / selection_2;
+            document.getElementById("kq").innerHTML = "Result Divi: " + divi;
+        }
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Apple {
+        constructor(weight) {
+            this.weight = weight;
+        }
+
+        decrease() {
+            this.weight--;
+        }
+
+        isEmpty() {
+            this.weight = true;
+        }
+    }
+
+    class human {
+        constructor(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+
+        checkApple(apple) {
+            return apple.isEmpty();
+        }
+
+        eatApple() {
+            if (apple.isEmpty()) {
+                alert("Het");
+            } else
+                this.weight++;
+            apple.decrease();
+        }
+
+    }
+    let apple = new Apple(20);
+    let adam = new human("Adam", true , 70);
+    let eva = new human("Eva", false , 60);
+    while (apple.weight>0){
+        
+    }
+</script>
+</body>
+</html>
