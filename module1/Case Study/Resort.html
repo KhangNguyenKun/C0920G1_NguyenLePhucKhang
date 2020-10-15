@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama</title>
+    <script src="Furama.js"></script>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="Furama.css" type="text/css">
+<body>
+<form>
+    <h1 class="text-danger">KHU NGHỈ DƯỠNG FURAMA</h1>
+    <!--phần hiển thị thông tin cho người nhập-->
+    <label>
+        Họ và tên (Name) <input type="text" id="name"> <br><br>
+        Số CMND/CCCD <input style="margin-left: 8px" type="number" id="cmnd"><br><br>
+        Ngày sinh <input style="margin-left: 53px" type="date" id="date"> <br><br>
+        Email <input style="margin-left: 77px" type="email" id="email"> <br><br>
+        Địa Chỉ
+        <select style="margin-left: 66px" id="address">
+            <option value="Chọn Tỉnh">Chọn tỉnh</option>
+            <option value="An Giang">An Giang</option>
+            <option value="Bà rịa – Vũng tàu">Bà rịa – Vũng tàu</option>
+            <option value="Bắc Giang">Bắc Giang</option>
+            <option value="Bắc Kạn">Bắc Kạn</option>
+            <option value="Bạc Liêu">Bạc Liêu</option>
+            <option value="Bắc Ninh">Bắc Ninh</option>
+            <option value="Bến Tre">Bến Tre</option>
+            <option value="Bình Định">Bình Định</option>
+            <option value="Bình Dương">Bình Dương</option>
+            <option value="Bình Phước">Bình Phước</option>
+            <option value="Bình Thuận">Bình Thuận</option>
+            <option value="Cà Mau">Cà Mau</option>
+            <option value="Cần Thơ">Cần Thơ</option>
+            <option value="Cao Bằng">Cao Bằng</option>
+            <option value="Đà Nẵng">Đà Nẵng</option>
+            <option value="Đắk Lắk">Đắk Lắk</option>
+            <option value="Đắk Nông">Đắk Nông</option>
+            <option value="Điện Biên">Điện Biên</option>
+            <option value="Đồng Nai">Đồng Nai</option>
+            <option value="Đồng Tháp">Đồng Tháp</option>
+            <option value="Gia Lai">Gia Lai</option>
+            <option value="Hà Giang">Hà Giang</option>
+            <option value="Hà Nam">Hà Nam</option>
+            <option value="Hà Nội">Hà Nội</option>
+            <option value="Hà Tĩnh">Hà Tĩnh</option>
+            <option value="Hải Dương">Hải Dương</option>
+            <option value="Hải Phòng">Hải Phòng</option>
+            <option value="Hậu Giang">Hậu Giang</option>
+            <option value="Hòa Bình">Hòa Bình</option>
+            <option value="Hưng Yên">Hưng Yên</option>
+            <option value="Khánh Hòa">Khánh Hòa</option>
+            <option value="Kiên Giang">Kiên Giang</option>
+            <option value="Kon Tum">Kon Tum</option>
+            <option value="Lai Châu">Lai Châu</option>
+            <option value="Lâm Đồng">Lâm Đồng</option>
+            <option value="Lạng Sơn">Lạng Sơn</option>
+            <option value="Lào Cai">Lào Cai</option>
+            <option value="Long An">Long An</option>
+            <option value="Nam Định">Nam Định</option>
+            <option value="Nghệ An">Nghệ An</option>
+            <option value=" Ninh Bình">Ninh Bình</option>
+            <option value="Ninh Thuận">Ninh Thuận</option>
+            <option value="Phú Thọ">Phú Thọ</option>
+            <option value="Phú Yên">Phú Yên</option>
+            <option value="Quảng Bình">Quảng Bình</option>
+            <option value="Quảng Nam">Quảng Nam</option>
+            <option value="Quảng Ngãi">Quảng Ngãi</option>
+            <option value="Quảng Ninh">Quảng Ninh</option>
+            <option value="Quảng Trị">Quảng Trị</option>
+            <option value="Sóc Trăng">Sóc Trăng</option>
+            <option value="Sơn La">Sơn La</option>
+            <option value="Tây Ninh">Tây Ninh</option>
+            <option value="Thái Bình">Thái Bình</option>
+            <option value="Thái Nguyên">Thái Nguyên</option>
+            <option value="Thanh Hóa">Thanh Hóa</option>
+            <option value="Thừa Thiên Huế">Thừa Thiên Huế</option>
+            <option value="Tiền Giang">Tiền Giang</option>
+            <option value="Thành phố Hồ Chí Minh">Thành phố Hồ Chí Minh</option>
+            <option value="Trà Vinh">Trà Vinh</option>
+            <option value="Tuyên Quang">Tuyên Quang</option>
+            <option value="Vĩnh Long">Vĩnh Long</option>
+            <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+            <option value="Yên Bái">Yên Bái</option>
+        </select><br><br>
+        Type of Customer <select id="customer">
+        <option value="Diamond">Diamond</option>
+        <option value="Platinum">Platinum</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Member">Member</option>
+    </select> <br><br>
+        Số người đi kèm <input style="margin-left: 9px" type="number" id="people"><br><br>
+        Số ngày thuê <input style="margin-left: 33px" type="number" id="rent"><br><br>
+        Loại dịch vụ <select style="margin-left: 35px" id="service">
+        <option value="Villa">Villa</option>
+        <option value="House">House</option>
+        <option value="Room">Room</option>
+    </select><br><br>
+        Loại phòng thuê <select style="margin-left: 10px" id="room">
+        <option value="Vip">Vip</option>
+        <option value="Business">Business</option>
+        <option value="Normal">Normal</option>
+    </select><br><br>
+        Mã giảm giá <input style="margin-left: 35px" type="text" id="code"><br><br>
+        <input type="button" onclick="display()" value="Gửi" name="Gửi">
+        <input type="button" onclick="edit()" value="Edit">
+    </label>
+</form>
+</body>
+<body>
+<!--phần xác nhận thông tin-->
+<p>Xác nhận thông tin</p>
+<table>
+    <tr>
+        <td>Name</td>
+        <td>CMND</td>
+        <td>Date</td>
+        <td>Email</td>
+        <td>Address</td>
+        <td>Customer</td>
+        <td>People</td>
+        <td>Rent</td>
+        <td>Service</td>
+        <td>Room</td>
+        <td>Sale($)</td>
+        <td>Pay($)</td>
+    </tr>
+    <tr>
+        <th id="displayName"> </th>
+        <th id="displayCmnd"> </th>
+        <th id="displayDate"> </th>
+        <th id="displayEmail"> </th>
+        <th id="displayAddress"> </th>
+        <th id="displayCustomer"> </th>
+        <th id="displayPeople"> </th>
+        <th id="displayRent"> </th>
+        <th id="displayService"> </th>
+        <th id="displayRoom"> </th>
+        <th id="displaySale"> </th>
+        <th id="displayPay"> </th>
+    </tr>
+</table>
+</body>
+</html>
