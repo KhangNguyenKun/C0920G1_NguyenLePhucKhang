@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fb(n)
+    {
+        if(n===1||n===0||n===2||n===3) {
+            return n;//fb la fibonacci
+        }
+        return fb(n-2)+fb(n-1);
+    }
+    function main()
+    {
+        let d=0;
+        let n = parseInt(prompt("n = "));
+        for(let i=0;i<=n;i++) {
+            if (n === fb(i)) {
+                d++;
+            }
+        }
+        if(d===1) {
+            alert(n + " thuoc day fibonacci");
+        }else {
+            alert(n + " khong thuoc day fibonacci");
+        }
+    }
+    main();
+</script>
+</body>
+</html>

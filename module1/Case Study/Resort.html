@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Furama</title>
-    <script src="Furama.js"></script>
+    <title>Account</title>
+    <script src="JS.js"></script>
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="Furama.css" type="text/css">
+<link rel="stylesheet" href="CSS.css" type="text/css">
 <body>
 <form>
-    <h1 class="text-danger">KHU NGHỈ DƯỠNG FURAMA</h1>
+    <h1 class="text-danger">CUSTOMER REGISTER</h1>
     <!--phần hiển thị thông tin cho người nhập-->
     <label>
-        Họ và tên (Name) <input type="text" id="name"> <br><br>
-        Số CMND/CCCD <input style="margin-left: 8px" type="number" id="cmnd"><br><br>
-        Ngày sinh <input style="margin-left: 53px" type="date" id="date"> <br><br>
+        Full Name <input type="text" id="name"> <br><br>
+        ID <input style="margin-left: 8px" type="number" id="cmnd"><br><br>
+        BirthDay <input style="margin-left: 53px" type="date" id="date"> <br><br>
         Email <input style="margin-left: 77px" type="email" id="email"> <br><br>
-        Địa Chỉ
+        Address
         <select style="margin-left: 66px" id="address">
             <option value="Chọn Tỉnh">Chọn tỉnh</option>
             <option value="An Giang">An Giang</option>
@@ -90,27 +90,27 @@
         <option value="Silver">Silver</option>
         <option value="Member">Member</option>
     </select> <br><br>
-        Số người đi kèm <input style="margin-left: 9px" type="number" id="people"><br><br>
-        Số ngày thuê <input style="margin-left: 33px" type="number" id="rent"><br><br>
-        Loại dịch vụ <select style="margin-left: 35px" id="service">
+        Amount of passenger <input style="margin-left: 9px" type="number" id="people"><br><br>
+        RentDays <input style="margin-left: 33px" type="number" id="rent"><br><br>
+        Type of services <select style="margin-left: 35px" id="service">
         <option value="Villa">Villa</option>
         <option value="House">House</option>
         <option value="Room">Room</option>
     </select><br><br>
-        Loại phòng thuê <select style="margin-left: 10px" id="room">
+        Type of Room <select style="margin-left: 10px" id="room">
         <option value="Vip">Vip</option>
         <option value="Business">Business</option>
         <option value="Normal">Normal</option>
     </select><br><br>
-        Mã giảm giá <input style="margin-left: 35px" type="text" id="code"><br><br>
-        <input type="button" onclick="display()" value="Gửi" name="Gửi">
-        <input type="button" onclick="edit()" value="Edit">
+        Discount <input style="margin-left: 35px" type="text" id="code"><br><br>
+        <input id="nut1" type="button" onclick="display()" value="Send" name="Send">
+        <input id="nut2" type="button" onclick="edit()" value="Edit">
     </label>
 </form>
 </body>
 <body>
 <!--phần xác nhận thông tin-->
-<p>Xác nhận thông tin</p>
+<h3 style="color: black">Corfirm</h3>
 <table>
     <tr>
         <td>Name</td>

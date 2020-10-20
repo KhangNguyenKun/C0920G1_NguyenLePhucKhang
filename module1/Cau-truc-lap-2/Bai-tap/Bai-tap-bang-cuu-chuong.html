@@ -5,18 +5,32 @@
     <title>Bai tap bang cuu chuong</title>
 </head>
 <body>
- <script>
-     let sout=1;
-     sout="<table border='1'>";
-     for ( let i =0; i<= 9; i++){
-         sout = sout + "<tr>";
-         for (let j= 1; j <=9 ; j ++){
-             sout= sout +"<td>"+j+"x"+i +"=" + i*j + "</td>";
-         }
-         sout = sout + "</tr>";
-     }
-     sout = sout + "</table>";
-     document.write(sout);
- </script>
+<script>
+    let sout = "";
+    sout += "<table>";
+    for (let i = 1; i < 10; i++) {
+        sout += "<tr>";
+        for (let j = 1; j < 10; j++) {
+             sout += "<td>" + i + "x" + j +"=" +i*j;
+        }
+        sout += "</tr>"
+    }
+    sout += "</table>";
+    document.write(sout);
+
+    // let sout=1;
+    // sout="<table border='1'>";
+    // for ( let i =1; i<= 9; i++){
+    //     sout = sout + "<tr>";
+    //     for (let j= 1; j <=9 ; j ++){
+    //         sout= sout +"<td>"+j+"x"+i +"=" + i*j + "</td>";
+    //     }
+    //     sout = sout + "</tr>";
+    // }
+    // sout = sout + "</table>";
+    // document.write(sout);
+
+
+</script>
 </body>
 </html>

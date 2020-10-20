@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="AddCus()">Add</button>
+<script>
+    class Customer {
+        constructor(id, name, phone, add, mail) {
+            this.id = id;
+            this.name = name;
+            this.phone = phone;
+            this.add = add;
+            this.mail = mail;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getPhone() {
+            return this.phone;
+        }
+
+        getAdd() {
+            return this.add;
+        }
+
+        getMail() {
+            return this.mail;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setPhone(phone) {
+            this.phone = phone;
+        }
+
+        setAdd(add) {
+            this.add = add;
+        }
+
+        setMail(mail) {
+            this.mail = mail;
+        }
+    }
+
+    let list = [];
+    list.push(new Customer(1, "Khang", "0123456", "Da Nang", "abc@gmail.com"));
+    list.push(new Customer(2, "Hung", "012345611", "Ha Noi", "abc1@gmail.com"));
+    list.push(new Customer(1, "Long", "01234567", "TP HCM", "abc2@gmail.com"));
+    function AddCus() {
+        let a = prompt("Enter Name");
+        let b = prompt("Enter Phone");
+        let c = prompt("Enter Address");
+        let d = prompt("Enter mail");
+        list.push(new Customer(document.getElementById(a),document.getElementById(b),document.getElementById(c),document.getElementById(d)).value);
+        displayProduct();
+    }
+    function displayProduct() {
+        let temp = "";
+        temp += "<table>";
+        temp += "<tr>" + "<th>ID</th>"
+            + "<th>Name</th>"
+            + "<th>Phone Number</th>"
+            + "<th>Address</th>"
+            + "<th>Mail</th>"
+            + "</tr>";
+        for (let i in list) {
+            temp += "<tr>" + "<td>" + list[i].getId() + "</td>" +
+                "<td>" + list[i].getName() + "</td>" +
+                "<td>" + list[i].getPhone() + "</td>" +
+                "<td>" + list[i].getAdd() + "</td>" +
+                "<td>" + list[i].getMail() + "</td>" + "</tr>";
+        }
+        temp += "</table>";
+        document.write(temp);
+    }
+    displayProduct();
+    // 1. Viết chương trình in ra các dấu * theo cấu trúc như sau (cho n là chiều cao
+    //      của tháp, cần in ra n dòng):
+        let temp = '*****' ;
+        let n = 6 ; // thay bang prompt
+            for (let i = 1; i <= n; i++){
+                document.writeln(temp+'<br>');
+            }
+    // ===========================================================
+    // 2. Nhập vào tháng, năm bất kỳ. In ra số ngày tương ứng với tháng, năm đó.
+    // check nam nhap vao la nam nhuan hay nam thuong
+    let year = parseInt(prompt("Input year")) ;               // parseInt(prompt("Input year")) ;
+    let month = parseInt(prompt("Input month")) ;                 // parseInt(prompt("Input month"))
+
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12: console.log ('Month '+month+' Year ' +year+' has 31 day') ; break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:  console.log ('Month '+month+' Year ' +year+' has 30 day') ; break;
+        case 2:
+            if(year%4 == 0 || year%400 == 0){
+                console.log ('Month '+month+' Year ' +year+' has 29 day') ;
+            }else {
+                console.log ('Month '+month+' Year ' +year+' has 28 day') ;
+            } ;
+            break ;
+        default: {
+            console.log("FAILED") ;
+        }; break
+    }
+    // ===========================================================
+    // 3.    Viết chương trình tính : S=1 + 1/2 + 1/3 +....+ 1/n
+    let n, sum = 0 ;
+    let check  = false ;
+    do{
+        n = parseInt(prompt(' Input n '));
+        if (!isNaN(n) && n !== 0){
+            check = true ;
+        }
+    }while(check === false) ;
+
+    for (let i = 1; i<=n ; i++){
+        sum += 1/i ;
+    }
+    console.log('Total = ' + sum) ;
+    // ===========================================================
+    // 4.    Viết chương trình tính :    S= 15 - 1 + 1/2 - 1/3! +....+ (-1)n  1/n!
+    let sum = 15, mau = 1 ;
+    let n ;
+    let check = false ;
+    do{
+        n = parseInt(prompt('Input n'))
+        if( !isNaN(n) && n >= 1 ){
+            check = true ;
+        }
+    }while(check === false) ;
+    for(let i = 1; i <= n; i++){
+        mau = mau*i ;
+        sum += Math.pow(-1,i)/mau ;
+    }
+    console.log(sum) ;
+    // ===========================================================
+    // 5. Viết chương trình tính  :     S= 1+ 1/3! + 1/5! +…..+ 1/(2n-1)!
+    let sum = 0 , mau = 1, n ;
+    let check = false ;
+    do{
+        n = parseInt(prompt('Input n')) ;
+        if( !isNaN(n) && n >= 1 ){
+            check = true ;
+        }
+    }while(check === false) ;
+    for (let j = 1; j <= n; j++ ){
+        console.log('j = '+ j ) ;
+        for(let i = 1 ; i <= 2*j-1 ; i++){
+            mau = mau*i ;
+        }
+        sum += 1/mau ;
+        console.log(mau) ;
+        console.log(sum) ;
+        mau = 1 ;
+    }
+    // ===========================================================
+    // 6. Tính n!! =   1*3*5*…..*n(n lẽ)
+    //              =   2*4*6*….*n(n chẵn)
+    let n ;
+    let result1 = 1, result2 = 1 ;
+    do{
+        n = parseInt(prompt('Input n')) ;
+        if( !isNaN(n) && n >= 1 ){
+            check = true ;
+        }
+    }while(check === false) ;
+    for (let i = 1, j = 2; i <= n && j <= n ; i = i + 2, j = j + 2){
+        if(n % 2 !== 0){
+            result1 *= i ;
+        }else {
+            result2 *= j ;
+        }
+    }
+    console.log('so le = '+ result1) ;
+    console.log('so chan = '+ result2) ;
+    // ===========================================================
+    // 7. Tính tổng và tích các chữ số của một số nguyên dương m cho trước (Ví dụ : m=234=> S=2+3+4=9, P=2*3*4=24)
+    let n ;
+    let sum = 0, multi = 1 ;
+    let check = false ;
+    do{
+        n = parseInt(prompt('Input n')) ;
+        if( !isNaN(n) && n >= 1 ){
+            check = true ;
+        }
+    }while(check === false) ;
+    for(let i = 0, temp = n + '' ; i < temp.length; i++){
+        sum += parseInt(n/Math.pow(10,i) %10) ;
+        multi *= parseInt(n/Math.pow(10,i) %10) ;
+    }
+    console.log('Total = '+ sum) ;
+    console.log('Multiple = '+ multi) ;
+    // ===========================================================
+    // // 8. Nhập 2 số nguyên dương a và b.
+    // // Sau đó in ra ước chung lớn nhất và bội chung nhỏ nhất của 2 số nguyên dương a và b đó.
+    // // let greater, number ;
+    let check = false ;
+    // xac dinh so nhap vao la nguyen duong
+    do{
+        number = parseInt(prompt('Input number')) ;
+        greater = parseInt(prompt('Input greater number (greater > number) ')) ;
+        if( !isNaN(number) && !isNaN(greater) && number >= 1  && greater >= number ){
+            check = true ;
+        }
+    }while( check === false ) ;
+    check = false ;
+    // xac dinh uoc chung lon nhat
+    for(let i = number/2 ; i >=2 ; i--){
+        if( greater%number===0 ){
+            console.log('UCLN = '+ number) ;
+            check = true;
+            break ;
+        }else if( number %i === 0 ){
+            if( greater %i === 0 ){
+                console.log('UCLN = ' +i) ;
+                check = true;
+                break ;
+            }
+        }
+    }
+    if(check === false ){
+        console.log('UCLN = 1') ;
+    }
+    check = false ;
+    // xac dinh boi chung nho nhat
+    for (let i = 1; i<=number; i++){
+        let result = greater*i;
+        if(result % number === 0){
+            console.log('BCNN = ' + result) ;
+            break;
+        }
+    // }
+    // //=================================================
+    let str = 'aB12Jj' ;
+    let temp = '' ;
+    let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lower = "abcdefghijklmnopqrstuvwxyz";
+    // // đảo ngược chuỗi đã cho
+    // for (let i = str.length-1; i >= 0; i--){
+    //     temp = temp + str.charAt(i) ;
+    // }
+    // console.log('1. String = ' + temp) ;
+    // // In chuỗi đã cho thành chữ hoa toàn bộ
+    // console.log('2. String = ' + str.toUpperCase()) ;
+    // // Đổi chuỗi đã cho sang chữ thường
+    // console.log('3. String = ' + str.toLowerCase()) ;
+    // // Đổi chuỗi đã cho sang vừa chữ hoa vừa chữ thường (các ký tự chữ hoa thì
+    // //      thành chữ thường và ngược lại
+    temp = '' ;
+    for (let i = 0; i< str.length; i++){
+            if (upper.indexOf(str.charAt(i)) !== -1 ){      // trong chuoi viet hoa co thi cong them ky tu thuong thu i
+                let t1 = upper.indexOf(str.charAt(i)) ;
+                temp += lower[t1] ;
+                console.log('1 = ' + temp) ;
+            }else if(lower.indexOf(str.charAt(i)) !== -1){      // trong chuoi viet thuong co thi cong them ky tu viet hoa thu i
+                let t2 = lower.indexOf(str.charAt(i)) ;
+                temp += upper[t2] ;
+            }else{
+                temp += str.charAt(i);
+            }
+    }
+    console.log('New string = ' + temp) ;
+    // =================================================
+    // 10.   Nhập một chuổi ký tự tuỳ ý, sau đó thực hiện công việc sau:
+    // a. In mỗi từ trên mỗi dòng
+    // b. Đếm số từ có trong chuổi đã cho.
+    // c. Đưa ra bảng tần số xuất hiện của các từ.
+    let str = 'mabx1a2bxijx' ;
+    let temp = str ;
+    let count = 0 ;
+    console.log(str.length) ;
+    // a. In mỗi từ trên mỗi dòng
+    // for (let i = 0; i <= str.length; i++){
+    //     console.log(i + '. ' + str.charAt(i)) ;
+    // }
+    // c. Đưa ra bảng tần số xuất hiện của các từ.
+    for (let i = 0; i < str.length; i++){
+        for (let j = 0; j < temp.length; j++) {
+            if (str.charAt(i)=== temp.charAt(j)){
+                count+=1 ;
+            }
+        }
+        console.log(str.charAt(i)+ '='+ count +' times') ;
+        count= 0;
+    }
+    b. Đếm số ký tự có trong chuổi đã cho.
+        for (let i = 0; i <= str.length; i++){
+            if(str.charAt(i)%1 !== 0){
+                count += 1 ;
+            }
+        }
+        console.log('Quantity char = '+count) ;
+    // =================================================
+    // 11.  Viết chương trình thực hiện các công việc như sau :
+    //      a.  Nhập một mảng a gồm n phần tử kiểu nguyên int
+    //      b.  Tính tổng số dương lẻ mảng a
+    //      c.  Nhập phần tử k, tìm xem k có xuất hiện trong mảng a không. Nếu có chỉ ra phần tử ở vị trí đầu tiên
+    //      d.  Sắp sếp mảng a theo thứ tự tăng dần.
+    //      e.  Chèn phần tử p vào mảng a sao cho mảng a vẫn đảm bảo tăng dần và xuất lại mảng a.
+    let a=[];
+    let n, temp='';
+    let check = false;
+    let sum = 0;
+    // Nhập một mảng a gồm n phần tử kiểu nguyên int
+    do{
+        n = parseInt(prompt("Input total element n =  ")) ;
+        k = parseInt(prompt("Input random number k =  ")) ;
+        if(!isNaN(n) && n>0 && !isNaN(k)){
+            check = true;
+        }else{
+            alert('wrong input') ;
+        }
+    }while (check === false) ;
+
+        for(let i= 0; i< n; i++ ){
+            temp = parseInt(prompt("Input element " + (i+1))) ;
+            if (!isNaN(temp)){
+                a[i]= temp;
+            }
+            if(a[i]>0 && a[i]%2 !== 0){             // Tính tổng số dương lẻ mảng a
+                sum+=a[i];
+            }
+        }
+        console.log(a) ;
+        console.log('Total = ' +sum) ;
+    // Nhập phần tử k, tìm xem k có xuất hiện trong mảng a không. Nếu có chỉ ra phần tử ở vị trí đầu tiên
+        if(a.indexOf(k) !== -1){
+            console.log("Yes, array has element k at index = "+ a.indexOf(k)) ;
+        }else{
+            alert("NOT, array do not has element k") ;
+        }
+    //  Sắp sếp mảng a theo thứ tự tăng dần.
+    let n = [1, 8, 3, 6, 5, 2, 19, 4] ;
+    // let count = 0;
+    console.log('First time ' +n[1]) ;
+    for (let i = 0; i<n.length; i++){
+        for(let j = i+1; j<n.length; j++){
+            if(n[i]>n[j]){
+                        let temp = n[i];
+                        n[i] = n[i + 1];
+                        n[i + 1] = temp;
+            }
+        }
+    }
+        // while(count=== n.length-1 ) {
+        //     if (n[i] > n[i + 1]) {                // luon luon sap xep cho toi phan tu cuoi cung
+        //         let temp = n[i];
+        //         n[i] = n[i + 1];
+        //         n[i + 1] = temp;
+        //     } else if (i === n.length - 1) {
+        //         i = 0;
+        //         count += 1;
+        //     }
+        //     i++;
+        // }
+    console.log('Second time ' +n) ;
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="display"></div>
+<div id="edit"></div>
+<script>
+    class sotietkiem {
+        constructor(number, tietkiem, ten, cmnd, ngay, tien) {
+            this.number = number;
+            this.tietkiem = tietkiem;
+            this.ten = ten;
+            this.cmnd = cmnd;
+            this.ngay = ngay;
+            this.tien = tien;
+        }
+
+        getNumber() {
+            return this.number;
+        }
+
+        getTietkiem() {
+            return this.tietkiem;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        getCmnd() {
+            return this.cmnd
+        }
+
+        getNgay() {
+            return this.ngay;
+        }
+
+        getTien() {
+            return this.tien;
+        }
+
+        setNumber(number) {
+            this.number = number;
+        }
+
+        setTietkiem(tietkiem) {
+            this.tietkiem = tietkiem;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        setNgay(ngay) {
+            this.ngay = ngay;
+        }
+
+        setTien(tien) {
+            this.tien = tien;
+        }
+    }
+
+    let soTK = [];
+    soTK.push(new sotietkiem(12345, "Loai tiet kiem", "Nguyen Van A", 123456789, 28 / 10 / 1999, 1000));
+    soTK.push(new sotietkiem(12345, "Loai tiet kiem", "Nguyen Van A", 123456789, 28 / 10 / 1999, 1000));
+    soTK.push(new sotietkiem(12345, "Loai tiet kiem", "Nguyen Van A", 123456789, 28 / 10 / 1999, 1000));
+
+    function display() {
+        // let temp = "<button class='btn btn-info' onclick='createProduct()'>CreateProduct</button>"
+        let temp = '';
+        temp += "<table>";
+        temp += "<tr>" +
+            "<th>Ma so</th>" +
+            "<th>Loai tiet kiem</th>" +
+            "<th>Ho va ten</th>" +
+            "<th>Cmnd</th>" +
+            "<th>Ngay mo</th>" +
+            "<th>So tien gui</th>" +
+            "</tr>"
+        for (let i in soTK) {
+            temp += "<tr>" +
+                "<td>" + soTK[i].getNumber() + "</td> " +
+                "<td>" + soTK[i].getTietkiem() + "</td> " +
+                "<td>" + soTK[i].getTen() + "</td> " +
+                "<td>" + soTK[i].getCmnd() + "</td> " +
+                "<td>" + soTK[i].getNgay() + "</td> " +
+                "<td>" + soTK[i].getTien() + "</td> " +
+                "<td><button type='button'  onclick='editProduct(" + i + ")'>Edit</button>" +
+                "<button type='button'  onclick='deleteProduct(" + i + ")'>Delete</button></td> " +
+                "</tr>"
+        }
+        temp += "</table>"
+        document.getElementById("display").innerHTML = temp;
+
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn muốn xóa " + soTK[index].getTen() + " này phải không?")) {
+            soTK.splice(index, 1);
+            display();
+        }
+    }
+    function createProduct(index) {
+        let temp = "<h1>Tao so tiet kiem </h1>"
+        temp += "Ma so: <input type='text' id='maso' ></br>"
+            + "Loai tiet kiem: <input type='text' id='loaitietkiem' ></br>"
+            + "Ho va ten: <input type='text' id='hovaten' ></br>"
+            + "Cmnd: <input type='text' id='cmnd' ></br>"
+            + "Ngay mo: <input type='text' id='ngay' ></br>"
+            + "So tien: <input type='text' id='tien ' ></br>"
+            + "<input type='button' class='btn btn-success' value='Create' onclick='create()'></br>";
+        document.getElementById("edit").innerHTML = temp;
+    }
+    function create() {
+        let so = (document.getElementById("maso").value);
+        let tietkiem = (document.getElementById("loaitietkiem").value);
+        let Hoten = (document.getElementById("hovaten").value);
+        let Cmnd = (document.getElementById("cmnd").value);
+        let Ngay = (document.getElementById("ngay").value);
+        let tien = (document.getElementById("tien").value);
+        let Sotietkiem = new sotietkiem(so,tietkiem,Hoten , Cmnd ,Ngay , tien);
+        soTK.push(product);
+        document.getElementById("edit").innerText = "";
+        display();
+    }
+    display();
+</script>
+</body>
+</html>

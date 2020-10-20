@@ -13,6 +13,15 @@
             continue;
         }
     }
+    mang = [1,2,3,5,4,2,1,9,10,12];
+    let max= mang[0];
+    for (let i =0 ; i< mang.length; i++){
+        if (mang[i]<mang[i+1]){
+            max = mang[i+1];
+        }
+        else max= mang[i];
+    }
+    alert(max);
 </script>
 </body>
 </html>
