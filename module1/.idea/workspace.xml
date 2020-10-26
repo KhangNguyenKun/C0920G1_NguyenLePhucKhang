@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00e38957-e030-4abd-b788-9ec1d174fd98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-1-lan-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-1-lan2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-1-lancuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-2-ii.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-2-lan-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-2-lan-cuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-3-lan-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-3-lan-cuoi.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-4-lan-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module-1/Bai-4.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +35,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/Thuc_hanh_HTML" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,6 +53,7 @@
       <workItem from="1600314532872" duration="404000" />
       <workItem from="1600322141131" duration="74000" />
       <workItem from="1600323629705" duration="75000" />
+      <workItem from="1603184653101" duration="7000" />
     </task>
     <servers />
   </component>
