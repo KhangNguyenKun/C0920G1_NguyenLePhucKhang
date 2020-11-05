@@ -43,4 +43,10 @@ public class Shape {
         return "A shape with color is " + getColor()+
                 "fill "+ isFilled();
     }
+
+    public void resize(int i) {
+    }
+
+    public void howToColor() {
+    }
 }

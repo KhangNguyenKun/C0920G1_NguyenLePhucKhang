@@ -12,6 +12,9 @@ public class Rectangle extends Shape {
         this.length = length;
     }
 
+    public Rectangle(double side, double side1) {
+    }
+
     public double getWidth() {
         return width;
     }
@@ -33,7 +36,7 @@ public class Rectangle extends Shape {
     public double getPerimeter(){
         return (width+length)*2;
     }
-//    @Override
+    @Override
     public String toString(){
         return "A Circle with width  "+width +" length" +length +super.toString();
     }
