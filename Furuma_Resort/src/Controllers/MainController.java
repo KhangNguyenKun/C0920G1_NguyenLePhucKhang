@@ -1,29 +1,30 @@
 package Controllers;
 
+import Models.CompareName;
+import Models.Customers;
 import Models.House.House;
 import Models.Room.Room;
 import Models.Villa.Villa;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class MainController {
     List<Villa> listVilla = new ArrayList<>();
     List<House> listHouse = new ArrayList<>();
     List<Room> listRoom = new ArrayList<>();
-    MainController mainController = new MainController();
+    List<Customers> listCustomer= new ArrayList<Customers>();
+    //    MainController mainController = new MainController();
     Scanner input = new Scanner(System.in);
 
-    public void displayMainMenu() {
+    public void displayMainMenu() throws IOException {
         int choice;
 
         System.out.println("1. Add new services : ");
         System.out.println("2. Show services  : ");
         System.out.println("3. Add new customer : ");
         System.out.println("4. Show Information of Customer : ");
-        System.out.println("5. Add new services : ");
+        System.out.println("5. Add new booking : ");
         System.out.println("6. Show Information of Employee: ");
         System.out.println("7. Exit ");
         System.out.println("Enter your choice : ");
@@ -31,13 +32,26 @@ public class MainController {
         switch (choice) {
             case 1:
                 addNewServices();
+                displayMainMenu();
                 break;
             case 2:
+                showServices();
+                displayMainMenu();
+                break;
+            case 3:
+                addNewCustomer();
+                displayMainMenu();
+                break;
+            case 4:
+                showInforCustomer();
+                displayMainMenu();
+                break;
+
 
         }
     }
 
-    public void addNewServices() {
+    public void addNewServices() throws IOException {
         int choice;
         Scanner input = new Scanner(System.in);
         System.out.println("1. Add new villa :");
@@ -64,56 +78,67 @@ public class MainController {
         }
     }
 
-    public void addVillaInfor() {
+    public void addVillaInfor()  {
         Villa villa = new Villa();
+        input.nextLine();
         System.out.println("1. servicesName :");
         villa.setServicesName(input.nextLine());
         System.out.println("2. areaUsers :");
-        villa.setServicesName(input.nextLine());
+        villa.setAreaUsers(input.nextLine());
         System.out.println("3. priceRent :");
-        villa.setServicesName(input.nextLine());
+        villa.setPriceRent(input.nextLine());
         System.out.println("4. amount :");
-        villa.setServicesName(input.nextLine());
+        villa.setAmount(input.nextLine());
         System.out.println("5. brand :");
-        villa.setServicesName(input.nextLine());
+        villa.setBrand(input.nextLine());
         System.out.println("6. roomStandard :");
-        villa.setServicesName(input.nextLine());
+        villa.setRoomStandard(input.nextLine());
         System.out.println("7. convenientDescribe :");
-        villa.setServicesName(input.nextLine());
+        villa.setConvenientDescribe(input.nextLine());
         System.out.println("8. pool :");
-        villa.setServicesName(input.nextLine());
+        villa.setPool(input.nextFloat());
         System.out.println("9. floor :");
-        villa.setServicesName(input.nextLine());
+        villa.setFloor(input.nextInt());
         listVilla.add(villa);
         System.out.println("Congratulation !! ");
+//        System.out.println(listVilla);
+
+       ReaderAndWriterVilla readerAndWriterVilla = new ReaderAndWriterVilla();
+       readerAndWriterVilla.writerVilla(villa);
 
     }
 
-    public void addHouseInfor() {
+    public void addHouseInfor() throws IOException {
         House house = new House();
         Scanner input = new Scanner(System.in);
         System.out.println("1. servicesName :");
         house.setServicesName(input.nextLine());
         System.out.println("2. areaUsers :");
-        house.setServicesName(input.nextLine());
+        house.setAreaUsers(input.nextLine());
         System.out.println("3. priceRent :");
-        house.setServicesName(input.nextLine());
+        house.setPriceRent(input.nextLine());
         System.out.println("4. amount :");
-        house.setServicesName(input.nextLine());
+        house.setAmount(input.nextLine());
         System.out.println("5. brand :");
-        house.setServicesName(input.nextLine());
+        house.setBrand(input.nextLine());
         System.out.println("6. roomStandard :");
-        house.setServicesName(input.nextLine());
+        house.setRoomStandard(input.nextLine());
         System.out.println("7. convenientDescribe :");
-        house.setServicesName(input.nextLine());
-        System.out.println("8. pool :");
-        house.setServicesName(input.nextLine());
+        house.setConvenientDescribe(input.nextLine());
         listHouse.add(house);
         System.out.println("Congratulation !! ");
 
+        FileWriter file = new FileWriter(new File("src/Data/Room.csv"), true);
+        for (House v : listHouse) {
+            file.write(v.getServicesName() + "," + v.getPriceRent() + "," +
+                    v.getAmount() + "," + v.getBrand() + "," + v.getAreaUsers() + "," + "\n");
+
+        }
+        file.close();
+        addNewServices();
     }
 
-    public void addRoomInfor() {
+    public void addRoomInfor() throws IOException {
         Room room = new Room();
         System.out.println("1. servicesName :");
         room.setServicesName(input.nextLine());
@@ -129,10 +154,18 @@ public class MainController {
         room.setServicesName(input.nextLine());
         listRoom.add(room);
         System.out.println("Congratulation !! ");
+        FileWriter file = new FileWriter(new File("src/Data/Room.csv"), true);
+        for (Room v : listRoom) {
+            file.write(v.getServicesName() + "," + v.getPriceRent() + "," +
+                    v.getAmount() + "," + v.getBrand() + "," + v.getAreaUsers() + "," + "\n");
+
+        }
+        file.close();
+        addNewServices();
 
     }
 
-    public  void showServices() {
+    public void showServices() {
         int choice;
         Scanner input = new Scanner(System.in);
         System.out.println("1. Show all villa :");
@@ -146,14 +179,136 @@ public class MainController {
         choice = input.nextInt();
         switch (choice) {
             case 1:
-                for (int i =0; i<listVilla.size(); i++){
-                    System.out.println(listVilla.get(i));
-                }
-
+                showAllVilla();
+            case 2:
+                showAllHouse();
+            case 3:
+                showAllRoom();
         }
     }
 
-    public static void main(String[] args) {
+    public void showAllVilla() {
+        String path = "src/Data/Villa.csv";
+        String line = null;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            while ((line = bufferedReader.readLine()) != null) {
+                bufferedReader.readLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void showAllHouse() {
+        String path = "src/Data/House.csv";
+        String line = null;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            while ((line = bufferedReader.readLine()) != null) {
+                bufferedReader.readLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void showAllRoom() {
+        String path = "src/Data/Room.csv";
+        String line = null;
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+            while ((line = bufferedReader.readLine()) != null) {
+                bufferedReader.readLine();
+                System.out.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void addNewCustomer(){
+        Customers customer = new Customers();
+        Scanner input = new Scanner(System.in);
+        System.out.println("1. Name of customer :");
+        customer.setNameCustomer(input.nextLine());
+        System.out.println("2. Date of Birth  :");
+        customer.setBirthDay(input.nextLine());
+        System.out.println("3. Gender :");
+        customer.setGender(input.nextLine());
+        System.out.println("4. Id :");
+        customer.setId(input.nextLine());
+        System.out.println("5. Phone number :");
+        customer.setPhoneNumber(input.nextLine());
+        System.out.println("6. Mail :");
+        customer.setMail(input.nextLine());
+        System.out.println("7. Your kind of customer :");
+        customer.setKindOfCustomer(input.nextLine());
+        System.out.println("8. Address :");
+        customer.setAddress(input.nextLine());
+
+        listCustomer.add(customer);
+
+        try {
+            BufferedWriter  bufferedWriter = new BufferedWriter(new FileWriter(new File("src/Models/Customer.csv"),true));
+          bufferedWriter.write(customer.getNameCustomer()+"," + customer.getAddress()+"," +customer.getBirthDay() +","+
+                  customer.getKindOfCustomer()+"," +customer.getMail() +"," +customer.getId()+"," +customer.getGender() +"\n");
+          bufferedWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void showInforCustomer(){
+        System.out.println(listCustomer);
+        Collections.sort(listCustomer, new CompareName());
+
+        for (Customers customer : listCustomer){
+            System.out.println(customer.toString());
+        }
+//        String path = "src/Data/Customer.csv";
+//        String line = null;
+//        try {
+//            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
+//            while ((line = bufferedReader.readLine()) != null) {
+//                bufferedReader.readLine();
+//                System.out.println(line);
+//            }
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+    }
+    public void addNewBooking(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Booking villa :");
+        System.out.println("Booking house :");
+        System.out.println("Booking room :");
+        int choice = scanner.nextInt();
+        switch (choice){
+            case 1:
+                showAllVilla();
+            case 2:
+                showAllHouse();
+            case 3:
+                showAllRoom();
+        }
+
+    }
+
+    public static void main(String[] args) throws IOException {
+        MainController mainController = new MainController();
+        mainController.displayMainMenu();
 
     }
 

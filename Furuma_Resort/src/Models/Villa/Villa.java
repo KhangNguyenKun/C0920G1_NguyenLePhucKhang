@@ -5,7 +5,7 @@ import Models.Services;
 public class Villa extends Services {
     private String roomStandard;
     private String convenientDescribe;
-    private float pool;
+    private Float pool;
     private int floor;
 
     public Villa(String servicesName, String areaUsers, String priceRent, String amount, String brand,
@@ -48,7 +48,7 @@ public class Villa extends Services {
         return pool;
     }
 
-    public void setPool(float pool) {
+    public void setPool(Float pool) {
         this.pool = pool;
     }
 
@@ -56,7 +56,7 @@ public class Villa extends Services {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
