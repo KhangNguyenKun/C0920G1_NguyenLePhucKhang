@@ -1,13 +1,11 @@
 package Controllers;
 
 import Models.Customers;
-import Models.Services;
-import Models.Villa.Villa;
+import Models.Villa.House;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 //
 //private String idCustomer;
 //private String nameCustomer;
@@ -44,14 +42,14 @@ public class ReaderAndWriterBooking {
         return listCustomer;
     }
 
-    public List<Villa> readerVilla(Villa villa) {
-        List<Villa> listVilla = new ArrayList<>();
+    public List<House> readerVilla(House villa) {
+        List<House> listVilla = new ArrayList<>();
         try {
             BufferedReader bufferedReaderVilla = new BufferedReader(new FileReader(new File("src/Data/Villa.csv")));
             bufferedReaderVilla.readLine();
             while ((line = bufferedReaderVilla.readLine()) != null) {
                 String[] str = line.split(",");
-                villa = new Villa(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], Integer.parseInt(str[8]));
+                villa = new House(str[0], str[1], str[2], str[3], str[4], str[5], str[6], str[7], str[8] , str[9]);
                 listVilla.add(villa);
             }
         } catch (FileNotFoundException e) {

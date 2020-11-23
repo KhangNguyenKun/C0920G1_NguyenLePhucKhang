@@ -2,30 +2,30 @@ package Models.Villa;
 
 import Models.Services;
 
-public class Villa extends Services {
+public class House extends Services {
     private String roomStandard;
     private String convenientDescribe;
     private String pool;
-    private int floor;
+    private String floor;
 
-    public Villa(String servicesName, String areaUsers, String priceRent, String amount, String brand,
-                 String roomStandard, String convenientDescribe, String pool, int floor)
+    public House(String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
+                 String roomStandard, String convenientDescribe, String pool, String floor)
     {
-        super(servicesName, areaUsers, priceRent, amount, brand);
+        super(Id, servicesName, areaUsers, priceRent, amount, brand);
         this.roomStandard = roomStandard;
         this.convenientDescribe = convenientDescribe;
         this.pool = pool;
         this.floor = floor;
     }
 
-    public Villa(String roomStandard, String convenientDescribe, String pool, int floor) {
+    public House(String roomStandard, String convenientDescribe, String pool, String floor) {
         this.roomStandard = roomStandard;
         this.convenientDescribe = convenientDescribe;
         this.pool = pool;
         this.floor = floor;
     }
 
-    public Villa() {
+    public House() {
     }
 
     public String getRoomStandard() {
@@ -52,11 +52,11 @@ public class Villa extends Services {
         this.pool = pool;
     }
 
-    public int getFloor() {
+    public String getFloor() {
         return floor;
     }
 
-    public void setFloor(Integer floor) {
+    public void setFloor(String floor) {
         this.floor = floor;
     }
 

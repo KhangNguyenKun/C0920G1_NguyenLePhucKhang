@@ -18,7 +18,7 @@ public class ReaderAndWriterRoom {
             bufferedReaderRoom.readLine();
             while ((line= bufferedReaderRoom.readLine()) != null){
                 String[] str = line.split(",");
-                room = new Room (str[0] ,  str[1], str[2], str[3], str[4], str[5]);
+                room = new Room (str[0] ,  str[1], str[2], str[3], str[4], str[5] , str[6]);
                 rooms.add(room);
             }
         } catch (FileNotFoundException e) {

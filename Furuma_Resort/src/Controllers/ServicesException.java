@@ -1,8 +1,5 @@
 package Controllers;
 
-import Models.Services;
-import Models.Villa.Villa;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -10,23 +7,23 @@ public class ServicesException {
 
 
     public boolean checkVilla(String id){
-        Pattern pattern = Pattern.compile("[SV] +[VL]+[0-9]{4}");
+        Pattern pattern = Pattern.compile("(SVVL-)\\d{4}");
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
     public boolean checkHouse(String id){
-        Pattern pattern = Pattern.compile("[SV] +[HO]+[0-9]{4}");
+        Pattern pattern = Pattern.compile("(SVHO-)\\d{4}");
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
     public boolean checkRoom(String id){
-        Pattern pattern = Pattern.compile("[SV] +[RO]+[0-9]{4}");
+        Pattern pattern = Pattern.compile("(SVRO-)\\d{4}");
         Matcher matcher = pattern.matcher(id);
         return matcher.matches();
     }
-    public boolean checkNameOfService(String service){
-        Pattern pattern = Pattern.compile("[A-Z] +");
-        Matcher matcher = pattern.matcher(service);
+    public boolean checkName(String name) {
+        Pattern pattern = Pattern.compile("^([A-Z][a-z]+( [A-Z][a-z]+)*)");
+        Matcher matcher = pattern.matcher(name);
         return matcher.matches();
     }
     public boolean checkAreaUser(String area){
@@ -40,13 +37,23 @@ public class ServicesException {
         return matcher.matches();
     }
     public boolean checkAmount(String amount){
-        Pattern pattern = Pattern.compile("[1-20]");
+        Pattern pattern = Pattern.compile("[1][0-9]?");
         Matcher matcher = pattern.matcher(amount);
         return matcher.matches();
     }
-    public boolean checkFloor(Integer floor){
-        Pattern pattern = Pattern.compile("[1-20]");
-        Matcher matcher = pattern.matcher(floor.toString());
+    public boolean checkFloor(String floor){
+        Pattern pattern = Pattern.compile("[1-9][0-9]*");
+        Matcher matcher = pattern.matcher(floor);
+        return matcher.matches();
+    }
+    public boolean checkBrand(String brand){
+        Pattern pattern = Pattern.compile("(Massage)|(Karaoke)|(Food)|(Drink)|(Car)");
+        Matcher matcher = pattern.matcher(brand);
+        return matcher.matches();
+    }
+    public boolean checkPrice(String price){
+        Pattern pattern = Pattern.compile("[0-9]{2}+");
+        Matcher matcher = pattern.matcher(price);
         return matcher.matches();
     }
 

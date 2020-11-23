@@ -5,10 +5,10 @@ import Models.Services;
 public class Room extends Services {
     public String freeServices;
 
-    public Room(String servicesName, String areaUsers, String priceRent, String amount, String brand,
+    public Room(String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
                 String freeServices)
     {
-        super(servicesName, areaUsers, priceRent, amount, brand);
+        super(Id, servicesName, areaUsers, priceRent, amount, brand);
         this.freeServices = freeServices;
     }
 

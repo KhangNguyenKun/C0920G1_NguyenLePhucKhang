@@ -19,7 +19,7 @@ public class ReaderAndWriterHouse {
             bufferedReaderHouse.readLine();
             while ((line = bufferedReaderHouse.readLine())!=null){
                 String[] str = line.split(",");
-                house = new House(str[0],str[1], str[2], str[3], str[4], str[5], str[6], Float.parseFloat(str[7]));
+                house = new House(str[0],str[1], str[2], str[3], str[4], str[5], str[6], str[7] , str[8]);
                 houses.add(house);
             }
         } catch (FileNotFoundException e) {

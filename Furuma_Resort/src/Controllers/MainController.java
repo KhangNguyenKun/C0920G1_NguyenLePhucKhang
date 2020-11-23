@@ -3,17 +3,15 @@ package Controllers;
 import Models.CompareName;
 import Models.Customers;
 import Models.Employee;
-import Models.House.House;
 import Models.Room.Room;
-import Models.Tickets;
-import Models.Villa.Villa;
+import Models.Villa.House;
 
 import java.io.*;
 import java.util.*;
 
 public class MainController {
-    List<Villa> listVilla = new ArrayList<>();
-    List<House> listHouse = new ArrayList<>();
+    List<House> listVilla = new ArrayList<>();
+    List<Models.House.House> listHouse = new ArrayList<Models.House.House>();
     List<Room> listRoom = new ArrayList<>();
     List<Customers> listCustomer= new ArrayList<Customers>();
     //    MainController mainController = new MainController();
@@ -21,7 +19,7 @@ public class MainController {
 
     public void displayMainMenu() throws IOException {
         int choice;
-
+        System.out.println("*******Menu*******");
         System.out.println("1. Add new services : ");
         System.out.println("2. Show services  : ");
         System.out.println("3. Add new customer : ");
@@ -29,7 +27,8 @@ public class MainController {
         System.out.println("5. Add new booking : ");
         System.out.println("6. Show Information of Employee: ");
         System.out.println("7. Do you want to see a movie: ");
-        System.out.println("8. Exit ");
+        System.out.println("8. Do you want to delete your information? ");
+        System.out.println("9. Do you want to edit your information? ");
         System.out.println("Enter your choice : ");
         choice = input.nextInt();
         switch (choice) {
@@ -59,10 +58,29 @@ public class MainController {
             case 7:
                 buyTickets();
                 break;
+            case  8:
 
+                deleteCustomer();
+                break;
+            case 9:
+                editCustomer();
+                break;
         }
     }
+    public void editCustomer(){
+        EditInformationOfCustomer editInformationOfCustomer = new EditInformationOfCustomer();
+        List<Customers> list = new ArrayList<>();
+        list = editInformationOfCustomer.edit();
+        System.out.println(list);
+    }
 
+    public void deleteCustomer(){
+        DeleteCustomer deleteCustomer = new DeleteCustomer();
+        List<Customers> list= deleteCustomer.listAfterDelete();
+        for (Customers c: list){
+            System.out.println(c);
+        }
+    }
     public void addNewServices() throws IOException {
         int choice;
         Scanner input = new Scanner(System.in);
@@ -91,24 +109,69 @@ public class MainController {
     }
 
     public void addVillaInfor()  {
-        Villa villa = new Villa();
-        input.nextLine();
-        System.out.println("1. ID of service :");
-        String id= input.nextLine();
+        House villa = new House();
+        Scanner input = new Scanner(System.in);
         ServicesException servicesException = new ServicesException();
-        servicesException.checkVilla(id);
-        System.out.println("1. Name of services :");
-        villa.setServicesName(input.nextLine());
-        servicesException.checkNameOfService(villa.getServicesName());
+        boolean checkId= false;
+        do {
+            System.out.println("1. ID of service :");
+            String id= input.nextLine();
+
+            if (!servicesException.checkVilla(id)){
+                System.out.println("Enter your id again!!");
+            }
+            else {
+                villa.setId(id);
+                checkId = true;
+            }
+        }while (!checkId);
+
+        boolean checkName = false;
+        do {
+            System.out.println("Enter your service :");
+            String name = input.nextLine();
+            if (!servicesException.checkName(name)){
+                System.err.println("Enter your service again !!");
+            }
+            else {
+                villa.setServicesName(name);
+                checkName = true;
+            }
+        }while (!checkName);
         System.out.println("2. areaUsers :");
         villa.setAreaUsers(input.nextLine());
         servicesException.checkAreaUser(villa.getAreaUsers());
         System.out.println("3. priceRent :");
         villa.setPriceRent(input.nextLine());
-        System.out.println("4. amount :");
-        villa.setAmount(input.nextLine());
-        System.out.println("5. brand :");
-        villa.setBrand(input.nextLine());
+        boolean checkAmount = false;
+        do {
+            System.out.println("4. Enter amount of your people!!!");
+            String amount = input.nextLine();
+            if (!servicesException.checkAmount(amount)){
+                System.err.println("Your people is too many!!. Enter again !!");
+            }
+            else {
+                villa.setAmount(amount);
+                checkAmount = true;
+            }
+        }while (!checkAmount);
+        boolean checkBrand = false;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("5. What kind of brand do you want to use???");
+            System.out.println("1. Massage \n" +
+                    "2. Karaoke\n" + "3. Food\n" +
+                    "4. Drink\n" +
+                    "5. Car");
+            String brand = scanner.nextLine();
+            if (!servicesException.checkBrand(brand)){
+                System.err.println("We dont have this brand ^^");
+            }
+            else {
+                villa.setBrand(brand);
+                checkBrand= true;
+            }
+        }while (!checkBrand);
         System.out.println("6. roomStandard :");
         villa.setRoomStandard(input.nextLine());
         System.out.println("7. convenientDescribe :");
@@ -116,10 +179,20 @@ public class MainController {
         System.out.println("8. pool :");
         villa.setPool(input.nextLine());
         servicesException.checkPool(villa.getPool());
-        System.out.println("9. floor :");
-        villa.setFloor(input.nextInt());
+        boolean checkFloor = false;
+        do {
+            System.out.println("Enter your floor :");
+            String floor= input.nextLine();
+            if (!servicesException.checkFloor(floor)){
+                System.err.println("We dont have this floor!!");
+            }
+            else {
+                villa.setFloor(floor);
+                checkFloor = true;
+            }
+        }while (!checkFloor);
         listVilla.add(villa);
-        System.out.println("Congratulation !! ");
+        System.out.println("Completed !! ");
 //        System.out.println(listVilla);
 
        ReaderAndWriterVilla readerAndWriterVilla = new ReaderAndWriterVilla();
@@ -128,28 +201,107 @@ public class MainController {
     }
 
     public void addHouseInfor() throws IOException {
-        House house = new House();
+//        String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
+//                String roomStandard, String convenientDescribe, String pool
+        Models.House.House house = new Models.House.House();
         Scanner input = new Scanner(System.in);
-        System.out.println("1. servicesName :");
-        house.setServicesName(input.nextLine());
-        System.out.println("2. areaUsers :");
-        house.setAreaUsers(input.nextLine());
-        System.out.println("3. priceRent :");
-        house.setPriceRent(input.nextLine());
-        System.out.println("4. amount :");
-        house.setAmount(input.nextLine());
-        System.out.println("5. brand :");
-        house.setBrand(input.nextLine());
+        ServicesException servicesException = new ServicesException();
+        boolean checkId= false;
+        do {
+            System.out.println("1. ID of service :");
+            String id= input.nextLine();
+
+            if (!servicesException.checkHouse(id)){
+                System.out.println("Enter your id again!!");
+            }
+            else {
+                house.setId(id);
+                checkId = true;
+            }
+        }while (!checkId);
+
+        boolean checkName = false;
+        do {
+            System.out.println("Enter your service name :");
+            String name = input.nextLine();
+            if (!servicesException.checkName(name)){
+                System.err.println("Enter your service name again !!");
+            }
+            else {
+                house.setServicesName(name);
+                checkName = true;
+            }
+        }while (!checkName);
+        boolean checkArea = false;
+        do {
+            System.out.println("2. area Users :");
+            String area = input.nextLine();
+           if(!servicesException.checkAreaUser(area)){
+               System.err.println("Enter again");
+           }
+           else {
+               house.setAreaUsers(area);
+               checkArea = true;
+           }
+        }while (!checkArea);
+        boolean checkPrice = false;
+        do {
+            System.out.println("3. Enter the price");
+            String price = input.nextLine();
+            if (!servicesException.checkPrice(price)){
+                System.err.println("Wrong format!!");
+            }
+            else {
+                house.setPriceRent(price);
+                checkPrice = true;
+            }
+        }while (!checkPrice);
+        boolean checkAmount = false;
+        do {
+            System.out.println("4. Enter amount of your people!!!");
+            String amount = input.nextLine();
+            if (!servicesException.checkAmount(amount)){
+                System.err.println("Your people is too many!!. Enter again !!");
+            }
+            else {
+                house.setAmount(amount);
+                checkAmount = true;
+            }
+        }while (!checkAmount);
+        boolean checkBrand = false;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("5. What kind of brand do you want to use???");
+            System.out.println("1. Massage \n" +
+                    "2. Karaoke\n" + "3. Food\n" +
+                    "4. Drink\n" +
+                    "5. Car");
+            String brand = scanner.nextLine();
+            if (!servicesException.checkBrand(brand)){
+                System.err.println("We dont have this brand ^^");
+            }
+            else {
+                house.setBrand(brand);
+                checkBrand= true;
+            }
+        }while (!checkBrand);
         System.out.println("6. roomStandard :");
         house.setRoomStandard(input.nextLine());
         System.out.println("7. convenientDescribe :");
         house.setConvenientDescribe(input.nextLine());
+        System.out.println("8. pool :");
+        house.setPool(input.nextLine());
+        servicesException.checkPool(house.getPool());
+
         listHouse.add(house);
-        System.out.println("Congratulation !! ");
+        System.out.println("Completed !! ");
+//        System.out.println(listVilla);
+
         ReaderAndWriterHouse readerAndWriterHouse = new ReaderAndWriterHouse();
         readerAndWriterHouse.writerHouse(house);
 
     }
+
 
     public void addRoomInfor() throws IOException {
         Room room = new Room();
@@ -214,19 +366,21 @@ public class MainController {
     public void showAllVillaNotDup(){
         SortedSet<String> villas = new TreeSet<>();
         ReaderAndWriterVilla readerAndWriterVilla = new ReaderAndWriterVilla();
-        List<Villa> villaList = readerAndWriterVilla.readerVilla();
-        for (Villa i :villaList){
+        List<House> villaList = readerAndWriterVilla.readerVilla();
+        for (House i :villaList){
             villas.add(i.getServicesName()) ;
         }
-        System.out.println(villas.first());
+        for (String s: villas) {
+            System.out.println(s);
+        }
 //        for (int i = 0 ; i<villaList.size(); i++){
 //            villas.add(villaList[i]);
 //        }
     }
     public void showAllHouseNotDup(){
-        TreeSet<House> houses = new TreeSet<>();
+        TreeSet<Models.House.House> houses = new TreeSet<>();
         ReaderAndWriterHouse readerAndWriterHouse = new ReaderAndWriterHouse();
-        List<House> houseList = readerAndWriterHouse.readerHouse();
+        List<Models.House.House> houseList = readerAndWriterHouse.readerHouse();
         for (int i =0; i<houseList.size(); i++){
             houses.add(houseList.get(i)) ;
         }
@@ -298,10 +452,23 @@ public class MainController {
             }
         }
         while (!check);
-        System.out.println("1. Name of customer :");
-        customer.setNameCustomer(input.nextLine());
+        boolean checkName = false;
+        NameException nameException = new NameException();
+        do {
+            System.out.println("Enter your service :");
+            String name = input.nextLine();
+            if (!nameException.checkName(name)){
+                System.out.println("Enter your service again !!");
+            }
+            else {
+                customer.setNameCustomer(name);
+                checkName = true;
+            }
+        }while (!checkName);
         System.out.println("2. Date of Birth  :");
+        AgeException ageException = new AgeException();
         customer.setBirthDay(input.nextLine());
+        ageException.checkAge(input.nextLine());
 //        AgeException ageException = new AgeException();
 //        ageException.checkAge(customer.getBirthDay());
         boolean checkGender = false;
@@ -322,18 +489,15 @@ public class MainController {
         customer.setPhoneNumber(input.nextLine());
         boolean checkMail = false;
         do {
-
             System.out.println("6. Enter your email :");
             String mail = input.nextLine();
             ValidateData validateData = new ValidateData();
-
             if (!validateData.checkMail(mail)){
                 System.out.println("Enter your mail again !!!");
             }else {
                 customer.setMail(mail);
                 checkMail = true;
             }
-
         }while (!checkMail);
         System.out.println("7. Your kind of customer :");
         customer.setKindOfCustomer(input.nextLine());
@@ -375,7 +539,7 @@ public class MainController {
 
     }
     public void bookingVilla(){
-        List<Villa> listVilla= new ReaderAndWriterVilla().readerVilla();
+        List<House> listVilla= new ReaderAndWriterVilla().readerVilla();
         List<Customers> listCustomer = new ReaderAndWriterCustomers().readerCustomer();
         for (int i =0; i<listCustomer.size(); i++){
             Scanner scanner = new Scanner(System.in);
@@ -411,40 +575,42 @@ public class MainController {
 
     public void buyTickets(){
 //        String nameOfCustomer, String nameOfMovie, String priceOfMovie, String seat, String time
-        Queue<Tickets> listCustomer = new LinkedList<>();
-
-
+        Queue<Customers> listCustomer = new LinkedList<>();
         for (int i=0; i<2 ;i++) {
-            Tickets ticket = new Tickets();
             Scanner scanner = new Scanner(System.in);
-            System.out.println("Please enter your name !!");
-            String name = scanner.nextLine();
-            ticket.setNameOfCustomer(name);
-            System.out.println("Please enter the movie that you want to see !!");
-            String nameOfMovie = scanner.nextLine();
-            ticket.setNameOfMovie(nameOfMovie);
-            System.out.println("Please choose your seat :");
-            String seat = scanner.nextLine();
-            ticket.setSeat(seat);
-            System.out.println("Pay the price ");
-            String price = scanner.nextLine();
-            ticket.setPriceOfMovie(price);
-            System.out.println("Please tell us know when do you want to see !!!");
-            String time = scanner.nextLine();
-            ticket.setTime(time);
-            listCustomer.add(ticket);
-
-        }
-
-        for (Tickets i: listCustomer ) {
-            System.out.println(i.toString());
-
+            Customers customer = new Customers();
+            boolean isHas = false;
+            do {
+                System.out.println("Please enter your name !!");
+                String name = scanner.nextLine();
+                ReaderAndWriterCustomers readerAndWriterCustomers = new ReaderAndWriterCustomers();
+                List<Customers> list = readerAndWriterCustomers.readerCustomer();
+                for (Customers c:list){
+                    if (name.equalsIgnoreCase(c.getNameCustomer())){
+                        listCustomer.add(c);
+                        isHas = true;
+                    }
+                    else {
+                        System.out.println("You is not in here before");
+                    }
+                }
+            }while (!isHas);
+//            System.out.println("Please enter the movie that you want to see !!");
+//            String nameOfMovie = scanner.nextLine();
+//            listCustomer.add(nameOfMovie);
+//            System.out.println("Please choose your seat :");
+//            String seat = scanner.nextLine();
+//            ticket.setSeat(seat);
+//            System.out.println("Pay the price ");
+//            String price = scanner.nextLine();
+//            ticket.setPriceOfMovie(price);
+//            System.out.println("Please tell us know when do you want to see !!!");
+//            String time = scanner.nextLine();
+//            ticket.setTime(time);
         }
     }
     public static void main(String[] args) throws IOException {
         MainController mainController = new MainController();
         mainController.displayMainMenu();
-
     }
-
 }

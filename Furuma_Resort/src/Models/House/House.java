@@ -5,18 +5,18 @@ import Models.Services;
 public class House extends Services  {
     public String RoomStandard;
     public String ConvenientDescribe;
-    public float Pool;
+    public String Pool;
 
-    public House(String servicesName, String areaUsers, String priceRent, String amount, String brand,
-                 String roomStandard, String convenientDescribe, float pool)
+    public House(String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
+                 String roomStandard, String convenientDescribe, String pool)
     {
-        super(servicesName, areaUsers, priceRent, amount, brand);
+        super(Id, servicesName, areaUsers, priceRent, amount, brand);
         RoomStandard = roomStandard;
         ConvenientDescribe = convenientDescribe;
         Pool = pool;
     }
 
-    public House(String roomStandard, String convenientDescribe, float pool) {
+    public House(String roomStandard, String convenientDescribe, String pool) {
         RoomStandard = roomStandard;
         ConvenientDescribe = convenientDescribe;
         Pool = pool;
@@ -41,11 +41,11 @@ public class House extends Services  {
         ConvenientDescribe = convenientDescribe;
     }
 
-    public float getPool() {
+    public String getPool() {
         return Pool;
     }
 
-    public void setPool(float pool) {
+    public void setPool(String pool) {
         Pool = pool;
     }
 
