@@ -12,8 +12,9 @@ public class ReaderAndWriterHouse {
 
     List<House> houses =new ArrayList<>();
     String line = null;
-    public List<House> readerHouse(House house){
+    public List<House> readerHouse(){
         try {
+            House house;
             BufferedReader bufferedReaderHouse = new BufferedReader(new FileReader(new File("src/Data/House.csv")));
             bufferedReaderHouse.readLine();
             while ((line = bufferedReaderHouse.readLine())!=null){
@@ -30,7 +31,7 @@ public class ReaderAndWriterHouse {
     }
     public void writerHouse(House house){
         try {
-            BufferedWriter bufferedWriterHouse = new BufferedWriter(new FileWriter(new File("src/Data/House.csv")));
+            BufferedWriter bufferedWriterHouse = new BufferedWriter(new FileWriter(new File("src/Data/House.csv"),true));
             bufferedWriterHouse.write(house.getServicesName()+"," + house.getAreaUsers()+ house.getPriceRent()+","
             +house.getAmount() +"," + house.getBrand() +"," + house.getRoomStandard() +"," + house.getConvenientDescribe() +","
             + house.getPool());

@@ -5,11 +5,11 @@ import Models.Services;
 public class Villa extends Services {
     private String roomStandard;
     private String convenientDescribe;
-    private Float pool;
+    private String pool;
     private int floor;
 
     public Villa(String servicesName, String areaUsers, String priceRent, String amount, String brand,
-                 String roomStandard, String convenientDescribe, float pool, int floor)
+                 String roomStandard, String convenientDescribe, String pool, int floor)
     {
         super(servicesName, areaUsers, priceRent, amount, brand);
         this.roomStandard = roomStandard;
@@ -18,7 +18,7 @@ public class Villa extends Services {
         this.floor = floor;
     }
 
-    public Villa(String roomStandard, String convenientDescribe, float pool, int floor) {
+    public Villa(String roomStandard, String convenientDescribe, String pool, int floor) {
         this.roomStandard = roomStandard;
         this.convenientDescribe = convenientDescribe;
         this.pool = pool;
@@ -44,11 +44,11 @@ public class Villa extends Services {
         this.convenientDescribe = convenientDescribe;
     }
 
-    public float getPool() {
+    public String getPool() {
         return pool;
     }
 
-    public void setPool(Float pool) {
+    public void setPool(String pool) {
         this.pool = pool;
     }
 

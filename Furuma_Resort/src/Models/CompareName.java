@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.Date;
 
 public class CompareName implements Comparator<Customers> {
+
     @Override
     public int compare(Customers o1, Customers o2) {
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");

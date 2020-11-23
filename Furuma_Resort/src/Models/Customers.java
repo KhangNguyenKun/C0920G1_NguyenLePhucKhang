@@ -16,6 +16,10 @@ public class Customers {
     private String address;
     Services services ;
 
+//    public Customers(String idCustomer,String nameCustomer, String birthDay, String gender, String id, String phoneNumber, String mail,
+//                     String kindOfCustomer, String address, Services services) {
+//    }
+
     public String getIdCustomer() {
         return idCustomer;
     }
@@ -100,7 +104,7 @@ public class Customers {
         this.services = services;
     }
 
-    public Customers(String nameCustomer, String birthDay, String gender, String id, String phoneNumber,
+    public Customers(String idCustomer, String nameCustomer, String birthDay, String gender, String id, String phoneNumber,
                      String mail, String kindOfCustomer, String address, Services services) {
         this.nameCustomer = nameCustomer;
         this.birthDay = birthDay;
@@ -111,6 +115,18 @@ public class Customers {
         this.kindOfCustomer = kindOfCustomer;
         this.address = address;
         this.services = services;
+    }
+
+    public Customers(String idCustomer, String nameCustomer, String birthDay, String gender, String id, String phoneNumber, String mail, String kindOfCustomer, String address) {
+        this.idCustomer = idCustomer;
+        this.nameCustomer = nameCustomer;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.mail = mail;
+        this.kindOfCustomer = kindOfCustomer;
+        this.address = address;
     }
 
     public Customers() {
