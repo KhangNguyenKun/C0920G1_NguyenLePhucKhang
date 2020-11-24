@@ -22,7 +22,6 @@ public class ReaderAndWriterCustomers {
         try {
             Customers customer;
             BufferedReader bufferedReaderCustomer = new BufferedReader(new FileReader(new File("src/Data/Customer.csv")));
-            bufferedReaderCustomer.readLine();
             while ((line = bufferedReaderCustomer.readLine()) != null){
                 String[] str = line.split(",");
                 customer = new Customers(str[0],str[1], str[2], str[3], str[4], str[5], str[6] , str[7] , str[8]);

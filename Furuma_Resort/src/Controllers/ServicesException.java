@@ -27,7 +27,7 @@ public class ServicesException {
         return matcher.matches();
     }
     public boolean checkAreaUser(String area){
-        Pattern pattern = Pattern.compile("[1-100]");
+        Pattern pattern = Pattern.compile("[3-9][0-9]+");
         Matcher matcher = pattern.matcher(area);
         return matcher.matches();
     }
@@ -52,7 +52,7 @@ public class ServicesException {
         return matcher.matches();
     }
     public boolean checkPrice(String price){
-        Pattern pattern = Pattern.compile("[0-9]{2}+");
+        Pattern pattern = Pattern.compile("[1-9][0-9]+");
         Matcher matcher = pattern.matcher(price);
         return matcher.matches();
     }

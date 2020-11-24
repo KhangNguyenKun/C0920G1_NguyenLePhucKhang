@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Customers {
+public class Customers implements Comparable<Customers> {
     private String idCustomer;
     private String nameCustomer;
     private String birthDay;
@@ -153,4 +153,8 @@ public class Customers {
 
     }
 
+    @Override
+    public int compareTo(Customers o) {
+        return this.nameCustomer.compareTo(o.getNameCustomer());
+    }
 }

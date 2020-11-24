@@ -30,7 +30,7 @@ public class EditInformationOfCustomer {
                             "7. Mail\n" +
                             "8.Kind of customer\n" +
                             "9. Address");
-                    int number = scanner.nextInt();
+                    int number =Integer.parseInt(scanner.nextLine());
                     switch (number){
                         case 1:
                             System.out.println("Your new ID:");
@@ -78,11 +78,10 @@ public class EditInformationOfCustomer {
                             c.setAddress(newAdd);
                             break;
                     }
-                    listAfterEdit.add(c);
-
+                    break;
                 }
                 else {
-                    System.out.println("We don't see you in here");
+//                    System.out.println("We don't see you in here");
                     checkName = false;
                 }
             }

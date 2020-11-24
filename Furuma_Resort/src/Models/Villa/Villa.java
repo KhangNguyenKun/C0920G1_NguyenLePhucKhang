@@ -2,13 +2,13 @@ package Models.Villa;
 
 import Models.Services;
 
-public class House extends Services {
+public class Villa extends Services {
     private String roomStandard;
     private String convenientDescribe;
     private String pool;
     private String floor;
 
-    public House(String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
+    public Villa(String Id, String servicesName, String areaUsers, String priceRent, String amount, String brand,
                  String roomStandard, String convenientDescribe, String pool, String floor)
     {
         super(Id, servicesName, areaUsers, priceRent, amount, brand);
@@ -18,14 +18,14 @@ public class House extends Services {
         this.floor = floor;
     }
 
-    public House(String roomStandard, String convenientDescribe, String pool, String floor) {
+    public Villa(String roomStandard, String convenientDescribe, String pool, String floor) {
         this.roomStandard = roomStandard;
         this.convenientDescribe = convenientDescribe;
         this.pool = pool;
         this.floor = floor;
     }
 
-    public House() {
+    public Villa() {
     }
 
     public String getRoomStandard() {

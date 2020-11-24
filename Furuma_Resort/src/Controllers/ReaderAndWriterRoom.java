@@ -15,7 +15,6 @@ public class ReaderAndWriterRoom {
         try {
             Room room;
             BufferedReader bufferedReaderRoom = new BufferedReader(new FileReader( new File("src/Data/Room.csv")));
-            bufferedReaderRoom.readLine();
             while ((line= bufferedReaderRoom.readLine()) != null){
                 String[] str = line.split(",");
                 room = new Room (str[0] ,  str[1], str[2], str[3], str[4], str[5] , str[6]);
