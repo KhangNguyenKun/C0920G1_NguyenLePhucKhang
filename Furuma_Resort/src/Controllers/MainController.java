@@ -593,28 +593,6 @@ public class MainController {
     }
 
     public void addNewBooking() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Booking villa :");
-        System.out.println("Booking house :");
-        System.out.println("Booking room :");
-        int choice = scanner.nextInt();
-        switch (choice) {
-            case 1:
-                showAllVilla();
-                writeBooking();
-                break;
-            case 2:
-                showAllHouse();
-                writeBooking();
-                break;
-            case 3:
-                showAllRoom();
-                writeBooking();
-                break;
-        }
-    }
-
-    public void writeBooking() {
         ReaderAndWriterBooking readerAndWriterBooking = new ReaderAndWriterBooking();
         readerAndWriterBooking.addNewBooking();
     }
@@ -634,7 +612,6 @@ public class MainController {
         Queue<Tickets> tickets = new LinkedList<>();
         for (int i = 0; i < 2; i++) {
             Scanner scanner = new Scanner(System.in);
-            Customers customer = new Customers();
             Tickets ticket = new Tickets();
             boolean isHas = false;
             do {
@@ -662,10 +639,14 @@ public class MainController {
                     } else {
 //                        System.out.println("You is not in here before");
                         isHas = false;
+//                        break;
                     }
                 }
             } while (!isHas);
 
+            for (Tickets t: tickets){
+                System.out.println(t);
+            }
         }
     }
 

@@ -27,7 +27,7 @@ public class ReaderAndWriterBooking {
         return new Scanner(System.in);
     }
 
-    public void choseVillaForCustomer(Customers customer) {
+    public void chooseVillaForCustomer(Customers customer) {
         List<Villa> villaList = new ReaderAndWriterVilla().readerVilla();
 
         for (Villa c : villaList) {
@@ -54,7 +54,7 @@ public class ReaderAndWriterBooking {
         }
     }
 
-    public void choseHouseForCustomer(Customers customer) {
+    public void chooseHouseForCustomer(Customers customer) {
         List<House> houseList = new ReaderAndWriterHouse().readerHouse();
 
         for (House h : houseList) {
@@ -82,7 +82,7 @@ public class ReaderAndWriterBooking {
         }
     }
 
-    public void choseRoomForCustomer(Customers customer) {
+    public void chooseRoomForCustomer(Customers customer) {
 
         System.out.println("Enter name service to choose: ");
         String nameService = getScanner().nextLine();
@@ -127,7 +127,7 @@ public class ReaderAndWriterBooking {
                     String elementLine = null;
                     switch (Integer.parseInt(choseService)) {
                         case 1: {
-                            choseVillaForCustomer(c);
+                            chooseVillaForCustomer(c);
                             Villa villa = (Villa) c.getServices();
                             elementLine = villa.getId() + "," + villa.getServicesName() + "," + villa.getAreaUsers() + ","
                                     + villa.getPriceRent() + "," + villa.getAmount() + "," + ","
@@ -136,7 +136,7 @@ public class ReaderAndWriterBooking {
                             break;
                         }
                         case 2: {
-                            choseHouseForCustomer(c);
+                            chooseHouseForCustomer(c);
                             House house = (House) c.getServices();
                             elementLine = house.getId() + "," + house.getServicesName() + "," + house.getAreaUsers() + ","
                                     + house.getPriceRent() + "," + house.getAmount() + "," + ","
@@ -145,7 +145,7 @@ public class ReaderAndWriterBooking {
                             break;
                         }
                         case 3: {
-                            choseRoomForCustomer(c);
+                            chooseRoomForCustomer(c);
                             Room room = (Room) c.getServices();
                             elementLine = room.getId() + "," + room.getServicesName() + "," + room.getAreaUsers() + ","
                                     + room.getPriceRent() + "," + room.getAmount() + ","

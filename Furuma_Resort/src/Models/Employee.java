@@ -11,6 +11,10 @@ public class Employee {
         this.address = address;
     }
 
+    public Employee() {
+
+    }
+
     public String getName() {
         return name;
     }
