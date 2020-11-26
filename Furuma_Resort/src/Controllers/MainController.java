@@ -78,7 +78,7 @@ public class MainController {
         writeListToCsv.writeCsv(list);
     }
 
-    public void deleteCustomer() {
+    public void deleteCustomer() throws IOException {
         DeleteCustomer deleteCustomer = new DeleteCustomer();
         List<Customers> list = deleteCustomer.listAfterDelete();
         for (Customers c : list) {
@@ -86,6 +86,7 @@ public class MainController {
         }
         WriteListToCsv writeListToCsv = new WriteListToCsv();
         writeListToCsv.writeCsv(list);
+        displayMainMenu();
     }
 
     public void addNewServices() throws IOException {
@@ -462,7 +463,7 @@ public class MainController {
 
     public void showAllHouse() {
         String path = "src/Data/House.csv";
-        String line = null;
+        String line = "";
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
             while ((line = bufferedReader.readLine()) != null) {
@@ -636,11 +637,10 @@ public class MainController {
                         ticket.setTime(time);
                         tickets.add(ticket);
                         isHas = true;
-                    } else {
-//                        System.out.println("You is not in here before");
-                        isHas = false;
-//                        break;
                     }
+                }
+                if (!isHas){
+                    System.out.println("You is not in here before");
                 }
             } while (!isHas);
 

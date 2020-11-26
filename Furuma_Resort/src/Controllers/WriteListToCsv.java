@@ -10,11 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteListToCsv {
-    List<String> list = new ArrayList<>();
+//    List<String> list = new ArrayList<>();
     public void writeCsv(List<Customers> list){
-
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("src/Data/Customer.csv")));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("src/Data/Customer.csv"),false));
             String line = "";
             for (Customers customer: list){
                 bufferedWriter.write(customer.getIdCustomer()+"," +customer.getNameCustomer()+"," +customer.getBirthDay() +"," +customer.getGender()

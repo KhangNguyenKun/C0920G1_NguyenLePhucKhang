@@ -135,8 +135,8 @@ public class Customers implements Comparable<Customers> {
 
     @Override
     public String toString() {
-        return "Customers{" +
-                "idCustomer='" + idCustomer + '\'' +
+        return "Customers : " +
+                " idCustomer='" + idCustomer + '\'' +
                 ", nameCustomer='" + nameCustomer + '\'' +
                 ", birthDay='" + birthDay + '\'' +
                 ", gender='" + gender + '\'' +
@@ -146,7 +146,7 @@ public class Customers implements Comparable<Customers> {
                 ", kindOfCustomer='" + kindOfCustomer + '\'' +
                 ", address='" + address + '\'' +
                 ", services=" + services +
-                '}';
+                " ";
     }
 
     public void showInfor(){

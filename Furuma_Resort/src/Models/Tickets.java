@@ -61,12 +61,12 @@ public class Tickets {
 
     @Override
     public String toString() {
-        return "Tickets{" +
+        return "Tickets :" +
                 "nameOfCustomer='" + nameOfCustomer + '\'' +
                 ", nameOfMovie='" + nameOfMovie + '\'' +
                 ", priceOfMovie='" + priceOfMovie + '\'' +
                 ", seat='" + seat + '\'' +
-                ", time='" + time + '\'' +
-                '}';
+                ", time='" + time + '\''
+                ;
     }
 }

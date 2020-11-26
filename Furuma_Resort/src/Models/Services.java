@@ -70,14 +70,14 @@ public abstract class Services {
 
     @Override
     public String toString() {
-        return "Services{" +
+        return "Services  :" +
                 "Id='" + Id + '\'' +
                 ", servicesName='" + servicesName + '\'' +
                 ", areaUsers='" + areaUsers + '\'' +
                 ", priceRent='" + priceRent + '\'' +
                 ", amount='" + amount + '\'' +
-                ", brand='" + brand + '\'' +
-                '}';
+                ", brand='" + brand + '\''
+                ;
     }
 
     public abstract void showInfor();
