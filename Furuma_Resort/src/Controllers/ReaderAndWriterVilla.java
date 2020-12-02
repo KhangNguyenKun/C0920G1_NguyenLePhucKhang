@@ -7,10 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReaderAndWriterVilla {
-
-
     String line = null;
-
     public List<Villa> readerVilla() {
         List<Villa> villas = new ArrayList<>();
         try {
@@ -25,10 +22,7 @@ public class ReaderAndWriterVilla {
         }
         return villas;
     }
-
     public void writerVilla(Villa villa) {
-//        String servicesName, String areaUsers, String priceRent, String amount, String brand,
-//                String roomStandard, String convenientDescribe, float pool, int floor
         try {
             BufferedWriter bufferedWriterVilla = new BufferedWriter(new FileWriter(new File("src/Data/Villa.csv"),true));
             bufferedWriterVilla.write(villa.getId()+ ","+ villa.getServicesName() + "," + villa.getAreaUsers() + "," + villa.getPriceRent() + "," +
