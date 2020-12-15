@@ -1,0 +1,43 @@
+header {
+    position: relative;
+}
+.shopping-mall {
+    font-family: "Agency FB";
+    color: #CDCDCD;
+    font-size: 35px;
+    margin-top: auto;
+    font-variant: small-caps;
+}
+.shopping-mall>h1 {
+    font-family: Impact;
+    font-size: 50px;
+    color: white;
+    letter-spacing: 0.3px;
+    text-shadow: 0 0 2px black;
+    padding-bottom: 0px;
+    border-bottom: 1px dotted gray;
+    margin: 0px;
+    width: 49%;
+}
+.shopping-mall>h5 {
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+    font-size: small;
+}#right{
+    float: right;
+    width: 20%;
+    height: 200px;
+    margin-right: 195px;
+ }
+#chap1{
+    width: 50%;
+    min-height: 200px;
+    border: solid #CDCDCD;
+    float:left;
+    margin-left: 100px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+#content {
+    display: flex;
+}
