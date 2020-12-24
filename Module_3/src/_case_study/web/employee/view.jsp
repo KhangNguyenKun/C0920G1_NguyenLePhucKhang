@@ -19,10 +19,8 @@
 <body>
 <div>
     <a href="/employees?action=create" role="button" class="btn btn-primary">Create</a>
-    <form method="get">
-        <input name="action" value="search" type="hidden">
-        <input type="text" name="name">
-    </form>
+    <a href="/" role="button" class="btn btn-outline-primary">Home</a>
+
 </div>
 <div align="center">
     <%--    String id, String type_id, String nameCustomer, String birthDay,--%>
@@ -31,6 +29,14 @@
         <caption><h2 style="align-content: center">List of Customer</h2></caption>
 
     </table>
+<%--        <form method="get">--%>
+<%--            <input name="action" value="search" type="hidden">--%>
+<%--            <input type="text" name="name">--%>
+<%--        </form>--%>
+        <form class="form-inline my-2 my-lg-0">
+            <input name="action"  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button name="name" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
     <table class="table table-dark">
         <thead>
         <tr>
@@ -68,8 +74,8 @@
                 <td><c:out value="${employee.divisionId}"/></td>
                 <td><c:out value="${employee.userNameEmployee}"/></td>
                 <td>
-                    <a href="/employees?action=edit&id=${employee.id}">Edit</a>
-                    <a href="/employees?action=delete&id=${employee.id}">Delete</a>
+                    <a class="btn btn-outline-primary" href="/employees?action=edit&id=${employee.id}">Edit</a>
+                    <a class="btn btn-outline-primary" href="/employees?action=delete&id=${employee.id}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

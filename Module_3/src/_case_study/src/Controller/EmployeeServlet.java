@@ -66,8 +66,7 @@ public class EmployeeServlet extends HttpServlet {
         Employee newEmployee = new Employee( id,  nameEmployee, birthDay,  idCard,  salary,  phoneEmployee,  addressEmployee,
                 mailEmployee,  positionId,  educationDegree,  divisionId,  userNameEmployee);
         employeeDAO.updateEmployee(newEmployee);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("employee/edit.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/employees");
     }
 
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {

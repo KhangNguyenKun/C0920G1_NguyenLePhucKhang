@@ -69,7 +69,11 @@ public class CustomerServlet extends HttpServlet {
                 }
             break;
             case "search":
-                searchForm(request, response);
+                try {
+                    searchForm(request, response);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
             default:
                 listCustomer(request, response);
@@ -91,7 +95,7 @@ public class CustomerServlet extends HttpServlet {
 
         String type_id = request.getParameter("type_id");
         String nameCustomer = request.getParameter("nameCustomer");
-        String birthday = request.getParameter("birthDay");
+        String birthday = request.getParameter("birthday");
         String genderCustomer = request.getParameter("genderCustomer");
         String id_card = request.getParameter("id_card");
         String phoneCustomer = request.getParameter("phoneCustomer");
@@ -108,7 +112,7 @@ public class CustomerServlet extends HttpServlet {
         String idCustomer = request.getParameter("id");
         String type_id = request.getParameter("type_id");
         String nameCustomer = request.getParameter("nameCustomer");
-        String birthday = request.getParameter("birthDay");
+        String birthday = request.getParameter("birthday");
         String genderCustomer = request.getParameter("genderCustomer");
         String id_card = request.getParameter("id_card");
         String phoneCustomer = request.getParameter("phoneCustomer");
@@ -132,7 +136,18 @@ public class CustomerServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void searchForm(HttpServletRequest request, HttpServletResponse response) {
+    private void searchForm(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+        String name = request.getParameter("nameCustomer");
+//        String country = request.getParameter("country");
+//        int id = Integer.parseInt(request.getParameter("id"));
+        List<Customer> listCustomer = new CustomerDAO().searchName(name);
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/view.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

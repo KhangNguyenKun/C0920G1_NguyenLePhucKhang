@@ -26,7 +26,7 @@ public class CustomerDAO implements ICustomerDAO {
     private static final String DELETE_CUSTOMER_SQL = "delete from customer where customer_id = ?;";
     private static final String UPDATE_CUSTOMER_SQL = "update customer set  customer_type_id = ?, customer_name= ?, customer_birthday = ?," +
             "customer_gender = ?,customer_id_card = ?, customer_phone = ?,customer_email= ?,customer_address = ? where customer_id = ?";
-
+private  static final String SEARCH_CUSTOMER_SQL = "select * from customer where name like ?";
 
     public CustomerDAO(){};
 
@@ -168,5 +168,29 @@ public class CustomerDAO implements ICustomerDAO {
             rowUpdated = preparedStatement.executeUpdate() > 0;
         }
         return rowUpdated;
+    }
+    public List<Customer> searchName(String nameCustomer) throws SQLException {
+        Customer customer;
+        List<Customer> listCustomer = new ArrayList<>();
+        try(Connection connection = getConnection();
+            PreparedStatement preparedStatement =connection.prepareStatement(SEARCH_CUSTOMER_SQL);){
+            preparedStatement.setString(1,"%"+nameCustomer+"%");
+            System.out.println(preparedStatement);
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                String idCustomer = rs.getString("customer_id");
+                String type_id = rs.getString("customer_type_id");
+                String nameCustomer_after = rs.getString("customer_name");
+                String birthday = rs.getString("customer_birthday");
+                String genderCustomer = rs.getString("customer_gender");
+                String id_card = rs.getString("customer_id_card");
+                String phoneCustomer = rs.getString("customer_phone");
+                String emailCustomer = rs.getString("customer_email");
+                String addressCustomer = rs.getString("customer_address");
+                customer = new Customer(idCustomer, type_id, nameCustomer_after, birthday, genderCustomer, id_card,phoneCustomer, emailCustomer, addressCustomer);
+                listCustomer.add(customer);
+            }
+        }
+        return listCustomer;
     }
 }

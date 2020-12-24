@@ -1,23 +1,23 @@
 <%--
   Created by IntelliJ IDEA.
   User: OS
-  Date: 12/22/2020
-  Time: 10:11 AM
+  Date: 12/24/2020
+  Time: 2:22 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>User Management Application</title>
+    <title>Contract Management Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <center>
-    <h1>Customer Management</h1>
+    <h1>Contract Management</h1>
     <h2>
-        <a href="/customers" class="btn btn-primary">List customer</a>
+        <a href="/contract" class="btn btn-primary">List contract</a>
     </h2>
 </center>
 <div>
@@ -27,78 +27,63 @@
     </form>
 </div>
 <div align="center">
-    <%--    String id, String type_id, String nameCustomer, String birthDay,--%>
-    <%--    String addressCustomer, String emailCustomer, String idCard, String genderCustomer, String phoneCustomer--%>
-    <form method="post" >
+    <form method="post" action="/contract?action=create">
         <table class="table table-dark">
             <caption>
-                <h2>Add New Customer</h2>
+                <h2>Add New Contract</h2>
             </caption>
             <tbody>
+<%--            //    String contract_id, String contract_start_date, String contract_end_date,--%>
+<%--            //    String contract_deposit, String contract_total_money, String employee_id, String customer_id, String service_id--%>
             <tr>
-                <th> Id:</th>
+                <th>Contract Id:</th>
                 <td>
-                    <input type="text" name="id" id="id" size="45"/>
+                    <input type="text" name="contract_id" id="contract_id" size="45"/>
                 </td>
             </tr>
             <tr>
-                <th>Type id:</th>
+                <th>Contract start date:</th>
                 <td>
-                    <input type="text" name="type_id" id="type_id" size="45"/>
+                    <input type="date" name="contract_start_date" id="contract_start_date" size="45"/>
                 </td>
             </tr>
             <tr>
-                <th>Name customer:</th>
+                <th>Contract end date:</th>
                 <td>
-                    <input type="text" name="nameCustomer" id="nameCustomer" size="45"/>
+                    <input type="date" name="contract_end_date" id="contract_end_date" size="45"/>
                 </td>
             </tr>
             <tr>
-                <th>Your date of birth:</th>
+                <th>Deposit:</th>
                 <td>
-                    <input type="date" name="birthday" id="birthDay" size="15"/>
+                    <input type="text" name="contract_deposit" id="contract_deposit" size="15"/>
                 </td>
             </tr>
             <tr>
-                <th>Your gender:</th>
-<%--                <td>--%>
-<%--                    <input type="text" name="genderCustomer" id="genderCustomer" size="15"/>--%>
-<%--                </td>--%>
+                <th>Contract total money:</th>
                 <td>
-                <select class="btn btn-secondary dropdown-toggle">
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
-                </select>
+                    <input type="text" name="contract_total_money" id="contract_total_money" size="15"/>
                 </td>
-
             </tr>
             <tr>
-                <th>ID card:</th>
+                <th>Employee id:</th>
                 <td>
-                    <input type="text" name="id_card" id="idCard" size="15"/>
+                    <input type="text" name="employee_id" id="employee_id" size="15"/>
                 </td>
             </tr>
 
             <tr>
-                <th>Phone number:</th>
+                <th>Customer id:</th>
                 <td>
-                    <input type="text" name="phoneCustomer" id="phoneCustomer" size="15"/>
+                    <input type="text" name="customer_id" id="customer_id" size="15"/>
                 </td>
             </tr>
             <tr>
-                <th>Email:</th>
+                <th>Service id:</th>
                 <td>
-                    <input type="text" name="emailCustomer" id="emailCustomer" size="15"/>
+                    <input type="text" name="service_id" id="service_id" size="15"/>
                 </td>
             </tr>
-            <tr>
-                <th>Address:</th>
-                <td>
-                    <input type="text" name="addressCustomer" id="addressCustomer" size="15"/>
-                </td>
-            </tr>
-
-
             <tr>
                 <td colspan="2" align="center">
                     <input class="btn btn-primary" type="submit" value="Save"/>

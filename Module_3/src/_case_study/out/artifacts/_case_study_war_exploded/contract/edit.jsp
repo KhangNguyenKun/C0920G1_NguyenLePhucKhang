@@ -1,34 +1,27 @@
 <%--
   Created by IntelliJ IDEA.
   User: OS
-  Date: 12/22/2020
-  Time: 2:10 PM
+  Date: 12/21/2020
+  Time: 3:17 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Employee Application</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Title</title>
 </head>
 <body>
-<center>
-    <h1>Employee Management</h1>
-    <h2>
-        <a href="/employees" role="button" class="btn btn-primary" >List Employee</a>
-    </h2>
-</center>
 <div align="center">
-    <%--    String id, String nameEmployee, String birthDay, String idCard, String salary, String phoneEmployee,--%>
-    <%--    String mailEmployee, String addressEmployee, String positionId, String educationDegree, String divisionId, String userNameEmployee)--%>
+<%--    String contract_id, String contract_start_date, String contract_end_date,--%>
+<%--    String contract_deposit, String contract_total_money, String employee_id, String customer_id, String service_id--%>
     <form method="post">
         <div class="form-group">
             <label>ID</label>
-            <input type="text" name="id" class="form-control" aria-describedby="emailHelp" id="id"
+            <input type="text" name="id" class="form-control" aria-describedby="emailHelp" id="id"  value="<c:out value='${customer.type_id}' />"
                    placeholder="Enter id">
-            <%--                <small  class="form-text text-muted">We'll never share your email with anyone else.</small>--%>
+<%--            <input type="text" name="type_id" size="45"--%>
+<%--                   value="<c:out value='${customer.type_id}' />"--%>
+<%--            />--%>
         </div>
         <div class="form-group">
             <label>Name employee</label>
@@ -96,25 +89,16 @@
                    placeholder="Enter Username">
             <%--                <small  class="form-text text-muted">We'll never share your email with anyone else.</small>--%>
         </div>
-<%--        <div class="form-group">--%>
-<%--            <label>Password</label>--%>
-<%--            <input type="userNameEmployee" class="form-control" id="userNameEmployee" placeholder="Password">--%>
-<%--        </div>--%>
-<%--        <div class="form-group form-check">--%>
-<%--            <input type="checkbox" class="form-check-input" id="exampleCheck1">--%>
-<%--            <label class="form-check-label" for="exampleCheck1">Check me out</label>--%>
-<%--        </div>--%>
+        <%--        <div class="form-group">--%>
+        <%--            <label>Password</label>--%>
+        <%--            <input type="userNameEmployee" class="form-control" id="userNameEmployee" placeholder="Password">--%>
+        <%--        </div>--%>
+        <%--        <div class="form-group form-check">--%>
+        <%--            <input type="checkbox" class="form-check-input" id="exampleCheck1">--%>
+        <%--            <label class="form-check-label" for="exampleCheck1">Check me out</label>--%>
+        <%--        </div>--%>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 </html>

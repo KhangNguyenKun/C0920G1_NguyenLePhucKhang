@@ -22,8 +22,9 @@ public class EmployeeDAO implements IEmployeeDAO {
     private static final String SELECT_EMPLOYEE_BY_ID = "select * from employee where employee_id = ?";
     private static final String SELECT_ALL_EMPLOYEE = "select * from employee";
     private static final String DELETE_EMPLOYEE_SQL = "delete from employee where employee_id = ?;";
-    private static final String UPDATE_EMPLOYEE_SQL = "update customer set  customer_type_id = ?, customer_name= ?, customer_birthday = ?," +
-            "customer_gender = ?,customer_id_card = ?, customer_phone = ?,customer_email= ?,customer_address = ? where customer_id = ?";
+    private static final String UPDATE_EMPLOYEE_SQL = "update employee set  employee_name= ?, employee_birthday = ?,employee_id_card = ?,employee_salary = ?," +
+            "employee_phone = ?,employee_email = ?," +
+            "employee_address = ?, position_id = ?, education_degree_id = ?, division_id = ?, user_name = ? where employee_id = ?";
 
 
     public EmployeeDAO(){};
@@ -158,6 +159,24 @@ public class EmployeeDAO implements IEmployeeDAO {
 
     @Override
     public boolean updateEmployee(Employee employee) throws SQLException {
-        return false;
+        boolean rowUpdated;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_EMPLOYEE_SQL);) {
+            preparedStatement.setString(1, employee.getNameEmployee());
+            preparedStatement.setString(2, employee.getBirthDay());
+            preparedStatement.setString(3, employee.getIdCard());
+            preparedStatement.setString(4, employee.getSalary());
+            preparedStatement.setString(5, employee.getPhoneEmployee());
+            preparedStatement.setString(6, employee.getMailEmployee());
+            preparedStatement.setString(7, employee.getAddressEmployee());
+            preparedStatement.setString(8, employee.getPositionId());
+            preparedStatement.setString(9, employee.getEducationDegree());
+            preparedStatement.setString(10, employee.getDivisionId());
+            preparedStatement.setString(11, employee.getUserNameEmployee());
+            preparedStatement.setString(12, employee.getId());
+            System.out.println(preparedStatement);
+            rowUpdated = preparedStatement.executeUpdate() > 0;
+        }
+        return rowUpdated;
     }
 }

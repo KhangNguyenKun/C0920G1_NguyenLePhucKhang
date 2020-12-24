@@ -20,7 +20,7 @@
         <h2>
             Edit Customer
         </h2>
-        <a href="/">Home</a>
+        <a class="btn btn-outline-primary"  href="/">Home</a>
     </caption>
     <c:if test="${customer != null}">
         <input type="hidden" name="id" value="<c:out value='${customer.id}' />"/>
@@ -55,7 +55,7 @@
     <tr>
         <th>birthDay :</th>
         <td>
-            <input type="text" name="birthDay" size="45"
+            <input type="date" name="birthday" size="45"
                    value="<c:out value='${customer.birthday}' />"
             />
         </td>
