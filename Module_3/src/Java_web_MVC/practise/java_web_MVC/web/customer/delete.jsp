@@ -15,7 +15,7 @@
 <p>
     <a href="/customers">Back to customer list</a>
 </p>
-<form method="post">
+<form method="post"></form>
     <h3>Are you sure?</h3>
     <fieldset>
         <legend>Customer information</legend>
@@ -40,4 +40,3 @@
     </fieldset>
 </body>
 </html>
-
