@@ -27,10 +27,17 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
     <title>Layout</title>
-
+<style>
+    #content{
+        margin-left: 120px;
+        width: 80%;
+        position: relative;
+        top: 30px;
+    }
+</style>
 </head>
 <body>
-<div class="container" style="height: auto">
+<div class="container" >
     <header class="row">
         <div class="col-sm-8 shopping-mall">
             <h1>FURAMA RESORT</h1>
@@ -88,6 +95,44 @@
     </nav>
 </div>
 
+<div id="content">
+    <div id="demo" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+            <li data-target="#demo" data-slide-to="0" class="active"></li>
+            <li data-target="#demo" data-slide-to="1"></li>
+            <li data-target="#demo" data-slide-to="2"></li>
+            <li data-target="#demo" data-slide-to="3"></li>
+            <li data-target="#demo" data-slide-to="4"></li>
+        </ul>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner data-interval='1000'">
+            <div class="carousel-item active">
+                <img src="https://cdn1.ivivu.com/iVivu/2019/11/28/13/furama-resort-da-nang-6-cr-800x450.jpg" alt="" width="100%" height="600px">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cf.bstatic.com/images/hotel/max1024x768/623/62371531.jpg" height="600px" width="100%" alt="">
+            </div>
+            <div class="carousel-item">
+                <img src="https://furamavietnam.com/wp-content/uploads/2018/07/Vietnam_Danang_Furama_Resort_Exterior_Beach.jpg" alt="" width="100%" height="600px">
+            </div>
+            <div class="carousel-item">
+                <img src="https://hd1.hotdeal.vn/hinhanh/HN/75371_0_body_1.jpg" alt="" width="100%" height="600px">
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+    </div>
+</div>
 </div>
 <script>
     $(function(){

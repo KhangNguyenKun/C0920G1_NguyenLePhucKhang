@@ -10,6 +10,9 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="taglibs-standard-spec-1.2.5" />
           <element id="library" level="project" name="mysql-connector-java-8.0.17 (2)" />
+          <element id="library" level="project" name="jstl-api-1.2" />
+          <element id="library" level="project" name="jstl-impl-1.2" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.17" />
         </element>
       </element>
     </root>

@@ -1,9 +1,7 @@
 package Controller;
 
 import Model.Contract;
-import Model.Customer;
 import Service.ContractDAO;
-import Service.CustomerDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -69,6 +67,7 @@ public class ContractServlet extends HttpServlet {
 
     private void insertContract(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         String contract_id = request.getParameter("contract_id");
+
         String contract_start_date = request.getParameter("contract_start_date");
         String contract_end_date = request.getParameter("contract_end_date");
         String contract_deposit = request.getParameter("contract_deposit");
@@ -79,6 +78,7 @@ public class ContractServlet extends HttpServlet {
         Contract contract = new Contract(contract_id,  contract_start_date,  contract_end_date,
                 contract_deposit,  contract_total_money,  employee_id,  customer_id,  service_id);
         contractDAO.insertContract(contract);
+
         List<Contract> listContract = contractDAO.selectAllContracts();
         request.setAttribute("listContract", listContract);
         RequestDispatcher dispatcher = request.getRequestDispatcher("contract/view.jsp");
@@ -107,9 +107,7 @@ public class ContractServlet extends HttpServlet {
 
                 break;
             case "search":
-
                     searchForm(request, response);
-
                 break;
             default:
                 listContract(request, response);

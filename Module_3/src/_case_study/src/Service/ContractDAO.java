@@ -1,7 +1,6 @@
 package Service;
 
 import Model.Contract;
-import Model.Customer;
 import Repository.IContractDAO;
 
 import java.sql.*;
@@ -27,8 +26,6 @@ public class ContractDAO implements IContractDAO {
 
     public ContractDAO() {
     }
-
-    ;
 
     protected Connection getConnection() {
         Connection connection = null;
@@ -95,6 +92,7 @@ public class ContractDAO implements IContractDAO {
                         contract_deposit, contract_total_money, employee_id, customer_id, service_id);
             }
         } catch (SQLException e) {
+            e.printStackTrace();
         }
         return contract;
     }
@@ -125,7 +123,7 @@ public class ContractDAO implements IContractDAO {
                         contract_deposit, contract_total_money, employee_id, customer_id, service_id));
             }
         } catch (SQLException e) {
-
+            e.printStackTrace();
         }
         return listContract;
     }

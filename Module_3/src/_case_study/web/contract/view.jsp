@@ -27,12 +27,7 @@
     <%--    String addressCustomer, String emailCustomer, String idCard, String genderCustomer, String phoneCustomer--%>
     <table border="1" cellpadding="5">
         <caption><h2 style="align-content: center">List of Contract</h2></caption>
-
     </table>
-    <%--        <form method="get">--%>
-    <%--            <input name="action" value="search" type="hidden">--%>
-    <%--            <input type="text" name="name">--%>
-    <%--        </form>--%>
     <form class="form-inline my-2 my-lg-0">
         <input name="action"  class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button name="name" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -66,8 +61,8 @@
                 <td><c:out value="${contract.customer_id}"/></td>
                 <td><c:out value="${contract.service_id}"/></td>
                 <td>
-                    <a class="btn btn-outline-primary" href="/contract?action=edit&id=${contract.id}">Edit</a>
-                    <a class="btn btn-outline-primary" href="/contract?action=delete&id=${contract.id}">Delete</a>
+                    <a class="btn btn-outline-primary" href="/contract?action=edit&id=${contract.contract_id}">Edit</a>
+                    <a class="btn btn-outline-primary" href="/contract?action=delete&id=${contract.contract_id}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

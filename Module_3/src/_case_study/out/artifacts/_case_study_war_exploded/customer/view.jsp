@@ -97,7 +97,7 @@
         $('#tableEmployee').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 2
+            "pageLength": 5
         });
     });
 </script>

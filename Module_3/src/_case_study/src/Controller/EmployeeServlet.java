@@ -1,8 +1,6 @@
 package Controller;
 
-import Model.Customer;
 import Model.Employee;
-import Service.CustomerDAO;
 import Service.EmployeeDAO;
 
 import javax.servlet.RequestDispatcher;

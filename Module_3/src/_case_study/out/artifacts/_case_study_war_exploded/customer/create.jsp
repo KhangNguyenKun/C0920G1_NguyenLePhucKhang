@@ -38,25 +38,34 @@
             <tr>
                 <th> Id:</th>
                 <td>
-                    <input type="text" name="id" id="id" size="45"/>
+                    <input value="${customerId}" type="text" name="customerId" id="id" size="45"/>
+                    <p style="color: red">${messageId}</p>
                 </td>
             </tr>
             <tr>
                 <th>Type id:</th>
                 <td>
-                    <input type="text" name="type_id" id="type_id" size="45"/>
+
+
+                    <input type="text" name="typeId" id="type_id" size="45"/>
+<%--                        <select name="typeId">--%>
+<%--                            <c:forEach items="customerTypeList" var="abc">--%>
+<%--                            <option value="${abc.id}" >${abc.name}</option>--%>
+<%--                            </c:forEach>--%>
+<%--                        </select>--%>
                 </td>
             </tr>
             <tr>
                 <th>Name customer:</th>
                 <td>
-                    <input type="text" name="nameCustomer" id="nameCustomer" size="45"/>
+                    <input value="${name}" type="text" name="name"  size="45"/>
                 </td>
             </tr>
             <tr>
                 <th>Your date of birth:</th>
                 <td>
-                    <input type="date" name="birthday" id="birthDay" size="15"/>
+                    <input value="${birthday}" type="date" name="birthday" id="birthDay" size="15"/>
+                    <p style="color:red;">${messageBirthDay}</p>
                 </td>
             </tr>
             <tr>
@@ -65,7 +74,7 @@
 <%--                    <input type="text" name="genderCustomer" id="genderCustomer" size="15"/>--%>
 <%--                </td>--%>
                 <td>
-                <select class="btn btn-secondary dropdown-toggle">
+                <select class="btn btn-secondary dropdown-toggle" name="gender">
                     <option value="0">Male</option>
                     <option value="1">Female</option>
                 </select>
@@ -75,26 +84,29 @@
             <tr>
                 <th>ID card:</th>
                 <td>
-                    <input type="text" name="id_card" id="idCard" size="15"/>
+                    <input value="${idCard}" type="text" name="idCard" id="idCard" size="15"/>
+                    <p style="color: red">${messageIdCard}</p>
                 </td>
             </tr>
 
             <tr>
                 <th>Phone number:</th>
                 <td>
-                    <input type="text" name="phoneCustomer" id="phoneCustomer" size="15"/>
+                    <input value="${phone}" type="text" name="phone" id="phoneCustomer" size="15"/>
+                    <p style="color: red">${messagePhone}</p>
                 </td>
             </tr>
             <tr>
                 <th>Email:</th>
                 <td>
-                    <input type="text" name="emailCustomer" id="emailCustomer" size="15"/>
+                    <input value="${email}" type="text" name="email" id="emailCustomer" size="15"/>
+                    <p style="color: red">${messageEmail}</p>
                 </td>
             </tr>
             <tr>
                 <th>Address:</th>
                 <td>
-                    <input type="text" name="addressCustomer" id="addressCustomer" size="15"/>
+                    <input value="address" type="text" name="address" id="addressCustomer" size="15"/>
                 </td>
             </tr>
 

@@ -1,7 +1,6 @@
 package Repository;
 
 import Model.Contract;
-import Model.Customer;
 
 import java.sql.SQLException;
 import java.util.List;
