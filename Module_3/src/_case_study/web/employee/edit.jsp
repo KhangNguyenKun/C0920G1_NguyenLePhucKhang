@@ -127,11 +127,11 @@
                 />
             </td>
         </tr>
-        <tr>
-            <td colspan="2" align="center">
-                <input type="submit" class="btn btn-primary" value="Save"/>
-            </td>
-        </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" class="btn btn-primary" value="Save"/>
+                </td>
+            </tr>
         </tbody>
     </table>
 </form>

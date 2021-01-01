@@ -49,6 +49,7 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void updateEmployee(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
         String id = request.getParameter("id");
         String nameEmployee = request.getParameter("nameEmployee");
         String birthDay = request.getParameter("birthDay");
