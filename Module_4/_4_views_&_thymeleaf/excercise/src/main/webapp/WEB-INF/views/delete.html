@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Remove Customer</h3>
+<p>
+    <a th:href="@{/}">
+        Back to product list
+    </a>
+</p>
+<div id="form">
+    <!--/*@thymesVar id="product" type="com.example"*/-->
+    <form action="#" th:action="@{/product/delete}" th:object="${product}"
+          method="POST" novalidate="novalidate">
+        <!--        int idProduct, String nameProduct, String priceProduct, String quantity-->
+        <input type="hidden" th:field="*{idProduct}"/>
+        <div>
+            <label>nameProduct</label>
+            <input type="text" th:field="*{nameProduct}"/>
+        </div>
+        <div>
+            <label>priceProduct</label>
+            <input type="email" th:field="*{priceProduct}"/>
+        </div>
+        <div>
+            <label>quantity</label>
+            <input type="text" th:field="*{quantity}"/>
+        </div>
+        <input type="submit" value="Remove"></input>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
