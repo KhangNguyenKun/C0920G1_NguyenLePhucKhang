@@ -1,34 +1,31 @@
-package com.codegym.cms.model;
+package com.example.model;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "customers")
+@Entity(name="customers")
 public class Customer {
-
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private String firstName;
-    private String lastName;
-
-    public Customer() {}
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    private String  firstName;
+    private String  lastName;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "province_id",referencedColumnName = "id")
+    private Province province;
 
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    @Override
-    public String toString() {
-        return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id, firstName, lastName);
+    public Customer() {
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -46,5 +43,13 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
     }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form action="/customer/search" method="post" >
+        <input type="text" th:name ="inputSearch">
+        <input type="submit" value="Search Button">
+    </form>
+    <h2>List customers</h2>
+    <a th:href="/customer/create">Create New Customer</a>
+    <h3 th:text="{message}" style="color: red"></h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Province</th>
+            <th>Edit </th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td th:text="{customer.id}"></td>
+            <td th:text="{customer.firstName}"></td>
+            <td th:text="{customer.lastName}"></td>
+            <td th:text="{province.id}"></td>
+            <td>
+                <a th:href="/customer/{id}/update=(id=${customer.id})">Edit</a>
+                <a th:href="/customer/{id}/delete=(id=${customer.id})">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</form>
+</body>
+</html>
