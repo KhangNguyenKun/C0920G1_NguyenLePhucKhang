@@ -30,7 +30,7 @@ public class BlogController {
     public String showCreate(Model model){
         model.addAttribute("categoryList",categoryService.findAll());
         model.addAttribute("blog", new Blog());
-        return "blog/vreate";
+        return "blog/create";
     }
     @PostMapping("/save")
     public String save(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes){
@@ -43,7 +43,7 @@ public class BlogController {
 
         blogService.save(blog);
         redirectAttributes.addFlashAttribute("message","update success");
-        return "redirect:/list";
+        return "redirect:/blog/list";
     }
     @GetMapping("/{id}/view")
     public String showBlogByID(@PathVariable int id, Model model) {

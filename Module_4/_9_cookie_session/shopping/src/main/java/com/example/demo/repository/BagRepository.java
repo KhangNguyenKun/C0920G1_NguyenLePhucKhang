@@ -1,4 +1,6 @@
 package com.example.demo.repository;
 
-public interface BagRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BagRepository extends JpaRepository {
 }

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class ServiceFurama {
+public class Service {
     @Id
     @GeneratedValue
     private String service_id;
@@ -18,9 +18,9 @@ public class ServiceFurama {
     private String standard_room;
     private String description_other_convenience;
     private String pool_area;
-    private String numbers_of_floor;
+    private String number_of_floors;
 
-    public ServiceFurama() {
+    public Service() {
     }
 
 

@@ -1,4 +1,7 @@
 package com.example.phone.repository;
 
-public interface SmartPhoneRepository {
+import org.springframework.data.repository.CrudRepository;
+
+public interface SmartPhoneRepository extends CrudRepository {
+
 }

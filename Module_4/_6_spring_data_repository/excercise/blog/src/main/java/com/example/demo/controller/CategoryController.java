@@ -17,39 +17,39 @@ public class CategoryController {
     @GetMapping("/list")
     public String showListCategory(Model model){
         model.addAttribute("categoryList",categoryService.findAll());
-        return "list";
+        return "category/list";
     }
     @GetMapping("/create")
     public String showCreateForm(Model model){
         model.addAttribute("category",new Category());
-        return "/create";
+        return "category/create";
     }
     @PostMapping("/save")
     public String save(@ModelAttribute Category category, RedirectAttributes redirectAttributes){
         categoryService.save(category);
         redirectAttributes.addFlashAttribute("message","create success");
-        return "redirect:/category";
+        return "redirect:/category/list";
     }
     @GetMapping("{id}/update")
     public String showUpdate(@PathVariable int id,Model model){
         model.addAttribute("category",categoryService.findById(id));
-        return "/update";
+        return "category/edit";
     }
     @PostMapping("/update")
     public String updateCategory(@ModelAttribute Category category,RedirectAttributes redirectAttributes){
         categoryService.save(category);
         redirectAttributes.addFlashAttribute("message","update success");
-        return "redirect:/list";
+        return "redirect:category/list";
     }
     @GetMapping("/view")
     public String showCategoryById(@PathVariable int id, Model model){
         model.addAttribute("category", categoryService.findById(id));
-        return "view";
+        return "category/view";
     }
     @GetMapping("/{id}/delete")
     public String deleteCategory(@PathVariable int id, RedirectAttributes redirectAttributes) {
         categoryService.remove(id);
         redirectAttributes.addFlashAttribute("message","Delete Success!!!");
-        return "redirect:/category";
+        return "redirect:/category/list";
     }
 }
