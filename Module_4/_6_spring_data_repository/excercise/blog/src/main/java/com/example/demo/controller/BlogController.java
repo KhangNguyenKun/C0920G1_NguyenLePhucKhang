@@ -15,13 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
-@RequestMapping("/blog")
+@RequestMapping({"/","/blog"})
 public class BlogController {
     @Autowired
     private BlogService blogService;
     @Autowired
     private CategoryService categoryService;
-    @GetMapping({"","/list"})
+    @GetMapping("/list")
     public String listBlog(Model model, @PageableDefault(value = 5)Pageable pageable){
         model.addAttribute("blogList", blogService.findAll(pageable));
         return "blog/list";
@@ -38,7 +38,13 @@ public class BlogController {
         redirectAttributes.addFlashAttribute("message","save success");
         return "/blog/list";
     }
-    @GetMapping("/update")
+    @GetMapping("{id}/update")
+    public String showUpdate(@PathVariable int id,Model model){
+        model.addAttribute("categoryList",categoryService.findAll());
+        model.addAttribute("blogList",blogService.findById(id));
+        return "blog/update";
+    }
+    @PostMapping("/update")
     public String updateBlog(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes){
 
         blogService.save(blog);
@@ -55,7 +61,7 @@ public class BlogController {
     public String deleteBlog(@PathVariable int id, RedirectAttributes redirectAttributes) {
         blogService.remove(id);
         redirectAttributes.addFlashAttribute("message", "Delete Success!!!");
-        return "redirect:/blog/";
+        return "redirect:/blog/list";
     }
 
     @PostMapping("/search")

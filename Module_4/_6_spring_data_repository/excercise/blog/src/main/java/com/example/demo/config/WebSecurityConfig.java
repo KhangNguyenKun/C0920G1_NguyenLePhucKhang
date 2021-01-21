@@ -32,7 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .formLogin()
-                    .defaultSuccessUrl("/student")
+                    .defaultSuccessUrl("/blog/list")
                     .permitAll()
                 .and()
                     .authorizeRequests().antMatchers("/hello").permitAll()

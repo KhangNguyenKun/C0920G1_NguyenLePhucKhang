@@ -60,4 +60,12 @@ public class Blog {
     public void setWriteDate(String writeDate) {
         this.writeDate = writeDate;
     }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 }
