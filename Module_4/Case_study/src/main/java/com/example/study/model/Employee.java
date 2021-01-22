@@ -5,119 +5,118 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "employee")
 public class Employee {
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private String employee_id;
-    private String employee_name;
-    private String employee_birthday;
-    private String employee_id_card;
-    private String employee_salary;
-    private String employee_phone;
-    private String employee_email;
-    private String employee_address;
-    private String position_id;
-    private String education_degree_id;
-    private String division_id;
-    private String username;
+    private String employeeId;
+    private String employeeName;
+    private String employeeBirthday;
+    private String employeeIdCard;
+    private String employeeSalary;
+    private String employeePhone;
+    private String employeeEmail;
+    private String employeeAddress;
+    private String positionId;
+    private String educationDegreeId;
+    private String divisionId;
+    private String userName;
 
     public Employee() {
     }
 
-    public String getEmployee_id() {
-        return employee_id;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee_id(String employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getEmployee_name() {
-        return employee_name;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setEmployee_name(String employee_name) {
-        this.employee_name = employee_name;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
-    public String getEmployee_birthday() {
-        return employee_birthday;
+    public String getEmployeeBirthday() {
+        return employeeBirthday;
     }
 
-    public void setEmployee_birthday(String employee_birthday) {
-        this.employee_birthday = employee_birthday;
+    public void setEmployeeBirthday(String employeeBirthday) {
+        this.employeeBirthday = employeeBirthday;
     }
 
-    public String getEmployee_id_card() {
-        return employee_id_card;
+    public String getEmployeeIdCard() {
+        return employeeIdCard;
     }
 
-    public void setEmployee_id_card(String employee_id_card) {
-        this.employee_id_card = employee_id_card;
+    public void setEmployeeIdCard(String employeeIdCard) {
+        this.employeeIdCard = employeeIdCard;
     }
 
-    public String getEmployee_salary() {
-        return employee_salary;
+    public String getEmployeeSalary() {
+        return employeeSalary;
     }
 
-    public void setEmployee_salary(String employee_salary) {
-        this.employee_salary = employee_salary;
+    public void setEmployeeSalary(String employeeSalary) {
+        this.employeeSalary = employeeSalary;
     }
 
-    public String getEmployee_phone() {
-        return employee_phone;
+    public String getEmployeePhone() {
+        return employeePhone;
     }
 
-    public void setEmployee_phone(String employee_phone) {
-        this.employee_phone = employee_phone;
+    public void setEmployeePhone(String employeePhone) {
+        this.employeePhone = employeePhone;
     }
 
-    public String getEmployee_email() {
-        return employee_email;
+    public String getEmployeeEmail() {
+        return employeeEmail;
     }
 
-    public void setEmployee_email(String employee_email) {
-        this.employee_email = employee_email;
+    public void setEmployeeEmail(String employeeEmail) {
+        this.employeeEmail = employeeEmail;
     }
 
-    public String getEmployee_address() {
-        return employee_address;
+    public String getEmployeeAddress() {
+        return employeeAddress;
     }
 
-    public void setEmployee_address(String employee_address) {
-        this.employee_address = employee_address;
+    public void setEmployeeAddress(String employeeAddress) {
+        this.employeeAddress = employeeAddress;
     }
 
-    public String getPosition_id() {
-        return position_id;
+    public String getPositionId() {
+        return positionId;
     }
 
-    public void setPosition_id(String position_id) {
-        this.position_id = position_id;
+    public void setPositionId(String positionId) {
+        this.positionId = positionId;
     }
 
-    public String getEducation_degree_id() {
-        return education_degree_id;
+    public String getEducationDegreeId() {
+        return educationDegreeId;
     }
 
-    public void setEducation_degree_id(String education_degree_id) {
-        this.education_degree_id = education_degree_id;
+    public void setEducationDegreeId(String educationDegreeId) {
+        this.educationDegreeId = educationDegreeId;
     }
 
-    public String getDivision_id() {
-        return division_id;
+    public String getDivisionId() {
+        return divisionId;
     }
 
-    public void setDivision_id(String division_id) {
-        this.division_id = division_id;
+    public void setDivisionId(String divisionId) {
+        this.divisionId = divisionId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

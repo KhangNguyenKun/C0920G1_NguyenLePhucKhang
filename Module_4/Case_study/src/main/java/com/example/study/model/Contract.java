@@ -8,80 +8,79 @@ import javax.persistence.Id;
 @Entity
 public class Contract {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String contract_id;
-    private String contract_start_date;
-    private String contract_end_date;
-    private String contract_deposit;
-    private String contract_total_money;
-    private String employee_id;
-    private String customer_id;
-    private String service_id;
+    private String contractId;
+    private String contractStartDate;
+    private String contractEndDate;
+    private String contractDeposit;
+    private String contractTotalMoney;
+    private String employeeId;
+    private String customerId;
+    private String serviceId;
 
     public Contract() {
     }
 
-    public String getContract_id() {
-        return contract_id;
+    public String getContractId() {
+        return contractId;
     }
 
-    public void setContract_id(String contract_id) {
-        this.contract_id = contract_id;
+    public void setContractId(String contractId) {
+        this.contractId = contractId;
     }
 
-    public String getContract_start_date() {
-        return contract_start_date;
+    public String getContractStartDate() {
+        return contractStartDate;
     }
 
-    public void setContract_start_date(String contract_start_date) {
-        this.contract_start_date = contract_start_date;
+    public void setContractStartDate(String contractStartDate) {
+        this.contractStartDate = contractStartDate;
     }
 
-    public String getContract_end_date() {
-        return contract_end_date;
+    public String getContractEndDate() {
+        return contractEndDate;
     }
 
-    public void setContract_end_date(String contract_end_date) {
-        this.contract_end_date = contract_end_date;
+    public void setContractEndDate(String contractEndDate) {
+        this.contractEndDate = contractEndDate;
     }
 
-    public String getContract_deposit() {
-        return contract_deposit;
+    public String getContractDeposit() {
+        return contractDeposit;
     }
 
-    public void setContract_deposit(String contract_deposit) {
-        this.contract_deposit = contract_deposit;
+    public void setContractDeposit(String contractDeposit) {
+        this.contractDeposit = contractDeposit;
     }
 
-    public String getContract_total_money() {
-        return contract_total_money;
+    public String getContractTotalMoney() {
+        return contractTotalMoney;
     }
 
-    public void setContract_total_money(String contract_total_money) {
-        this.contract_total_money = contract_total_money;
+    public void setContractTotalMoney(String contractTotalMoney) {
+        this.contractTotalMoney = contractTotalMoney;
     }
 
-    public String getEmployee_id() {
-        return employee_id;
+    public String getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee_id(String employee_id) {
-        this.employee_id = employee_id;
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getCustomer_id() {
-        return customer_id;
+    public String getCustomerId() {
+        return customerId;
     }
 
-    public void setCustomer_id(String customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
-    public String getService_id() {
-        return service_id;
+    public String getServiceId() {
+        return serviceId;
     }
 
-    public void setService_id(String service_id) {
-        this.service_id = service_id;
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 }

@@ -13,7 +13,6 @@ public class DemoApplication {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String pass = bCryptPasswordEncoder.encode("123");
         System.out.println(pass);
-
     }
 
 }

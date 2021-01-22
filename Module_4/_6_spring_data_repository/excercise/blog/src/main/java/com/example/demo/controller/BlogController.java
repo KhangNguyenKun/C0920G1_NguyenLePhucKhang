@@ -23,6 +23,8 @@ public class BlogController {
     private CategoryService categoryService;
     @GetMapping("/list")
     public String listBlog(Model model, @PageableDefault(value = 5)Pageable pageable){
+        model.addAttribute("categoryList",categoryService.findAll());
+        model.addAttribute("blog", new Blog());
         model.addAttribute("blogList", blogService.findAll(pageable));
         return "blog/list";
     }
@@ -61,7 +63,7 @@ public class BlogController {
     public String deleteBlog(@PathVariable int id, RedirectAttributes redirectAttributes) {
         blogService.remove(id);
         redirectAttributes.addFlashAttribute("message", "Delete Success!!!");
-        return "redirect:/blog/list";
+        return "redirect:/list";
     }
 
     @PostMapping("/search")

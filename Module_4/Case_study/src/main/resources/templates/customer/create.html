@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1>Create new Blog</h1>
+    <!--    private String customer_id;-->
+    <!--    private String customer_type_id;-->
+    <!--    private String customer_name;-->
+    <!--    private String customer_birthday;-->
+    <!--    private String customer_gender;-->
+    <!--    private String customer_id_card;-->
+    <!--    private String customer_phone;-->
+    <!--    private String customer_email;-->
+    <!--    private String customer_address;-->
+    <form th:action="@{/customer/save}" th:object="${customer}" method="post" novalidate="novalidate">
+        <div class="form-group">
+            <label class="col-form-label col-2">customerId</label>
+            <input class="form-control col-6" type="text" th:field="*{customerId}"/>
+        </div>
+        <div>
+            <select class="custom-color-dialog" th:field="*{customerTypeId.customerTypeId}">
+                <option th:each="customerTypeL: ${customerType}" th:value="${customerTypeL.customerTypeId}" th:text="${customerTypeL.customerTypeName}">
+                </option>
+            </select>
+        </div>
+
+<!--        <div class="form-group">-->
+<!--            <label class="col-form-label col-2">customerType</label>-->
+<!--            &lt;!&ndash;            <input class="form-control col-6" type="text" th:field="*{customerTypeId}"/>&ndash;&gt;-->
+<!--            <select th:field="*{customerTypeId}">&ndash;&gt;-->
+<!--                &lt;!&ndash;/*@thymesVar id="customerTypeName" type="com.example.study"*/&ndash;&gt;-->
+<!--                <option th:each="customerType:${customerType}" th:text="${customerType.customerTypeName}" th:value="${customerType.customerTypeId}"></option>-->
+<!--            </select>-->
+<!--        </div>-->
+        <div class="form-group">
+            <label class="col-form-label col-2">customerName</label>
+            <input class="form-control col-6" type="text" th:field="*{customerName}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerBirthday</label>
+            <input class="form-control col-6" type="date" th:field="*{customerBirthday}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerGender</label>
+            <input class="form-control col-6" type="text" th:field="*{customerGender}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerIdCard</label>
+            <input class="form-control col-6" type="text" th:field="*{customerIdCard}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerPhone</label>
+            <input class="form-control col-6" type="text" th:field="*{customerPhone}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerEmail</label>
+            <input class="form-control col-6" type="text" th:field="*{customerEmail}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">customerAddress</label>
+            <input class="form-control col-6" type="text" th:field="*{customerAddress}"/>
+        </div>
+        <!--        <div class="form-group">-->
+        <!--            <label class="col-form-label col-2">Category</label>-->
+        <!--            <select th:field="*{category}" >-->
+        <!--                <option th:each="provice:${categoryList}" th:text="${provice.name}" th:value="${provice.id}"></option>-->
+        <!--            </select>-->
+        <!--        </div>-->
+        <input type="submit" class="btn btn-outline-success" value="Create"/>
+        <a th:href="@{/customer/list}" class="btn btn-outline-primary">Back</a>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
