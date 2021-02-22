@@ -15,8 +15,8 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerRepository customerRepository;
 
     @Override
-    public List<Customer> findAll() {
-        return customerRepository.findAll();
+    public Page<Customer> findAll(Pageable pageable) {
+        return customerRepository.findAll(pageable);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.deleteById(id);
     }
 
-//    @Override
-//    public Page<Customer> findAllByNameContaining(String name, Pageable pageable) {
-//        return customerRepository.findAllByNameContaining(name,pageable);
-//    }
+    @Override
+    public Page<Customer> findAllInputText(String name, Pageable pageable) {
+        return customerRepository.findAllByCustomerNameContaining(name,pageable);
+    }
 }

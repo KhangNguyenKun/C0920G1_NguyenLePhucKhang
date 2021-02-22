@@ -21,12 +21,13 @@
     <!--            private String customerAddress;-->
     <!--    /*@thymesVar id="blog" type="com.example.demo"*/-->
     <form th:action="@{/customer/update}" th:object="${customerList}" method="post">
-        <input class="form-control col-6" type="text" th:field="*{customerId}" th:readonly/>
+        <input class="form-control col-6" type="hidden" th:field="*{customerId}" th:readonly/>
 <!--        <div class="form-group">-->
 <!--            <label class="col-form-label col-2">customerTypeId</label>-->
 <!--            <input class="form-control col-6" type="text" th:field="*{customerTypeId}"/>-->
 <!--        </div>-->
         <select th:field="*{customerTypeId.customerTypeId}">
+            Customer Type Id
             <option th:each="customerTypeL: ${customerType}" th:value="${customerTypeL.customerTypeId}" th:text="${customerTypeL.customerTypeName}">
             </option>
 

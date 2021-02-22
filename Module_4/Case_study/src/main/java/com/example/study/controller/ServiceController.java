@@ -2,9 +2,12 @@ package com.example.study.controller;
 
 import com.example.study.model.Customer;
 import com.example.study.model.Service;
+import com.example.study.repository.RentTypeRepository;
 import com.example.study.repository.ServiceRepository;
 import com.example.study.service.CustomerService;
+import com.example.study.service.RentTypeService;
 import com.example.study.service.ServiceService;
+import com.example.study.service.ServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +20,24 @@ public class ServiceController {
 
     @Autowired
     ServiceService serviceService;
+    @Autowired
+    RentTypeService rentTypeService;
+    @Autowired
+    ServiceTypeService serviceTypeService;
     //    @Autowired
 //    CustomerTypeRepository customerTypeRepository;
     @GetMapping("")
     public String showService (Model model){
         model.addAttribute("serviceList", serviceService.findAll());
+        model.addAttribute("renTypeList", rentTypeService.findAll());
+        model.addAttribute("serviceTypeList", serviceTypeService.findAll());
         return "/service/list";
     }
     @GetMapping("/create")
     public String showCreateForm(Model model){
         model.addAttribute("service",new Service());
+        model.addAttribute("renTypeList", rentTypeService.findAll());
+        model.addAttribute("serviceTypeList", serviceTypeService.findAll());
 //        model.addAttribute("customerType",customerTypeRepository.findAll());
         return "service/create";
     }
@@ -38,7 +49,9 @@ public class ServiceController {
     }
     @GetMapping("{id}/update")
     public String showUpdate(@PathVariable int id, Model model){
-        model.addAttribute("customer",serviceService.findById(id));
+        model.addAttribute("service",serviceService.findById(id));
+        model.addAttribute("renTypeList", rentTypeService.findAll());
+        model.addAttribute("serviceTypeList", serviceTypeService.findAll());
 //        model.addAttribute("customerType",customerTypeRepository.findById(id));
         return "service/edit";
     }

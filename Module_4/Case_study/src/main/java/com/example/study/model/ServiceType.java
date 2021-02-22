@@ -1,23 +1,34 @@
 package com.example.study.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class ServiceType {
     @Id
-    private String serviceTypeId;
+    private int serviceTypeId;
     private String serviceTypeName;
+
+    @OneToMany(mappedBy = "serviceTypeId")
+    private List<Service> serviceList;
 
     public ServiceType() {
     }
 
-    public String getServiceTypeId() {
+    public int getServiceTypeId() {
         return serviceTypeId;
     }
 
-    public void setServiceTypeId(String serviceTypeId) {
+    public void setServiceTypeId(int serviceTypeId) {
         this.serviceTypeId = serviceTypeId;
+    }
+
+    public List<Service> getServiceList() {
+        return serviceList;
+    }
+
+    public void setServiceList(List<Service> serviceList) {
+        this.serviceList = serviceList;
     }
 
     public String getServiceTypeName() {

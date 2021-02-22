@@ -1,32 +1,49 @@
 package com.example.study.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Service {
     @Id
-    private String serviceId;
+
+
+    private int serviceId;
     private String serviceName;
     private String serviceArea;
     private String serviceCost;
     private String serviceMaxPeople;
-    private String rentTypeId;
-    private String serviceTypeId;
+
+    @ManyToOne
+    @JoinColumn(name = "rent_type_id",referencedColumnName = "rentTypeId")
+    private RentType rentTypeId;
+
+    @ManyToOne
+    @JoinColumn(name = "service_type_id",referencedColumnName = "serviceTypeId")
+    private ServiceType serviceTypeId;
     private String standardRoom;
     private String descriptionOtherConvenience;
     private String poolArea;
     private String numberOfFloors;
 
+    @OneToMany(mappedBy = "serviceId")
+    private List<Contract> contractList;
     public Service() {
     }
 
-    public String getServiceId() {
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
+
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -62,19 +79,19 @@ public class Service {
         this.serviceMaxPeople = serviceMaxPeople;
     }
 
-    public String getRentTypeId() {
+    public RentType getRentTypeId() {
         return rentTypeId;
     }
 
-    public void setRentTypeId(String rentTypeId) {
+    public void setRentTypeId(RentType rentTypeId) {
         this.rentTypeId = rentTypeId;
     }
 
-    public String getServiceTypeId() {
+    public ServiceType getServiceTypeId() {
         return serviceTypeId;
     }
 
-    public void setServiceTypeId(String serviceTypeId) {
+    public void setServiceTypeId(ServiceType serviceTypeId) {
         this.serviceTypeId = serviceTypeId;
     }
 

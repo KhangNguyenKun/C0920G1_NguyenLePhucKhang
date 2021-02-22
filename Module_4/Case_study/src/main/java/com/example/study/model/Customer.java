@@ -1,19 +1,35 @@
 package com.example.study.model;
 
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity
-public class Customer {
+public class Customer  {
     @Id
+//    @Pattern(regexp = "^(KH-)\\d{4}$", message = "Id Customer Format Exception (KH-XXXX) !!!")
     private int customerId;
-
     private String customerName;
     private String customerBirthday;
     private String customerGender;
+    @Pattern(regexp = "^\\d{9}|\\d{12}$",message = "Id card Format Exception (XXXXXXXXX) or (XXXXXXXXXXXX)!!!")
     private String customerIdCard;
+//
+    @NotEmpty(message = "phone is not null")
+    @Pattern(regexp = "(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}",message = "Number Phone Format Exception (090|091)XXXXXXX !!!")
     private String customerPhone;
+    @NotEmpty(message = "email is not null")
+    @Email(message = "email wrong format")
     private String customerEmail;
     private String customerAddress;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contractList;
 
     @ManyToOne
     @JoinColumn(name = "customer_type_id", nullable = false)

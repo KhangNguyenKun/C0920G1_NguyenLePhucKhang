@@ -4,23 +4,24 @@ import com.example.study.model.Employee;
 import com.example.study.repository.EmployeeRepository;
 import com.example.study.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
-
     @Override
-    public List<Employee> findAll() {
-        return employeeRepository.findAll();
+    public Page<Employee> findAll(Pageable pageable) {
+        return employeeRepository.findAll(pageable);
     }
 
     @Override
-    public Employee findById(int id) {
-        return employeeRepository.findById(id).orElse(null);
+    public Optional<Employee> findById(Integer id) {
+        return employeeRepository.findById(id);
     }
 
     @Override
@@ -29,7 +30,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(Integer id) {
         employeeRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Employee> findAllInputText(String name, Pageable pageable) {
+        return employeeRepository.findAllByEmployeeNameContaining(name, pageable);
     }
 }

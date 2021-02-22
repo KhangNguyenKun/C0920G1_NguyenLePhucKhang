@@ -1,9 +1,7 @@
 package com.example.study.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Contract {
@@ -13,11 +11,49 @@ public class Contract {
     private String contractEndDate;
     private String contractDeposit;
     private String contractTotalMoney;
-    private String employeeId;
-    private String customerId;
-    private String serviceId;
+
+
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
+
+    @OneToMany(mappedBy="contract")
+    private Set<ContractDetail> contractDetailSet;
+
+    @ManyToOne
+    @JoinColumn(name = "service_id", nullable = false)
+    private Service serviceId;
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id", nullable = false)
+    private Employee employee;
 
     public Contract() {
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Set<ContractDetail> getContractDetailSet() {
+        return contractDetailSet;
+    }
+
+    public void setContractDetailSet(Set<ContractDetail> contractDetailSet) {
+        this.contractDetailSet = contractDetailSet;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 
     public String getContractId() {
@@ -60,27 +96,12 @@ public class Contract {
         this.contractTotalMoney = contractTotalMoney;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
-    }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
-    }
-
-    public String getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getServiceId() {
+    public Service getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(Service serviceId) {
         this.serviceId = serviceId;
     }
 }

@@ -9,30 +9,28 @@
 </head>
 <body>
 <div class="container">
-    <!--    <form action="/blog/search" style="float: right" method="post">-->
-    <!--        <input type="text" th:name="inputSearch">-->
-    <!--        <input type="submit" th:value="search">-->
-    <!--    </form>-->
-    <h2>Blog list</h2>
+    <form style="float: right" th:action="@{/customer/list}" class="form-inline my-2 my-lg-0" method="get">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search"
+               th:name="keyword">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <h2>Customer list</h2>
     <a th:href="@{/customer/create}">Create new customer</a>
     <a th:href="@{/customer/list}">List customer</a>
-    <!--    <h2 th:text ="{message}" style="color: red"></h2>-->
+    <!--        <h2 th:text ="{message}" style="color: red"></h2>-->
     <table class="table table-repository">
         <thead>
         <tr>
 
-
-<!--            private String customerId;-->
-<!--            private String customerTypeId;-->
-<!--            private String customerName;-->
-<!--            private String customerBirthday;-->
-<!--            private String customerGender;-->
-<!--            private String customerIdCard;-->
-<!--            private String customerPhone;-->
-<!--            private String customerEmail;-->
-<!--            private String customerAddress;-->
-
-
+            <!--            private String customerId;-->
+            <!--            private String customerTypeId;-->
+            <!--            private String customerName;-->
+            <!--            private String customerBirthday;-->
+            <!--            private String customerGender;-->
+            <!--            private String customerIdCard;-->
+            <!--            private String customerPhone;-->
+            <!--            private String customerEmail;-->
+            <!--            private String customerAddress;-->
 
 
             <th>customerId</th>
@@ -63,112 +61,58 @@
                     <a th:href="@{/customer/{id}/update(id=${customer.customerId})}"
                        class="btn btn-outline-primary">Edit</a>
                 </td>
-                <td><a th:href="@{/customer/{id}/delete(id=${customer.customerId})}"
-                       class="btn btn-outline-danger">Delete</a>
+                <td>
+                    <a data-toggle="modal" data-target="#modalDelete"
+                       th:data-id="${customer.getCustomerId()}" th:data-name="${customer.customerName}"
+                       class="btn btn-danger delete">Delete</a>
                 </td>
             </tr>
 
         </th:block>
-        </tbody>
 
 
-
-
-        <!--        <div>-->
-        <!--            <a th:href="@{'/blog'(page=${blogList.number - 1})}" th:if="${blogList.hasPrevious()}">Previous</a>-->
-        <!--            <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>-->
-        <!--            <a th:href="@{'/blog'(page=${blogList.number + 1})}" th:if="${blogList.hasNext()}">Next</a>-->
-        <!--        </div>-->
     </table>
+
+    <div class="pagination-div">
+<span th:if="${customerList.hasPrevious()}">
+    <a th:href="@{/customer(page=${customerList.number - 1},keyword = ${keywordOld},size=${customerList.size})}">Previous</a>
+</span>
+        <th:block th:each="i: ${#numbers.sequence(0, customerList.totalPages - 1)}">
+            <span th:if="${customerList.number == i}" class="selected">[[${i}+1]]</span>
+            <span th:unless="${customerList.number == i}">
+         <a th:href="@{/customer(page=${i},size=${customerList.size},keyword = ${keywordOld})}">[[${i}+1]]</a>
+    </span>
+        </th:block>
+        <span th:if="${customerList.hasNext()}">
+    <a th:href="@{/customer(page=${customerList.number+1},keyword = ${keywordOld},size=${customerList.size})}">Next</a>
+</span>
+    </div>
 </div>
 
-
-
-
-<!--<button type="button" class="btn btn-primary btn-lg" id="btnModalCreate" data-toggle="modal" data-target="#modelId">-->
-<!--    Create-->
-<!--</button>-->
-
-<!--<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">-->
-<!--    <div class="modal-dialog" role="document">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <h5 class="modal-title">Modal title</h5>-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                    <span aria-hidden="true">&times;</span>-->
-<!--                </button>-->
-<!--            </div>-->
-            <!--/*@thymesVar id="customer" type="com.example.study"*/-->
-<!--            <form th:action="@{/customer/save}" th:object="${customer}" method="post" novalidate="novalidate">-->
-<!--                <div class="modal-body">-->
-<!--                    &lt;!&ndash;            private String customer_id;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_type_id;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_name;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_birthday;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_gender;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_id_card;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_phone;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_email;&ndash;&gt;-->
-<!--                    &lt;!&ndash;            private String customer_address;&ndash;&gt;-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Name</label>-->
-<!--                        <input class="form-control col-6" type="text" th:field="*{customer_id}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Title</label>-->
-<!--                        <input class="form-control col-6" type="text" th:field="*{title}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Content</label>-->
-<!--                        <input class="form-control col-6" type="text" th:field="*{content}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Write date</label>-->
-<!--                        <input class="form-control col-6" type="date" th:field="*{writeDate}"/>-->
-<!--                    </div>-->
-<!--                    <div class="form-group">-->
-<!--                        <label class="col-form-label col-2">Category</label>-->
-<!--                        <select th:field="*{category}">-->
-<!--                            <option th:each="provice:${categoryList}" th:text="${provice.name}"-->
-<!--                                    th:value="${provice.id}"></option>-->
-<!--                        </select>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="modal-footer">-->
-<!--                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
-<!--                    <button type="submit" class="btn btn-primary">Save</button>-->
-<!--                </div>-->
-
-
-
-
-<!--            </form>-->
-<!--        </div>-->
-
-<!--    </div>-->
-<!--</div>-->
-<!--&lt;!&ndash; Optional JavaScript &ndash;&gt;-->
-<!--&lt;!&ndash; jQuery first, then Popper.js, then Bootstrap JS &ndash;&gt;-->
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form th:action="@{/customer/delete}" method="get">
+                <input type="hidden" id="deleteId" name="id">
+                <div class="modal-body">
+                    <span id="modalMessage"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete anyway</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -179,20 +123,24 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 
-<!--<script>-->
-<!--    $(document).ready(function () {-->
-<!--        $("#btnModalCreate").click(function () {-->
-<!--            $.ajax({-->
-<!--                type: "GET",-->
-<!--                url: "create",-->
-<!--                dataType: "HTML",-->
-<!--                success: function (data) {-->
-<!--                    $(".modal-body").html(data);-->
-<!--                    $("#modelId").modal('show');-->
-<!--                }-->
-<!--            });-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
+
+<script>
+    $(".delete").click(function () {
+        let id = $(this).attr("data-id");
+        let name = $(this).attr("data-name");
+        console.log("ID can xoa: " + id);
+
+        $("#deleteId").val(id);
+        $("#modalMessage").text("Do you want to delete " + name);
+
+
+        $("#modelId").modal('show');
+    })
+</script>
+
+
+
+<a th:href="@{/home}">Home</a>
+<a th:href="@{/logout}">Logout</a>
 </body>
 </html>

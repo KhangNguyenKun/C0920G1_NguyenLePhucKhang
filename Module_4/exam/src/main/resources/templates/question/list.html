@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <form style="float: right" th:action="@{/customer/list}" class="form-inline my-2 my-lg-0" method="get">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search by name" aria-label="Search"
+               th:name="keyword">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <h2>Customer list</h2>
+    <a th:href="@{/question/create}">Create new question</a>
+    <!--        <h2 th:text ="{message}" style="color: red"></h2>-->
+    <table class="table table-repository">
+        <thead>
+        <tr>
+
+
+
+            <th>Id</th>
+            <th>title</th>
+            <th>customer_name</th>
+            <th>customer_birthday</th>
+            <th>customer_gender</th>
+            <th>customer_id_card</th>
+            <th>customer_phone</th>
+            <th>customer_email</th>
+            <th>customer_address</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--            private int id;-->
+        <!--            private String title;-->
+        <!--            private String question;-->
+        <!--            private String answer;-->
+        <!--            private int id_question_type;-->
+        <!--            private String data_create;-->
+        <!--            private String user_create;-->
+        <!--            private String user_feedback;-->
+        <!--            private String status;-->
+        <th:block th:each="customer :${questionList}">
+            <tr>
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.title}"></td>
+                <td th:text="${customer.question}"></td>
+                <td th:text="${customer.answer}"></td>
+                <td th:text="${customer.id_question_type}"></td>
+                <td th:text="${customer.data_create}"></td>
+                <td th:text="${customer.user_create}"></td>
+                <td th:text="${customer.status}"></td>
+                <td>
+                    <a th:href="@{/customer/{id}/update(id=${customer.id})}"
+                       class="btn btn-outline-primary">Edit</a>
+                </td>
+                <td>
+                    <a data-toggle="modal" data-target="#modalDelete"
+                       th:data-id="${customer.getId()}" th:data-name="${customer.title}"
+                       class="btn btn-danger delete">Delete</a>
+                </td>
+            </tr>
+
+        </th:block>
+
+
+    </table>
+
+<!--    <div class="pagination-div">-->
+<!--<span th:if="${questionList.hasPrevious()}">-->
+<!--    <a th:href="@{/customer(page=${questionList.number - 1},keyword = ${keywordOld},size=${questionList.size})}">Previous</a>-->
+<!--</span>-->
+<!--        <th:block th:each="i: ${#numbers.sequence(0, questionList.totalPages - 1)}">-->
+<!--            <span th:if="${questionList.number == i}" class="selected">[[${i}+1]]</span>-->
+<!--            <span th:unless="${questionList.number == i}">-->
+<!--         <a th:href="@{/customer(page=${i},size=${questionList.size},keyword = ${keywordOld})}">[[${i}+1]]</a>-->
+<!--    </span>-->
+<!--        </th:block>-->
+<!--        <span th:if="${questionList.hasNext()}">-->
+<!--    <a th:href="@{/customer(page=${questionList.number+1},keyword = ${keywordOld},size=${questionList.size})}">Next</a>-->
+<!--</span>-->
+<!--    </div>-->
+<!--</div>-->
+
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Customer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form th:action="@{/customer/delete}" method="get">
+                <input type="hidden" id="deleteId" name="id">
+                <div class="modal-body">
+                    <span id="modalMessage"></span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Delete anyway</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+<script>
+    $(".delete").click(function () {
+        let id = $(this).attr("data-id");
+        let name = $(this).attr("data-name");
+        console.log("ID can xoa: " + id);
+
+        $("#deleteId").val(id);
+        $("#modalMessage").text("Do you want to delete " + name);
+
+
+        $("#modelId").modal('show');
+    })
+</script>
+
+
+
+<a th:href="@{/home}">Home</a>
+<a th:href="@{/logout}">Logout</a>
+</body>
+</html>

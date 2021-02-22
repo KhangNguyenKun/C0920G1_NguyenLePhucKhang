@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <h1>Create new Question</h1>
+
+
+    <form th:action="@{/question/save}" th:object="${question}" method="post" novalidate="novalidate">
+        <div class="form-group">
+            <label class="col-form-label col-2">Id</label>
+            <input class="form-control col-6" type="text" th:field="*{id}"/>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-form-label col-2">title</label>
+            <input class="form-control col-6" type="text" th:field="*{title}"/>
+<!--            <div style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>-->
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">question</label>
+            <input class="form-control col-6" type="text" th:field="*{question}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">answer</label>
+            <input class="form-control col-6" type="text" th:field="*{answer}"/>
+        </div>
+
+
+        <!--            private int id;-->
+        <!--            private String title;-->
+        <!--            private String question;-->
+        <!--            private String answer;-->
+        <!--            private int id_question_type;-->
+        <!--            private String data_create;-->
+        <!--            private String user_create;-->
+        <!--            private String user_feedback;-->
+        <!--            private String status;-->
+<!--        <div>-->
+<!--            <select class="custom-color-dialog"  th:field="*{question.customerTypeId}">-->
+<!--                <option th:each="customerTypeL: ${customerType}" th:value="${customerTypeL.customerTypeId}" th:text="${customerTypeL.customerTypeName}">-->
+<!--                </option>-->
+<!--            </select>-->
+<!--        </div>-->
+
+
+        <div class="form-group">
+            <label class="col-form-label col-2">id_question_type</label>
+            <input class="form-control col-6" type="text" th:field="*{id_question_type}"/>
+<!--            <div style="color: red" th:if="${#fields.hasErrors('questionType')}" th:errors="*{questionType}"></div>-->
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">data_create</label>
+            <input class="form-control col-6" type="date" th:field="*{data_create}"/>
+<!--            <div style="color: red" th:if="${#fields.hasErrors('data_create')}" th:errors="*{data_create}"></div>-->
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">user_create</label>
+            <input class="form-control col-6" type="text" th:field="*{user_create}"/>
+<!--            <div style="color: red" th:if="${#fields.hasErrors('user')}" th:errors="*{user}"></div>-->
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">user_feedback</label>
+            <input class="form-control col-6" type="text" th:field="*{user_feedback}"/>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label col-2">status</label>
+            <input class="form-control col-6" type="text" th:field="*{status}"/>
+        </div>
+
+        <input type="submit" class="btn btn-outline-success" value="Create"/>
+        <a th:href="@{/question}" class="btn btn-outline-primary">Back</a>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,9 +1,7 @@
 package com.example.study.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class AttachService {
@@ -13,6 +11,17 @@ public class AttachService {
     private String attachCost;
     private String attachUnit;
     private String attachStatus;
+
+    @OneToMany(mappedBy = "attachService", cascade = CascadeType.PERSIST)
+    private List<ContractDetail> contractDetailList;
+
+    public List<ContractDetail> getContractDetailList() {
+        return contractDetailList;
+    }
+
+    public void setContractDetailList(List<ContractDetail> contractDetailList) {
+        this.contractDetailList = contractDetailList;
+    }
 
     public AttachService() {
     }

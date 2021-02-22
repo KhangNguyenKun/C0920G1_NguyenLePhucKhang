@@ -1,14 +1,12 @@
 package com.example.study.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "employee")
+@Entity
 public class Employee {
     @Id
-    private String employeeId;
+    private int employeeId;
     private String employeeName;
     private String employeeBirthday;
     private String employeeIdCard;
@@ -16,19 +14,68 @@ public class Employee {
     private String employeePhone;
     private String employeeEmail;
     private String employeeAddress;
-    private String positionId;
-    private String educationDegreeId;
-    private String divisionId;
-    private String userName;
+
+    @ManyToOne
+    @JoinColumn(name = "user_name",nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "position_id",nullable = false)
+    private Position position;
+
+
+    @OneToMany(mappedBy = "employee")
+    private List<Contract> contractList;
+
+    @ManyToOne
+    @JoinColumn(name = "education_degree_id", nullable = false)
+    private EducationDegree educationDegree;
+
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
+    private Division division;
 
     public Employee() {
     }
 
-    public String getEmployeeId() {
+    public Division getDivision() {
+        return division;
+    }
+
+    public void setDivision(Division division) {
+        this.division = division;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
+
+    public EducationDegree getEducationDegree() {
+        return educationDegree;
+    }
+
+    public void setEducationDegree(EducationDegree educationDegree) {
+        this.educationDegree = educationDegree;
+    }
+
+    public int getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(String employeeId) {
+    public void setEmployeeId(int employeeId) {
         this.employeeId = employeeId;
     }
 
@@ -88,35 +135,13 @@ public class Employee {
         this.employeeAddress = employeeAddress;
     }
 
-    public String getPositionId() {
-        return positionId;
+    public User getUser() {
+        return user;
     }
 
-    public void setPositionId(String positionId) {
-        this.positionId = positionId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getEducationDegreeId() {
-        return educationDegreeId;
-    }
 
-    public void setEducationDegreeId(String educationDegreeId) {
-        this.educationDegreeId = educationDegreeId;
-    }
-
-    public String getDivisionId() {
-        return divisionId;
-    }
-
-    public void setDivisionId(String divisionId) {
-        this.divisionId = divisionId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }

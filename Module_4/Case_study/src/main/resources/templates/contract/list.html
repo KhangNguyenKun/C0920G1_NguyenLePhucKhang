@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <!--    <form action="/blog/search" style="float: right" method="post">-->
+    <!--        <input type="text" th:name="inputSearch">-->
+    <!--        <input type="submit" th:value="search">-->
+    <!--    </form>-->
+    <h2>Blog list</h2>
+    <a th:href="@{/contract/create}">Create new contract</a>
+    <!--    <h2 th:text ="{message}" style="color: red"></h2>-->
+    <table class="table table-repository">
+        <thead>
+        <tr>
+            <th>contractId</th>
+            <th>contractStartDate</th>
+            <th>contractEndDate</th>
+            <th>contractDeposit</th>
+            <th>contractTotalMoney</th>
+            <th>employee</th>
+            <th>customer</th>
+            <th>service</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--    private String contractId;-->
+        <!--    private String contractStartDate;-->
+        <!--    private String contractEndDate;-->
+        <!--    private String contractDeposit;-->
+        <!--    private String contractTotalMoney;-->
+        <!--    private String employeeId;-->
+        <!--    private String customerId;-->
+        <!--    private String serviceId;-->
+        <th:block th:each="contract :${contractList}">
+            <tr>
+                <td th:text="${contract.contractId}"></td>
+                <td th:text="${contract.contractStartDate}"></td>
+                <td th:text="${contract.contractEndDate}"></td>
+                <td th:text="${contract.contractDeposit}"></td>
+                <td th:text="${contract.contractTotalMoney}"></td>
+                <td th:text="${contract.employee.employeeName}"></td>
+                <td th:text="${contract.customer.customerName}"></td>
+                <td th:text="${contract.serviceId.serviceName}"></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+        <a th:href="@{/home}">Home</a>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>
