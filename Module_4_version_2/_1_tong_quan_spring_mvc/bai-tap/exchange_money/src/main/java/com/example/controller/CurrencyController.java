@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class currency {
+public class CurrencyController {
 
     @GetMapping("/enterMoney")
     public String showChangeForm() {

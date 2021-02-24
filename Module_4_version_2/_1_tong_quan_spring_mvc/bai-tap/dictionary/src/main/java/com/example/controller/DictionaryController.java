@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class dictionary {
+public class DictionaryController {
 
     @RequestMapping(value = "/input", method = RequestMethod.GET)
     public String show(){
