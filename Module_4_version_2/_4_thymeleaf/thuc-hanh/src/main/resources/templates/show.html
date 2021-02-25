@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form method="get">
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Manufacture</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row, rowStat : ${showList}">
+            <td th:text="${rowStat.index +1}"></td>
+            <td th:text="${row.getId()}"></td>
+            <td th:text="${row.getName()}"></td>
+            <td th:text="${row.getPrice()}"></td>
+            <td th:text="${row.getManufacture()}"></td>
+            <td th:href="@{/product/{id}/edit(id=${row.getId()})}">Edit</td>
+            <td th:href="@{/product/{id}/delete(id=${row.getId()})}">Delete</td>
+            <td th:href="@{/product/{id}/view(id=${row.getId()})}">View</td>
+
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
