@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head th:replace="/layout :: head">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/product/save}" method="post" th:object="${product}">
+    <div class="form-group">
+        <label >Id</label>
+        <input type="text" th:field="*{id}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email">
+<!--        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group">
+        <label >Name of product</label>
+        <input type="text" th:field="*{name}" class="form-control"  placeholder="Name">
+    </div>
+    <div class="form-group">
+        <label >Price of product</label>
+        <input type="text" th:field="*{price}" class="form-control"  placeholder="price">
+    </div>
+    <div class="form-group">
+        <label >Manufacture of product</label>
+        <input type="text" th:field="*{manufacture}" class="form-control"  placeholder="Manufacture">
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+</body>
+</html>

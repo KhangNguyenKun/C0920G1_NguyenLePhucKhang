@@ -3,11 +3,11 @@ package com.example.demo.service;
 import com.example.demo.model.Product;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ProductService {
     List<Product> findAll();
     void save(Product product);
-    void update(int id, Product product);
     void remove(int id);
-    Product findById(int id);
+    Optional<Product> findById(int id);
 }
