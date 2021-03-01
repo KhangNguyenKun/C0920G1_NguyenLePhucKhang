@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<a class="btn btn-outline-dark" th:href="@{/product/create}">
+    Add new customer
+</a>
+<form method="get">
+    <div class="notify">
+        <div th:if="${success}">
+            <span th:text="${success}"></span>
+        </div>
+    </div>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th  scope="col">STT</th>
+            <th  scope="col">ID</th>
+            <th  scope="col">Name</th>
+            <th  scope="col">Price</th>
+            <th  scope="col">Manufacture</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row, rowStat : ${showList}">
+            <td th:text="${rowStat.index +1}"></td>
+            <td th:text="${row.getId()}"></td>
+            <td th:text="${row.getName()}"></td>
+            <td th:text="${row.getPrice()}"></td>
+            <td th:text="${row.getManufacture()}"></td>
+            <td><a th:href="@{/product/{id}/edit(id=${row.getId()})}" class="btn btn-outline-dark">Edit</a></td>
+            <td> <a th:href="@{/product/{id}/delete(id=${row.getId()})}" class="btn btn-outline-dark">Delete</a></td>
+<!--            <td th:href="@{/product/{id}/view(id=${row.getId()})}">View</td>-->
+
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
