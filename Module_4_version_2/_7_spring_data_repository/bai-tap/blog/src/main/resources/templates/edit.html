@@ -17,12 +17,6 @@
         <label >Content</label>
         <input type="text" th:field="*{content}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter content">
     </div>
-    <div>
-        <select class="custom-color-dialog"  th:field="*{category}">
-            <option th:each="categoryL: ${category}" th:value="${categoryL.categoryId}" th:text="${categoryL.category}">
-            </option>
-        </select>
-    </div>
     <button type="submit" class="bullet-button">Submit</button>
 </form>
 

@@ -22,9 +22,6 @@ public class BlogController {
     @GetMapping("/")
     public String show(Model model, @RequestParam Optional<String> keyword, @PageableDefault(value = 3) Pageable pageable){
         String keywordOld = "";
-
-        model.addAttribute("blog", new Blog());
-        model.addAttribute("category", categoryService.findAll());
         if (!keyword.isPresent()) {
             model.addAttribute("blogTitle", blogService.findAll(pageable));
             model.addAttribute("category", categoryService.findAll());
@@ -51,7 +48,6 @@ public class BlogController {
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable int id, Model model){
         model.addAttribute("blogEdit", blogService.findById(id));
-        model.addAttribute("category", categoryService.findAll());
         return "/edit";
     }
 

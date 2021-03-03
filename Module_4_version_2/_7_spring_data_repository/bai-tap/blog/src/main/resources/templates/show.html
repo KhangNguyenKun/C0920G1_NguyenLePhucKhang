@@ -48,11 +48,9 @@
 
 
 </form>
-<div style="float: left">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCreate">
-        Add New Blog
-    </button>
-</div>
+<div><a th:href="@{/create}">Add new blog</a> </div>
+
+<div >
 <span th:if="${blogTitle.hasPrevious()}">
     <a th:href="@{/(page=${blogTitle.number - 1},keyword = ${keywordOld})}">Previous</a>
 </span>
@@ -67,42 +65,6 @@
 </span>
 </div>
 
-<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true" id="modalCreate">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Blog Create</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/save}" method="post" th:object="${blog}">
-                    <div class="form-group">
-                        <label >Title</label>
-                        <input type="text" th:field="*{title}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter title">
-                        <small  class="form-text text-muted">You should set your title here.</small>
-                    </div>
-                    <div class="form-group">
-                        <label >Content</label>
-                        <input type="text" th:field="*{content}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter content">
-                    </div>
-                    <div>
-                        <select class="custom-select"  th:field="*{category.categoryId}">
-                            <option th:each="categoryL: ${category}" th:value="${categoryL.categoryId}" th:text="${categoryL.category}">
-                            </option>
-                        </select>
-                    </div>
-                    <br>
-                    <button class="btn btn-dark" type="submit">Submit</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -148,19 +110,6 @@
 
         $("#modelId").modal('show');
     })
-
-    // $("#idModalCreate").click(function () {
-    //     $.get({
-    //         type: "GET",
-    //         url: "/create",
-    //         dataType: "HTML",
-    //         success: function (data) {
-    //             $("#modelId .modal-body").html(data);
-    //             $("#modelId").modal('show');
-    //         }
-    //     })
-    // })
 </script>
-
 </body>
 </html>
