@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Blog;
 import com.example.demo.service.BlogService;
+import com.example.demo.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -16,11 +17,14 @@ import java.util.Optional;
 public class BlogController {
     @Autowired
     BlogService blogService;
+    @Autowired
+    CategoryService categoryService;
     @GetMapping("/")
     public String show(Model model, @RequestParam Optional<String> keyword, @PageableDefault(value = 3) Pageable pageable){
         String keywordOld = "";
         if (!keyword.isPresent()) {
             model.addAttribute("blogTitle", blogService.findAll(pageable));
+            model.addAttribute("category", categoryService.findAll());
             return "/show";
         } else {
             keywordOld = keyword.get();
@@ -33,6 +37,7 @@ public class BlogController {
     @GetMapping("/create")
     public String create(Model model){
         model.addAttribute("blog", new Blog());
+        model.addAttribute("category", categoryService.findAll());
         return "/create";
     }
     @PostMapping("/save")

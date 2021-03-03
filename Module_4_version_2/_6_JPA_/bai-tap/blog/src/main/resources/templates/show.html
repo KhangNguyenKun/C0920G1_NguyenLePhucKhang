@@ -21,6 +21,7 @@
             <th>Id</th>
             <th>Title</th>
             <th>Content</th>
+            <th>Category</th>
         </tr>
         </thead>
 
@@ -30,6 +31,7 @@
                 <td th:text="*{blog.id}"></td>
                 <td th:text="*{blog.title}"></td>
                 <td th:text="*{blog.content}"></td>
+                <td th:text="*{blog.category.getCategory()}"></td>
                 <td >
                     <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>
                 </td>
