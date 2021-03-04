@@ -17,9 +17,8 @@ import java.lang.annotation.Annotation;
 import java.lang.annotation.Target;
 
 
-@Component
 @Entity
-public class User implements Validator, Annotation {
+public class User implements Validator {
 
 
     @Id
