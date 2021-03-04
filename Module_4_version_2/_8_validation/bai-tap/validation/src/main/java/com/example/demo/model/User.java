@@ -104,8 +104,4 @@ public class User implements Validator {
         }
     }
 
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
-    }
 }
