@@ -1,15 +1,23 @@
 package com.example.demo.model;
 
 
+import com.example.demo.annotation.Apple;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Product {
+public class Product implements Validator {
     @Id
     private int id;
+    @NotBlank(message = "not blank here")
     private String name;
     private String price;
+
+    @Apple
     private String manufacture;
 
     public Product() {
@@ -52,5 +60,18 @@ public class Product {
 
     public void setManufacture(String manufacture) {
         this.manufacture = manufacture;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Product product= (Product)target;
+        if (product.price.length()<10){
+            errors.rejectValue("price","priceValue");
+        }
     }
 }

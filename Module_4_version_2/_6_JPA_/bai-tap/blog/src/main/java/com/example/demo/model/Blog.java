@@ -1,14 +1,18 @@
 package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sun.istack.NotNull;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 
 @Entity
-public class Blog {
+public class Blog implements Validator {
     @Id
     @GeneratedValue
     private int id;
+    @NotNull
     private String title;
     private String content;
 
@@ -50,5 +54,18 @@ public class Blog {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Blog blog=(Blog)target;
+        if (blog.content.startsWith("0")){
+            errors.rejectValue("content","content.combined");
+        }
     }
 }

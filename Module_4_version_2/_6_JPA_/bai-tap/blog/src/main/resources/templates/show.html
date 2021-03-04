@@ -34,6 +34,8 @@
                 <td th:text="*{blog.category.getCategory()}"></td>
                 <td >
                     <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>
+<!--                    <a th:href="@{/edit} " class="btn btn-outline-primary"-->
+<!--                       data-toggle="modal" data-target="#modalEdit">Edit </a>-->
                 </td>
                 <td>
                     <a data-toggle="modal" data-target="#modalDelete"
@@ -81,11 +83,13 @@
                     <div class="form-group">
                         <label >Title</label>
                         <input type="text" th:field="*{title}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter title">
+                        <p style="color: red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}" ></p>
                         <small  class="form-text text-muted">You should set your title here.</small>
                     </div>
                     <div class="form-group">
                         <label >Content</label>
                         <input type="text" th:field="*{content}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter content">
+                        <p style="color: red" th:if="${#fields.hasErrors('content')}" th:errors="*{content}" ></p>
                     </div>
                     <div>
                         <select class="custom-select"  th:field="*{category.categoryId}">
@@ -103,6 +107,46 @@
         </div>
     </div>
 </div>
+
+<!--<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true" id="modalEdit">-->
+<!--    <div class="modal-dialog" role="document">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h5 class="modal-title">Blog Edit</h5>-->
+
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                    <span aria-hidden="true">&times;</span>-->
+<!--                </button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <form th:action="@{/edit}" method="post" th:object="${blogEdit}">-->
+<!--                    <input  th:field="*{id}">-->
+<!--                    <div class="form-group">-->
+<!--                        <label >Title</label>-->
+<!--                        <input type="text" th:field="*{title}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter title">-->
+<!--                        <small  class="form-text text-muted">You should set your title here.</small>-->
+<!--                    </div>-->
+<!--                    <div class="form-group">-->
+<!--                        <label >Content</label>-->
+<!--                        <input type="text" th:field="*{content}" class="form-control"  aria-describedby="emailHelp" placeholder="Enter content">-->
+<!--                    </div>-->
+<!--                    <div>-->
+<!--                        <select class="custom-color-dialog"  th:field="*{category}">-->
+<!--                            <option th:each="categoryL: ${category}" th:value="${categoryL.categoryId}" th:text="${categoryL.category}">-->
+<!--                            </option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="bullet-button">Submit</button>-->
+<!--                </form>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

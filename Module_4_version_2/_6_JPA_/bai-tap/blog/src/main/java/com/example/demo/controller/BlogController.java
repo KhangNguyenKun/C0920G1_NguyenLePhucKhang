@@ -8,6 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -37,16 +39,22 @@ public class BlogController {
         }
     }
 
-    @GetMapping("/create")
-    public String create(Model model){
-        model.addAttribute("blog", new Blog());
-        model.addAttribute("category", categoryService.findAll());
-        return "/create";
-    }
+//    @GetMapping("/create")
+//    public String create(Model model){
+//        model.addAttribute("blog", new Blog());
+//        model.addAttribute("category", categoryService.findAll());
+//        return "/show";
+//    }
     @PostMapping("/save")
-    public String save(Model model, Blog blog){
+    public String save(@Validated  Model model, Blog blog, BindingResult bindingResult){
+        new Blog().validate(blog, bindingResult);
+        if (bindingResult.hasErrors()){
+            return "/show";
+        }
+        else {
         blogService.save(blog);
-        return "redirect:/";
+        return "redirect:/";}
+
     }
     @GetMapping("/{id}/edit")
     public String edit(@PathVariable int id, Model model){

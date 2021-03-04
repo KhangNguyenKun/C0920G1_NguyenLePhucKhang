@@ -11,6 +11,8 @@ import java.util.*;
 public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository productRepository;
+
+
     @Override
     public List<Product> findAll() {
         return productRepository.findAll();
@@ -27,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<Product> findById(int id) {
-        return productRepository.findById(id);
+    public Product findById(int id) {
+        return productRepository.findById(id).orElse(null);
     }
 }
