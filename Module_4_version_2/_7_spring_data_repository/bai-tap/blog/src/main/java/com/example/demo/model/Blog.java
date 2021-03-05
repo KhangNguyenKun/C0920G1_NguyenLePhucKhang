@@ -11,6 +11,7 @@ public class Blog {
     private int id;
     private String title;
     private String content;
+    private String date;
 
     @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "category_id")
@@ -18,6 +19,14 @@ public class Blog {
     private Category category;
 
     public Blog() {
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public int getId() {

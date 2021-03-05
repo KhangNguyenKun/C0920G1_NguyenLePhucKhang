@@ -13,4 +13,5 @@ public interface BlogService  {
     void remove(int id);
     Optional<Blog> findById(int id);
     Page<Blog> findAllInputText(String name, Pageable pageable);
+    Page<Blog> findAllDate(Pageable pageable);
 }

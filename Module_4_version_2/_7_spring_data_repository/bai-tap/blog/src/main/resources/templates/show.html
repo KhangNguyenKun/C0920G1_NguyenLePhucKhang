@@ -22,6 +22,7 @@
             <th>Title</th>
             <th>Content</th>
             <th>Category</th>
+            <th>Date</th>
         </tr>
         </thead>
 
@@ -32,6 +33,7 @@
                 <td th:text="*{blog.title}"></td>
                 <td th:text="*{blog.content}"></td>
                 <td th:text="*{blog.category.getCategory()}"></td>
+                <td th:text="*{blog.date}"></td>
                 <td >
                     <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>
                 </td>
@@ -48,7 +50,9 @@
 
 
 </form>
+
 <div><a th:href="@{/create}">Add new blog</a> </div>
+<!--<div><a th:href="@{/create}">Sort by date</a> </div>-->
 
 <div >
 <span th:if="${blogTitle.hasPrevious()}">

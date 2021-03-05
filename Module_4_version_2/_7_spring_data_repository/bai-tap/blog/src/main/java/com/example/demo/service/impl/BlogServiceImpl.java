@@ -41,4 +41,9 @@ public class BlogServiceImpl implements BlogService {
     public Page<Blog> findAllInputText(String name, Pageable pageable) {
         return blogRepository.findAllByTitleContaining(name, pageable);
     }
+
+    @Override
+    public Page<Blog> findAllDate(Pageable pageable) {
+        return blogRepository.findAllByOrderByDateDesc(pageable);
+    }
 }

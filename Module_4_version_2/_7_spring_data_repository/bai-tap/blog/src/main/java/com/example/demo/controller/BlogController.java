@@ -23,7 +23,7 @@ public class BlogController {
     public String show(Model model, @RequestParam Optional<String> keyword, @PageableDefault(value = 3) Pageable pageable){
         String keywordOld = "";
         if (!keyword.isPresent()) {
-            model.addAttribute("blogTitle", blogService.findAll(pageable));
+            model.addAttribute("blogTitle", blogService.findAllDate(pageable));
             model.addAttribute("category", categoryService.findAll());
             return "/show";
         } else {
@@ -33,6 +33,13 @@ public class BlogController {
             return "/show";
         }
     }
+
+//    @GetMapping("/date")
+//    public String showByDate(Model model){
+//        model.addAttribute("blogTitle", blogService.findAllDate());
+//        model.addAttribute("category", categoryService.findAll());
+//        return "/show";
+//    }
 
     @GetMapping("/create")
     public String create(Model model){
