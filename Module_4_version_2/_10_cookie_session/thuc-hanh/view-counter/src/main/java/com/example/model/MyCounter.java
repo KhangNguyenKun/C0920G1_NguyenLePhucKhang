@@ -1,4 +1,4 @@
 package com.example.model;
 
-public class Book {
+public class MyCounter {
 }
