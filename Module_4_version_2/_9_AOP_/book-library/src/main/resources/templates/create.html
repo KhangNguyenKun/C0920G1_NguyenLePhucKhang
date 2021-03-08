@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="form">
-    <form th:action="@{/create}" th:object="${book}"
+    <form th:action="@{/save}" th:object="${book}"
           method="POST" novalidate="novalidate">
         <input type="hidden" th:field="*{id}"/>
         <div>

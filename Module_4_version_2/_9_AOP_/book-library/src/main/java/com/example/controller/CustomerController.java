@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.AOP.WriteFile;
 import com.example.model.Book;
 import com.example.model.Customer;
 import com.example.service.BookService;
@@ -39,6 +40,7 @@ public class CustomerController {
         customer.setBook(book);
         bookService.rentBook(book);
         customerService.save(customer);
+
         return "redirect:/";
     }
     @GetMapping("/return")

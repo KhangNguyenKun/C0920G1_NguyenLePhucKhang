@@ -11,22 +11,23 @@
         <tr>
             <th>Id</th>
             <th>Name</th>
-            <th>Quantity</th>
-            <th>Code book</th>
-            <th>Date</th>
+            <th>Price</th>
+
         </tr>
         </thead>
 
         <tbody>
-        <th:block th:each="book :${book}">
+        <th:block th:each="blog :${product}">
             <tr>
-                <td th:text="*{book.id}"></td>
-                <td th:text="*{book.name}"></td>
-                <td th:text="*{book.quantity}"></td>
-                <td th:text="*{book.codeBook}"></td>
+                <td th:text="*{blog.id}"></td>
+                <td th:text="*{blog.name}"></td>
+                <td th:text="*{blog.price}"></td>
 
                 <td >
-                    <a th:href="@{/{id}/borrow(id=${book.id})} " class="btn btn-outline-primary">Rent </a>
+                    <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>
+                </td>
+                <td >
+                    <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>
                 </td>
             </tr>
         </th:block>

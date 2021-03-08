@@ -16,9 +16,9 @@ public class Book {
     @Column(name = "code_book")
     private long codeBook;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    @JsonBackReference
-    private List<Customer> customerList;
+//    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+//    @JsonBackReference
+//    private List<Customer> customerList;
 
     public Book() {
     }
@@ -55,11 +55,11 @@ public class Book {
         this.codeBook = codeBook;
     }
 
-    public List<Customer> getCustomerList() {
-        return customerList;
-    }
-
-    public void setCustomerList(List<Customer> customerList) {
-        this.customerList = customerList;
-    }
+//    public List<Customer> getCustomerList() {
+//        return customerList;
+//    }
+//
+//    public void setCustomerList(List<Customer> customerList) {
+//        this.customerList = customerList;
+//    }
 }

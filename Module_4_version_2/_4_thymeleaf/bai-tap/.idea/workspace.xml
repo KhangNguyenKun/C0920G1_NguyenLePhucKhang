@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="602ff853-15c8-450a-b2e7-da67bce2a70d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/controller/BookController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/repository/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/error.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/layout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/returnBook.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/returnCode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/resources/templates/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module_4/Case_study/src/main/java/com/example/study/service/123/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module_4/Case_study/src/main/java/com/example/study/service/123/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module_4/Case_study/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module_4/Case_study/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../_9_AOP_/book-excercise/src/main/java/com/example/model/Book.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1pJv3yQgBB5uKXkqpz8nraAnkqw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../_5_ORM_/customer_management" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="602ff853-15c8-450a-b2e7-da67bce2a70d" name="Default Changelist" comment="" />
+      <created>1614913811088</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1614913811088</updated>
+      <workItem from="1614913812258" duration="7000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1614913817759">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1614913817759" />
+  </component>
+</project>
