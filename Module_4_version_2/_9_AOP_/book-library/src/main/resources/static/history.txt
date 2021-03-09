@@ -1,0 +1,5 @@
+Add new book successful: null
+Add new book successful: Book 3
+Borrow a book successful: null
+Borrow a book successful: book 5
+Borrow a book successful: Book 1
