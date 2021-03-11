@@ -1,32 +1,42 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
-@Entity
+import javax.persistence.*;
+import java.awt.print.Book;
+import java.util.List;
+
+
+
 public class Cart {
-    @Id
-    @GeneratedValue
-    private Integer id;
-    private Integer quantity;
+
+    private Product product;
+    private int amount;
+
+    public Cart(Product product, int amount) {
+        this.product = product;
+        this.amount = amount;
+    }
 
     public Cart() {
     }
 
-    public Integer getId() {
-        return id;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public Integer getQuantity() {
-        return quantity;
+    public int getAmount() {
+        return amount;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
+
+
 }

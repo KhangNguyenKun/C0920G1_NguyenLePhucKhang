@@ -1,8 +1,8 @@
 package com.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -12,6 +12,10 @@ public class Product {
     private String name;
     private String price;
 
+//    @ManyToOne
+//    @JoinColumn(name = "id_cart", referencedColumnName = "id_cart")
+//    @JsonBackReference
+//    private Cart cart;
     public Product(int id, String name, String price) {
         this.id = id;
         this.name = name;

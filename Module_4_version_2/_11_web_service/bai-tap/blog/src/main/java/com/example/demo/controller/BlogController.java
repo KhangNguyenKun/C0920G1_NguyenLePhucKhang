@@ -63,10 +63,10 @@ public class BlogController {
     }
 
     @GetMapping("/blogOfCategory/{id}")
-    public ResponseEntity<List<Category>> showBlogOCategory(@PathVariable Long id) {
+    public ResponseEntity<List<Blog>> showBlogOCategory(@PathVariable Long id) {
         Category category = categoryService.findById(id);
         List<Blog> blogList = blogService.findAllByCategory(category.getCategory());
-        return new ResponseEntity<List<Category>>(blogList, HttpStatus.OK);
+        return new ResponseEntity<List<Blog>>(blogList, HttpStatus.OK);
     }
 
 }

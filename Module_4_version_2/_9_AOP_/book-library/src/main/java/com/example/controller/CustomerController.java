@@ -40,7 +40,7 @@ public class CustomerController {
         customer.setBook(book);
         bookService.rentBook(book);
         customerService.save(customer);
-
+        WriteFile.name = book.getName();
         return "redirect:/";
     }
     @GetMapping("/return")
