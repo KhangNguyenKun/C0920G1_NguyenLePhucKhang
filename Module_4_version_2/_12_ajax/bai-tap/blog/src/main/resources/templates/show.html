@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+
+    </head>
+<body>
+<input type="text" id="btnSearch">Search</input>
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Date</th>
+        <th>Category</th>
+    </tr>
+    </thead>
+
+    <tbody id="myTable">
+    <!--        <th:block th:each="blog :${blogTitle}">-->
+    <!--            <tr>-->
+    <!--                <td th:text="*{blog.id}"></td>-->
+    <!--                <td th:text="*{blog.title}"></td>-->
+    <!--                <td th:text="*{blog.content}"></td>-->
+    <!--                <td th:text="*{blog.category.getCategory()}"></td>-->
+    <!--                <td th:text="*{blog.date}"></td>-->
+    <!--                <td >-->
+    <!--                    <a th:href="@{/{id}/edit(id=${blog.id})} " class="btn btn-outline-primary">Edit </a>-->
+    <!--                </td>-->
+    <!--            </tr>-->
+    <!--        </th:block>-->
+    </tbody>
+
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        let size = 2;
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/show",
+            dataType: 'json',
+            success: function (blogList) {
+                let result = "<tr>";
+                for (let i = 0; i < blogList.content.length; i++) {
+                    result += "<td>" + blogList.content[i].id + "</td>";
+                    result += "<td>" + blogList.content[i].title + "</td>";
+                    result += "<td>" + blogList.content[i].content + "</td>";
+                    result += "<td>" + blogList.content[i].date + "</td>";
+                    // result += "<td>" + blogList.content[i].category.categoryName + "</td>";
+                    result += "</tr>";
+
+                }
+                $('#myTable').html(result);
+            },
+            error: function (event) {
+                console.log("Fail");
+            }
+        });
+    });
+
+    $("#btnSearch").on("keyup", function () {
+        let name = document.getElementById("btnSearch").value;
+        $.ajax({
+            type: "GET",
+            url: "/search?name=" + name,
+            // data : {"name": name},
+            success: function (list) {
+                let rs = "";
+                for (let i = 0; i < list.length; i++) {
+                    rs += "<tr>";
+                    rs += "<tr>" + list[i].id + "</tr>";
+                    rs += "<tr>" + list[i].title + "</tr>";
+                    rs += "<tr>" + list[i].content + "</tr>";
+                    rs += "<tr>" + list[i].date + "</tr>";
+                    $("#myTable").html(rs);
+                }
+            }
+        })
+
+    })
+</script>
+</body>
+</html>
