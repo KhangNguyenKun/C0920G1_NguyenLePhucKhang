@@ -1,14 +1,12 @@
-package com.example.study.service.impl;
+package com.example.service.impl;
 
-import com.example.study.model.Customer;
-import com.example.study.repository.CustomerRepository;
-import com.example.study.service.CustomerService;
+import com.example.model.Customer;
+import com.example.repository.CustomerRepository;
+import com.example.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -21,7 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(int id) {
+    public Customer findById(String id) {
         return customerRepository.findById(id).orElse(null);
     }
 
@@ -31,12 +29,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(String id) {
         customerRepository.deleteById(id);
     }
 
     @Override
-    public List<Customer> findAllInputText(String name) {
-        return customerRepository.findAllByCustomerNameContaining(name);
+    public Page<Customer> findAllInputText(String name, Pageable pageable) {
+        return customerRepository.findAllByCustomerNameContaining(name, pageable);
     }
 }

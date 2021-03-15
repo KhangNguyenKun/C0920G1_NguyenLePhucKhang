@@ -1,6 +1,6 @@
-package com.example.study.service;
+package com.example.service;
 
-import com.example.study.model.CustomerType;
+import com.example.model.CustomerType;
 
 import java.util.List;
 import java.util.Optional;

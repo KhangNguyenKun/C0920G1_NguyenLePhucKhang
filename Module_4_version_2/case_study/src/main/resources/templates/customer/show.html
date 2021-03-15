@@ -1,15 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:th="http://www.thymeleaf.org" >
-    <head>
-        <meta charset="UTF-8">
-        <title>Title</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
 
-    </head>
+</head>
 <body>
 <input type="text" id="btnSearch">Search</input>
+<button type="button" class="btn btn-primary" id="btnModalCreate" data-target="#modelId">
+    Create new customer
+</button>
+
 <table class="table table-dark">
     <thead>
     <tr>
@@ -21,7 +25,7 @@
         <th>ID card</th>
         <th>PhoneNumber</th>
         <th>Email</th>
-        <th>Address </th>
+        <th>Address</th>
     </tr>
     </thead>
     <tbody id="myTable">
@@ -38,7 +42,7 @@
             <td th:text="${customer.customerAddress}"></td>
 
             <td>
-                <a th:href="@{/customer/{id}/update(id=${customer.customerId})}"
+                <a th:href="@{/{id}/edit(id=${customer.customerId})}"
                    class="btn btn-outline-primary">Edit</a>
             </td>
             <td>
@@ -52,30 +56,50 @@
     </tbody>
 
 </table>
-<a href="/create">Create new Customer</a>
+
 
 <div class="pagination-div">
 <span th:if="${customer.hasPrevious()}">
-    <a th:href="@{/customer(page=${customer.number - 1},size=${customer.size})}">Previous</a>
+    <a th:href="@{/(page=${customer.number - 1},size=${customer.size})}">Previous</a>
 </span>
     <th:block th:each="i: ${#numbers.sequence(0, customer.totalPages - 1)}">
         <span th:if="${customer.number == i}" class="selected">[[${i}+1]]</span>
         <span th:unless="${customer.number == i}">
-         <a th:href="@{/customer(page=${i},size=${customer.size})}">[[${i}+1]]</a>
+         <a th:href="@{/(page=${i},size=${customer.size})}">[[${i}+1]]</a>
     </span>
     </th:block>
     <span th:if="${customer.hasNext()}">
-    <a th:href="@{/customer(page=${customer.number+1},size=${customer.size})}">Next</a>
+    <a th:href="@{/(page=${customer.number+1},size=${customer.size})}">Next</a>
 </span>
 </div>
-</div>
 
 
-<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete Customer</h5>
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body-create">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelDelete" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!--                <h5 class="modal-title">Delete Customer</h5>-->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -93,17 +117,15 @@
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<script src="../../static/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
 
 
 <script>
@@ -136,6 +158,19 @@
         })
 
     });
+    $(document).ready(function () {
+        $("#btnModalCreate").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/create",
+                dataType: "HTML",
+                success: function (data) {
+                    $(".modal-body").html(data);
+                    // $("#modelId").modal('show');
+                }
+            });
+        });
+    });
     $(".delete").click(function () {
         let id = $(this).attr("data-id");
         let name = $(this).attr("data-name");
@@ -143,7 +178,9 @@
 
         $("#deleteId").val(id);
         $("#modalMessage").text("Do you want to delete " + name);
-    })
+    });
+
+
 </script>
 
 </body>

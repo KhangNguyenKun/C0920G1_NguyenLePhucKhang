@@ -1,4 +1,4 @@
-package com.example.study.model;
+package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -36,11 +36,11 @@ public class  CustomerType {
         this.customerTypeName = customerTypeName;
     }
 
-    public List<com.example.study.model.Customer> getCustomerList() {
+    public List<Customer> getCustomerList() {
         return customerList;
     }
 
-    public void setCustomerList(List<com.example.study.model.Customer> customerList) {
+    public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
     }
 }

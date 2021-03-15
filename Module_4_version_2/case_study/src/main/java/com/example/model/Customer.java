@@ -1,4 +1,4 @@
-package com.example.study.model;
+package com.example.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.springframework.validation.Errors;
@@ -7,19 +7,22 @@ import org.springframework.validation.Validator;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import java.util.List;
 
 @Entity
 public class Customer implements Validator {
     @Id
-    private int customerId;
+    private String customerId;
+
+    @NotEmpty
     private String customerName;
     private String customerBirthday;
     private String customerGender;
+    @NotEmpty
     private String customerIdCard;
     private String customerPhone;
+    @Email (message = "your email is wrong format")
     private String customerEmail;
+
     private String customerAddress;
 
     @ManyToOne
@@ -30,11 +33,11 @@ public class Customer implements Validator {
     public Customer() {
     }
 
-    public int getCustomerId() {
+    public String getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(String customerId) {
         this.customerId = customerId;
     }
 
@@ -109,6 +112,15 @@ public class Customer implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-        m
+        Customer customer = (Customer) target;
+        if(!customer.customerId.matches("^(KH-)\\d{4}$")){
+            errors.reject("customerId", "customer.id.format");
+        }
+        if(!customer.customerPhone.matches("(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}")){
+            errors.reject("customerPhone", "customer.phone.format");
+        }
+        if(!customer.customerIdCard.matches("^\\d{9}|\\d{12}$")){
+            errors.reject("customerIdCard", "customer.IdCard.format");
+        }
     }
 }

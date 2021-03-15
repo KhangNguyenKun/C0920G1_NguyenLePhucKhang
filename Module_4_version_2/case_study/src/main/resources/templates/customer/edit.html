@@ -21,15 +21,15 @@
     <!--            private String customerEmail;-->
     <!--            private String customerAddress;-->
     <!--    /*@thymesVar id="blog" type="com.example.demo"*/-->
-    <form th:action="@{/customer/update}" th:object="${customerList}" method="post">
+    <form th:action="@{/update}" th:object="${customerList}" method="post">
         <input class="form-control col-6" type="hidden" th:field="*{customerId}" th:readonly/>
 <!--        <div class="form-group">-->
 <!--            <label class="col-form-label col-2">customerTypeId</label>-->
 <!--            <input class="form-control col-6" type="text" th:field="*{customerTypeId}"/>-->
 <!--        </div>-->
-        <select th:field="*{customerTypeId.customerTypeId}">
+        <select th:field="*{customerType.customerTypeId}">
             Customer Type Id
-            <option th:each="customerTypeL: ${customerType}" th:value="${customerTypeL.customerTypeId}" th:text="${customerTypeL.customerTypeName}">
+            <option th:each="customerTypeL: ${customerTypeId}" th:value="${customerTypeL.customerTypeId}" th:text="${customerTypeL.customerTypeName}">
             </option>
 
         </select>
@@ -74,7 +74,7 @@
         <input type="submit" class="btn btn-outline-success" value="Update"/>
 
     </form>
-    <a th:href="@{/customer}" class="btn btn-outline-primary">Back</a>
+    <a th:href="@{/templates/customer}" class="btn btn-outline-primary">Back</a>
 </div>
 
 </body>
