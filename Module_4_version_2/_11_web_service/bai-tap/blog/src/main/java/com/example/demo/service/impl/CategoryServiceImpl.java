@@ -35,7 +35,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public Category findById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
+    public Optional<Category> findById(int id) {
+        return Optional.empty();
     }
 }

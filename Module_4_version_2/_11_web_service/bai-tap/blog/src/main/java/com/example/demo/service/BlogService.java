@@ -11,8 +11,7 @@ public interface BlogService  {
     Page<Blog> findAll(Pageable pageable);
     void save(Blog product);
     void remove(int id);
-  Blog findById(int id);
-    Page<Blog> findAllInputText(String name, Pageable pageable);
+    Optional<Blog> findById(int id);
+    List<Blog> findAllInputText(String name);
     Page<Blog> findAllDate(Pageable pageable);
-    List<Blog> findAllByCategory(String category);
 }

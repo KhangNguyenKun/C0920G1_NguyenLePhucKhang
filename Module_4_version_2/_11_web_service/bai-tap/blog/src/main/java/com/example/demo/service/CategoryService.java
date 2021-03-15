@@ -12,5 +12,5 @@ public interface CategoryService  {
     List<Category> findAll();
     void save(Category category);
     void remove(Long id);
-    Category findById(Long id);
+    Optional<Category> findById(int id);
 }

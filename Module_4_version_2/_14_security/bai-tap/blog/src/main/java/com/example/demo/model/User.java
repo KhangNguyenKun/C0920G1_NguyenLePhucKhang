@@ -7,7 +7,6 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue
-    private Long id;
     private String username;
     private String password;
     private boolean isEnabled;
@@ -27,14 +26,6 @@ public class User {
         this.password = password;
         this.isEnabled = isEnabled;
         this.roles = roles;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getUsername() {

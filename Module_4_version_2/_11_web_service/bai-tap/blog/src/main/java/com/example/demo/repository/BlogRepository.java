@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
-    Page<Blog> findAllByTitleContaining(String title, Pageable pageable);
+    List<Blog> findAllByTitleContaining(String title);
     Page<Blog> findAllByOrderByDateDesc (Pageable pageable);
-    List<Blog> findAllByCategory(String category);
- }
+}

@@ -33,22 +33,17 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public Blog findById(int id) {
-        return blogRepository.findById(id).orElse(null);
+    public Optional<Blog> findById(int id) {
+        return blogRepository.findById(id);
     }
 
     @Override
-    public Page<Blog> findAllInputText(String name, Pageable pageable) {
-        return blogRepository.findAllByTitleContaining(name, pageable);
+    public List<Blog> findAllInputText(String name) {
+        return blogRepository.findAllByTitleContaining(name);
     }
 
     @Override
     public Page<Blog> findAllDate(Pageable pageable) {
         return blogRepository.findAllByOrderByDateDesc(pageable);
-    }
-
-    @Override
-    public List<Blog> findAllByCategory(String category) {
-        return blogRepository.findAllByCategory(category);
     }
 }

@@ -29,12 +29,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .formLogin()
-                    .defaultSuccessUrl("/student")
-                    .permitAll()
-                .and()
-                    .authorizeRequests().antMatchers("/hello").permitAll()
-                    .anyRequest().authenticated();
+//        http
+//                .formLogin()
+//                    .defaultSuccessUrl("/edit")
+//                    .permitAll()
+//                .and()
+//                    .authorizeRequests().antMatchers("/show").permitAll()
+//                    .anyRequest().authenticated();
+        http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
     }
 }

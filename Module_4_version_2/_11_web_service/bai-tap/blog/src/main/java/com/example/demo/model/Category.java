@@ -12,19 +12,19 @@ public class Category {
     @Column(name = "category_id")
     private Long categoryId;
 
-    private String category;
+    private String categoryName;
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     @JsonManagedReference
     private Set<Blog> blog;
     public Category() {
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategoryName(String category) {
+        this.categoryName = category;
     }
 
     public Long getCategoryId() {
