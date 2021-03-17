@@ -59,7 +59,7 @@ public class BlogController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute Blog blog, RedirectAttributes redirectAttributes){
+    public String edit(@ModelAttribute Blog blog){
         blogService.save(blog);
 //        redirectAttributes.addFlashAttribute("message", "successful");
         return "redirect:/";

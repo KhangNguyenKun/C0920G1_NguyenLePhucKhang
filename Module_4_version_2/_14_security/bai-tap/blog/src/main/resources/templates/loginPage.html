@@ -5,7 +5,7 @@
 </head>
 <body>
 <!-- Include _menu.html -->
-<th:block th:include="/_menu"></th:block>
+<!--<th:block th:include="/_menu"></th:block>-->
 
 <h1>Login</h1>
 
@@ -14,10 +14,10 @@
      style="color:red;margin:10px 0px;">
     Login Failed!!!<br />
     Reason :
-    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
-          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
-                Static summary
-         </span>
+<!--    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"-->
+<!--          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">-->
+<!--                Static summary-->
+<!--         </span>-->
 
 </div>
 

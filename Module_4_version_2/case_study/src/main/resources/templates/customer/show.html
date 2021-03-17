@@ -12,24 +12,24 @@
             font-family: 'Open Sans', sans-serif;
             font-weight: 300;
             line-height: 1.42em;
-            color: #A7A1AE;
-            background-color: #1F2739;
+            color:#A7A1AE;
+            background-color:whitesmoke;
         }
 
         h1 {
-            font-size: 3em;
+            font-size:3em;
             font-weight: 300;
-            line-height: 1em;
+            line-height:1em;
             text-align: center;
             color: #4DC3FA;
         }
 
         h2 {
-            font-size: 1em;
+            font-size:1em;
             font-weight: 300;
             text-align: center;
             display: block;
-            line-height: 1em;
+            line-height:1em;
             padding-bottom: 2em;
             color: #FB667A;
         }
@@ -41,13 +41,8 @@
             text-decoration: none;
         }
 
-        .blue {
-            color: #185875;
-        }
-
-        .yellow {
-            color: #FFF842;
-        }
+        .blue { color: #185875; }
+        .yellow { color: #FFF842; }
 
         .container th h1 {
             font-weight: bold;
@@ -76,7 +71,7 @@
         .container td, .container th {
             padding-bottom: 2%;
             padding-top: 2%;
-            padding-left: 2%;
+            padding-left:2%;
         }
 
         /* Background-color of the odd rows */
@@ -93,9 +88,7 @@
             background-color: #1F2739;
         }
 
-        .container td:first-child {
-            color: #FB667A;
-        }
+        .container td:first-child { color: #FB667A; }
 
         .container tr:hover {
             background-color: #464A52;
@@ -120,9 +113,7 @@
 
         @media (max-width: 800px) {
             .container td:nth-child(4),
-            .container th:nth-child(4) {
-                display: none;
-            }
+            .container th:nth-child(4) { display: none; }
         }
     </style>
 </head>
@@ -132,12 +123,18 @@
 <h2>Created by <a href="https://github.com/pablorgarcia" target="_blank">Nguyen Le Phuc Khang</a></h2>
 
 
-<input type="text" id="btnSearch">Search</input>
+<!--<input type="text" id="btnSearch">Search</input>-->
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text" >Search</span>
+    </div>
+    <input type="text" id="btnSearch" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+</div>
 <button type="button" class="btn btn-primary" id="btnModalCreate" data-target="#modelId">
     Create new customer
 </button>
 
-<table class="table table-dark">
+<table class="table table-repository">
     <thead>
     <tr>
         <th>Id</th>
@@ -181,21 +178,16 @@
 </table>
 
 
-<div class="pagination-div">
-<span th:if="${customer.hasPrevious()}">
-    <a th:href="@{/(page=${customer.number - 1},size=${customer.size})}">Previous</a>
-</span>
-    <th:block th:each="i: ${#numbers.sequence(0, customer.totalPages - 1)}">
-        <span th:if="${customer.number == i}" class="selected">[[${i}+1]]</span>
-        <span th:unless="${customer.number == i}">
-         <a th:href="@{/(page=${i},size=${customer.size})}">[[${i}+1]]</a>
-    </span>
-    </th:block>
-    <span th:if="${customer.hasNext()}">
-    <a th:href="@{/(page=${customer.number+1},size=${customer.size})}">Next</a>
-</span>
-</div>
-
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li th:if="${customer.hasPrevious()}" class="page-item"><a class="page-link" th:href="@{/(page=${customer.number - 1},size=${customer.size})}">Previous</a></li>
+        <th:block th:each="i: ${#numbers.sequence(0, customer.totalPages - 1)}">
+        <li class="page-item"><a class="page-link" th:if="${customer.number == i}">[[${i}+1]]</a></li>
+        <li th:unless="${customer.number == i}" class="page-item"><a class="page-link" th:href="@{/(page=${i},size=${customer.size})}">[[${i}+1]]</a></li>
+        </th:block>
+        <li th:if="${customer.hasNext()}" class="page-item"><a class="page-link" th:href="@{/(page=${customer.number+1},size=${customer.size})}">Next</a></li>
+    </ul>
+</nav>
 
 <!-- Modal -->
 <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -209,10 +201,6 @@
             </div>
             <div class="modal-body-create">
 
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
             </div>
         </div>
     </div>
@@ -289,8 +277,8 @@
                 url: "/create",
                 dataType: "HTML",
                 success: function (data) {
-                    $(".modal-body").html(data);
-                    // $("#modelId").modal('show');
+                    $(".modal-body-create").html(data);
+                    $("#modelId").modal('show');
                 }
             });
         });

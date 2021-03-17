@@ -1,0 +1,143 @@
+package com.example.customer.entity;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
+import javax.validation.constraints.Min;
+
+
+@Entity
+@Table(name = "service")
+public class Service {
+    @Id
+    @GeneratedValue
+    private Integer serviceId;
+    private String serviceName;
+    private String serviceArea;
+    private String serviceCost;
+
+    @Min(value = 0, message = "You have to choose the amount")
+    private String serviceMaxPeople;
+
+    private String standardRoom;
+    private String descriptionOtherConvenience;
+
+   @Min(value = 0, message = "The pool must be above 0")
+    private String poolArea;
+
+    @Min(value = 0, message = "The floor must be above 0")
+    private String numberOfFloors;
+    private String freeService;
+
+
+    @ManyToOne
+    @JoinColumn(name = "service_type_id", referencedColumnName = "service_type_id")
+    @JsonBackReference
+    private ServiceType serviceType;
+
+
+    @ManyToOne
+    @JoinColumn(name = "rent_type_id", referencedColumnName = "rent_type_id")
+    @JsonBackReference
+    private RenType renType;
+    public Service() {
+    }
+
+    public String getStandardRoom() {
+        return standardRoom;
+    }
+
+    public void setStandardRoom(String standardRoom) {
+        this.standardRoom = standardRoom;
+    }
+
+    public String getDescriptionOtherConvenience() {
+        return descriptionOtherConvenience;
+    }
+
+    public void setDescriptionOtherConvenience(String descriptionOtherConvenience) {
+        this.descriptionOtherConvenience = descriptionOtherConvenience;
+    }
+
+    public String getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(String poolArea) {
+        this.poolArea = poolArea;
+    }
+
+    public String getNumberOfFloors() {
+        return numberOfFloors;
+    }
+
+    public void setNumberOfFloors(String numberOfFloors) {
+        this.numberOfFloors = numberOfFloors;
+    }
+
+    public String getFreeService() {
+        return freeService;
+    }
+
+    public void setFreeService(String freeService) {
+        this.freeService = freeService;
+    }
+
+    public ServiceType getServiceType() {
+        return serviceType;
+    }
+
+    public void setServiceType(ServiceType serviceType) {
+        this.serviceType = serviceType;
+    }
+
+    public RenType getRenType() {
+        return renType;
+    }
+
+
+    public void setRenType(RenType renType) {
+        this.renType = renType;
+    }
+
+    public Integer getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(Integer serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
+
+    public String getServiceArea() {
+        return serviceArea;
+    }
+
+    public void setServiceArea(String serviceArea) {
+        this.serviceArea = serviceArea;
+    }
+
+    public String getServiceCost() {
+        return serviceCost;
+    }
+
+    public void setServiceCost(String serviceCost) {
+        this.serviceCost = serviceCost;
+    }
+
+    public String getServiceMaxPeople() {
+        return serviceMaxPeople;
+    }
+
+    public void setServiceMaxPeople(String serviceMaxPeople) {
+        this.serviceMaxPeople = serviceMaxPeople;
+    }
+
+}

@@ -1,8 +1,8 @@
 package com.example.customer.controller;
 
 import com.example.customer.entity.Customer;
-import com.example.customer.service.CustomerService;
-import com.example.customer.service.CustomerTypeService;
+import com.example.customer.service.impl.CustomerService;
+import com.example.customer.service.impl.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

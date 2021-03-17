@@ -2,6 +2,7 @@ package com.example.customer.service;
 
 import com.example.customer.entity.Customer;
 import com.example.customer.repository.CustomerRepository;
+import com.example.customer.service.impl.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +35,6 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Page<Customer> findAllInputText(String name, Pageable pageable) {
-        return customerRepository.findAllByCustomerNameContaining(name, pageable);
+        return customerRepository.findAllInputTex(name, pageable);
     }
 }

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <style>
+     background: #C5E1A5;
+     }
+     form {
+         width: 60%;
+         margin: 60px auto;
+         background: #efefef;
+         padding: 60px 120px 80px 120px;
+         text-align: center;
+         -webkit-box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+         box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+     }
+     label {
+         display: block;
+         position: relative;
+         margin: 40px 0px;
+     }
+     .label-txt {
+         position: absolute;
+         top: -1.6em;
+         padding: 10px;
+         font-family: sans-serif;
+         font-size: .8em;
+         letter-spacing: 1px;
+         color: rgb(120,120,120);
+         transition: ease .3s;
+     }
+     .input {
+         width: 100%;
+         padding: 10px;
+         background: transparent;
+         border: none;
+         outline: none;
+     }
+
+     .line-box {
+         position: relative;
+         width: 100%;
+         height: 2px;
+         background: #BCBCBC;
+     }
+
+     .line {
+         position: absolute;
+         width: 0%;
+         height: 2px;
+         top: 0px;
+         left: 50%;
+         transform: translateX(-50%);
+         background: #8BC34A;
+         transition: ease .6s;
+     }
+
+     .input:focus + .line-box .line {
+         width: 100%;
+     }
+
+     .label-active {
+         top: -3em;
+     }
+
+     button {
+         display: inline-block;
+         padding: 12px 24px;
+         background: rgb(220,220,220);
+         font-weight: bold;
+         color: rgb(120,120,120);
+         border: none;
+         outline: none;
+         border-radius: 3px;
+         cursor: pointer;
+         transition: ease .3s;
+     }
+
+     button:hover {
+         background: #8BC34A;
+         color: #ffffff;
+     }
+ </style>
+</head>
+<body>
+<div class="container">
+    <h1>Create new employee</h1>
+    <form th:action="@{/employee/save}" th:object="${employee}" method="post" novalidate="novalidate">
+        <label>
+            <p class="label-txt">ENTER YOUR NAME</p>
+            <input type="text" class="input" th:field="*{employeeName}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR BIRTHDAY</p>
+            <input type="text" class="input" th:field="*{employeeBirthday}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR NAME</p>
+            <input type="text" class="input" th:field="*{employeeIdCard}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR SALARY</p>
+            <input type="text" class="input" th:field="*{employeeSalary}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR MAIL</p>
+            <input type="text" class="input" th:field="*{employeeEmail}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">ENTER YOUR ADDRESS</p>
+            <input type="text" class="input" th:field="*{employeeAddress}">
+            <div class="line-box">
+                <div class="line"></div>
+            </div>
+        </label>
+
+        <div>POSITION
+            <select class="form-control"  th:field="*{position.positionId}">
+                <option th:each="positionL: ${positionList}" th:value="${positionL.positionId}" th:text="${positionL.positionName}">
+                </option>
+            </select>
+        </div>
+        <br>
+        <div>EDUCATION DEGREE
+            <select class="form-control"  th:field="*{educationDegree.educationDegreeId}">
+                <option th:each="edu: ${educationDegree}" th:value="${edu.educationDegreeId}" th:text="${edu.educationDegreeName}">
+                </option>
+            </select>
+        </div>
+        <br>
+        <div>DIVISION
+            <select class="form-control"  th:field="*{division.divisionId}">
+                <option th:each="division : ${divisionList}" th:value="${division.divisionId}" th:text="${division.divisionName}">
+                </option>
+            </select>
+        </div>
+        <br>
+        <div>User name
+            <select class="form-control"  th:field="*{user.userName}">
+                <option th:each="division : ${userList}" th:value="${division.userId}" th:text="${division.userName}">
+                </option>
+            </select>
+        </div>
+        <input type="submit" class="btn btn-outline-success" value="Create"/>
+        <a th:href="@{/employee}" class="btn btn-outline-primary">Back</a>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,28 +1,56 @@
 package com.example.demo.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.example.demo.model.MyUserDetail;
-import com.example.demo.model.User;
 import com.example.demo.repository.UserRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
-@Transactional
-public class MyUserDetailServiceImpl implements UserDetailsService {
+public class MyUserDetailsServiceImpl implements UserDetailsService {
+
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository appUserRepository;
+
+    @Autowired
+    private RoleRepository userRoleRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
+    public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+        AppUser appUser = this.appUserRepository.findByUserName(userName);
 
-        if(user == null){
-            throw  new UsernameNotFoundException("user name not found: "+ username);
+        if (appUser == null) {
+            System.out.println("User not found! " + userName);
+            throw new UsernameNotFoundException("User " + userName + " was not found in the database");
         }
-        return new MyUserDetail(user);
+
+        System.out.println("Found User: " + appUser);
+
+        // [ROLE_USER, ROLE_ADMIN,..]
+        List<UserRole> userRoles = this.userRoleRepository.findByAppUser(appUser);
+
+        List<GrantedAuthority> grantList = new ArrayList<GrantedAuthority>();
+        if (userRoles != null) {
+            for (UserRole userRole : userRoles) {
+                // ROLE_USER, ROLE_ADMIN,..
+                GrantedAuthority authority = new SimpleGrantedAuthority(userRole.getAppRole().getRoleName());
+                grantList.add(authority);
+            }
+        }
+
+        UserDetails userDetails = (UserDetails) new User(appUser.getUserName(), //
+                appUser.getEncrytedPassword(), grantList);
+
+        return userDetails;
     }
+
 }

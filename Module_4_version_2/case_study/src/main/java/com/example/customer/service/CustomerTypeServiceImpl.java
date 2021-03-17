@@ -2,6 +2,7 @@ package com.example.customer.service;
 
 import com.example.customer.entity.CustomerType;
 import com.example.customer.repository.CustomerTypeRepository;
+import com.example.customer.service.impl.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
