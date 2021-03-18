@@ -12,4 +12,5 @@ public interface EmployeeService  {
     void save(Employee employee);
     void remove(Integer id);
     Page<Employee> findAllInputText(String name, Pageable pageable);
+    boolean checkEmailUnique(String email);
 }

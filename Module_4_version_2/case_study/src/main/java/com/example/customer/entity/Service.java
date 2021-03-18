@@ -4,14 +4,18 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
 @Table(name = "service")
 public class Service {
     @Id
-    @GeneratedValue
-    private Integer serviceId;
+    @NotEmpty(message = "not null")
+    @Pattern(regexp = "^(DV-)\\d{4}$", message = "wrong type of id")
+    private String serviceId;
     private String serviceName;
     private String serviceArea;
     private String serviceCost;
@@ -100,11 +104,11 @@ public class Service {
         this.renType = renType;
     }
 
-    public Integer getServiceId() {
+    public String getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(Integer serviceId) {
+    public void setServiceId(String serviceId) {
         this.serviceId = serviceId;
     }
 

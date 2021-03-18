@@ -4,6 +4,7 @@ import com.example.customer.entity.Customer;
 import com.example.customer.service.impl.CustomerService;
 import com.example.customer.service.impl.CustomerTypeService;
 //import com.example.customer.util.WebUtils;
+import com.example.customer.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -27,7 +28,7 @@ public class CustomerController {
 
     @GetMapping("/home")
     public String home(){
-        return "index";
+        return "template";
     }
 
     @GetMapping("/")
@@ -59,7 +60,7 @@ public class CustomerController {
         }
     }
 
-    @GetMapping("{id}/edit")
+    @GetMapping("edit/{id}")
     public String edit(@PathVariable String id, Model model) {
         model.addAttribute("customerList", customerService.findById(id));
         model.addAttribute("customerTypeId", customerTypeService.findAll());
@@ -85,8 +86,8 @@ public class CustomerController {
         return "customer/loginPage";
     }
 
-    @GetMapping("/{id}/deleted")
-    public String deleteById(@PathVariable String id) {
+    @GetMapping("/delete")
+    public String deleteById(@RequestParam String id) {
         customerService.remove(id);
         return "redirect:";
     }
@@ -97,7 +98,7 @@ public class CustomerController {
         if (principal != null) {
             User loginedUser = (User) ((Authentication) principal).getPrincipal();
 
-//            String userInfo = WebUtils.toString(loginedUser);
+            String userInfo = WebUtils.toString(loginedUser);
 
 //            model.addAttribute("userInfo", userInfo);
 //

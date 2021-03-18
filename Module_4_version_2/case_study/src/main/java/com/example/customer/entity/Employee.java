@@ -18,8 +18,8 @@ public class Employee {
     private String employeeEmail;
     private String employeeAddress;
 
-    @ManyToOne
-    @JoinColumn(name = "user_name")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
     @JsonBackReference
     private AppUser user;
 

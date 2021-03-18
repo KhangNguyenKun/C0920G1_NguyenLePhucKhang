@@ -19,10 +19,10 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    @NotFound(action = NotFoundAction.IGNORE)
+//    @NotFound(action = NotFoundAction.IGNORE)
     private Customer customer;
 
-    @OneToMany(mappedBy="contract")
+    @OneToMany(mappedBy="contract", cascade = CascadeType.ALL)
     private Set<ContractDetail> contractDetailSet;
 
     @ManyToOne

@@ -17,7 +17,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public com.example.customer.entity.Service findById(int id) {
+    public com.example.customer.entity.Service findById(String id) {
         return serviceRepository.findById(id).orElse(null);
     }
 
@@ -27,7 +27,7 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
-    public void remove(int id) {
+    public void remove(String id) {
         serviceRepository.deleteById(id);
     }
 }

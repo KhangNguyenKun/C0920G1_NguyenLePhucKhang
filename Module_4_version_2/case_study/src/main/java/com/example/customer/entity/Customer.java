@@ -1,12 +1,14 @@
 package com.example.customer.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 public class Customer implements Validator {
@@ -26,10 +28,13 @@ public class Customer implements Validator {
     private String customerAddress;
 
     @ManyToOne
-    @JoinColumn(name = "customer_type_id", nullable = false)
+    @JoinColumn(name = "customer_type_id")
     @JsonBackReference
     private CustomerType customerType;
 
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<Contract> list;
     public Customer() {
     }
 

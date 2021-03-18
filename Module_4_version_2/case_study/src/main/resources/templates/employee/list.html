@@ -131,8 +131,8 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
     <h2>Employee list</h2>
-    <a th:href="@{/employee/create}">Create new employee</a>
-    <!--    <h2 th:text ="{message}" style="color: red"></h2>-->
+    <a href="employee/create" class="btn btn-dark"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Create new employee</a>
+
     <table class="table table-repository">
         <thead>
         <tr>
@@ -180,6 +180,8 @@
         </th:block>
         </tbody>
     </table>
+    <a href="/home" class="btn btn-dark"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to Home</a>
+    <a href="/logout" class="btn btn-dark"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Log out</a>
     <div class="pagination-div">
 <span th:if="${employeeList.hasPrevious()}">
     <a th:href="@{/employee(page=${employeeList.number - 1},keyword = ${keywordOld},size=${employeeList.size})}">Previous</a>
@@ -193,9 +195,7 @@
         <span th:if="${employeeList.hasNext()}">
     <a th:href="@{/employee(page=${employeeList.number+1},keyword = ${keywordOld},size=${employeeList.size})}">Next</a>
 </span>
-    </div>
-    <button class="btn btn-outline-dark" th:href="@{/home}">Home</button>
-</div>
+
 
 <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
     <div class="modal-dialog" role="document">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -162,7 +163,7 @@
             <td th:text="${customer.customerAddress}"></td>
 
             <td>
-                <a th:href="@{/{id}/edit(id=${customer.customerId})}"
+                <a th:href="@{/edit/{id}(id=${customer.customerId})}"
                    class="btn btn-outline-primary">Edit</a>
             </td>
             <td>
@@ -177,6 +178,8 @@
 
 </table>
 
+<a href="/home" class="btn btn-dark"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Back to Home</a>
+<a href="/logout" class="btn btn-dark"> <i class="fa fa-arrow-circle-o-left"></i>&nbsp;Log out</a>
 
 <nav aria-label="Page navigation example">
     <ul class="pagination">
@@ -215,7 +218,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form th:action="@{/customer/delete}" method="get">
+            <form th:action="@{/delete}" method="get">
                 <input type="hidden" id="deleteId" name="id">
                 <div class="modal-body">
                     <span id="modalMessage"></span>
@@ -258,8 +261,19 @@
                     result += "<td>" + customers.content[i].customerPhone + "</td>";
                     result += "<td>" + customers.content[i].customerEmail + "</td>";
                     result += "<td>" + customers.content[i].customerAddress + "</td>";
-                    // result += "<td>" + customers.content[i].category.categoryName + "</td>";
+                    result += "<td><a class=\"btn btn-outline-primary\" href=/edit/" + customers.content[i].customerId +" >Edit</a></td>";
+                    result += "<td><a data-toggle=\"modal\" data-target=\"#modalDelete\" th:data-id="
+                        + customers.content[i].customerId +" >Delete</a></td>";
                     result += "</tr>";
+                // <td>
+                //     <a th:href="@{/{id}/edit(id=${customer.customerId})}"
+                // class="btn btn-outline-primary">Edit</a>
+                //         </td>
+                //         <td>
+                //         <a data-toggle="modal" data-target="#modalDelete"
+                //     th:data-id="${customer.getCustomerId()}" th:data-name="${customer.customerName}"
+                // class="btn btn-danger delete">Delete</a>
+                //         </td>
 
                 }
                 $('#myTable').html(result);

@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -37,5 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Page<Employee> findAllInputText(String name, Pageable pageable) {
         return employeeRepository.findAllByEmployeeNameContaining(name, pageable);
+    }
+
+    @Override
+    public boolean checkEmailUnique(String email) {
+         List<Employee> list= employeeRepository.findAllByEmployeeEmail(email);
+        return list.isEmpty();
     }
 }

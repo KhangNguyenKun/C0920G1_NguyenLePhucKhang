@@ -1,5 +1,6 @@
 package com.example.customer.controller;
 
+import com.example.customer.entity.Customer;
 import com.example.customer.entity.Service;
 import com.example.customer.service.impl.RenTypeService;
 import com.example.customer.service.impl.ServiceService;
@@ -7,8 +8,11 @@ import com.example.customer.service.impl.ServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/service")
@@ -50,14 +54,44 @@ public class ServiceController {
         model.addAttribute("serviceTypeList", serviceTypeService.findAll());
         return "/service/createVilla";
     }
-    @PostMapping("/save")
-    public String save(@ModelAttribute Service service, RedirectAttributes redirectAttributes){
-        serviceService.save(service);
-        redirectAttributes.addFlashAttribute("message","create success");
-        return "redirect:/service";
+    @PostMapping("/saveHouse")
+    public String saveHouse(@Valid @ModelAttribute Service service, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            return "service/createHouse";
+        } else {
+            serviceService.save(service);
+            redirectAttributes.addFlashAttribute("message", "create success");
+            return "redirect:/";
+        }
+    }
+    @PostMapping("/saveRoom")
+    public String saveRoom(@Valid @ModelAttribute Service service , BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            return "service/createRoom";
+        } else {
+            serviceService.save(service);
+            redirectAttributes.addFlashAttribute("message", "create success");
+            return "redirect:/";
+        }
+    }
+    @PostMapping("/saveVilla")
+    public String saveVilla(@Valid @ModelAttribute Service service, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model){
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            return "service/createVilla";
+        } else {
+            serviceService.save(service);
+            redirectAttributes.addFlashAttribute("message", "create success");
+            return "redirect:/";
+        }
     }
     @GetMapping("{id}/update")
-    public String showUpdate(@PathVariable int id, Model model){
+    public String showUpdate(@PathVariable String id, Model model){
         model.addAttribute("service",serviceService.findById(id));
         model.addAttribute("renTypeList", rentTypeService.findAll());
         model.addAttribute("serviceTypeList", serviceTypeService.findAll());
@@ -71,12 +105,12 @@ public class ServiceController {
         return "redirect:/service";
     }
     @GetMapping("/view")
-    public String showServiceById(@PathVariable int id, Model model){
+    public String showServiceById(@PathVariable String id, Model model){
         model.addAttribute("service", serviceService.findById(id));
         return "service/view";
     }
-    @GetMapping("/{id}/delete")
-    public String deleteCategory(@PathVariable int id, RedirectAttributes redirectAttributes) {
+    @GetMapping("/delete")
+    public String deleteCategory(@RequestParam String id, RedirectAttributes redirectAttributes) {
         serviceService.remove(id);
         redirectAttributes.addFlashAttribute("message","Delete Success!!!");
         return "redirect:/service";
