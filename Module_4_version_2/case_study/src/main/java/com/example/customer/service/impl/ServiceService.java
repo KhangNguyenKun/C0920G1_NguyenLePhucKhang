@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ServiceService {
     List<Service> findAll();
-    Service findById(String id);
+    Service findById(int id);
     void save(Service service);
-    void remove(String id);
+    void remove(int id);
 
 }

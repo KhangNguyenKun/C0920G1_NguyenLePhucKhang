@@ -34,21 +34,23 @@
         </div>
         <div>
             Employee
-            <select class="form-control" th:field="*{employee.employeeId}">
+            <br>
+            <select class="form-group" th:field="*{employee.employeeId}">
                 <option th:each="employeeL : ${employeeList}" th:value="${employeeL.employeeId}" th:text="${employeeL.employeeName}">
                 </option>
             </select>
         </div>
         <div>
             Customer
-            <select   class="form-control" th:field="*{customer.customerId}">
+            <br>
+            <select   class="form-group" th:field="*{customer.customerId}">
                 <option  th:each="employeeL : ${customerList}" th:value="${employeeL.customerId}" th:text="${employeeL.customerName}">
                 </option>
             </select>
         </div>
         <div>
             Service
-            <select  class="form-control" th:field="*{serviceId.serviceId}">
+            <select  class="form-group" th:field="*{service.serviceId}">
                 <option th:each="employeeL : ${serviceList}" th:value="${employeeL.serviceId}" th:text="${employeeL.serviceName}">
                 </option>
             </select>
@@ -57,9 +59,7 @@
         <input type="submit" class="btn btn-outline-success" value="Create"/>
     </form>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+<script src="/static/jss/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>

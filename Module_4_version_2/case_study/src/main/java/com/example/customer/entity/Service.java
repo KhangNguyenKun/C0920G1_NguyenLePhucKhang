@@ -1,21 +1,28 @@
 package com.example.customer.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.List;
 
 
 @Entity
 @Table(name = "service")
-public class Service {
+public class Service  {
     @Id
-    @NotEmpty(message = "not null")
+//    @NotEmpty
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @Pattern(regexp = "^(DV-)\\d{4}$", message = "wrong type of id")
+    private int serviceId;
     @Pattern(regexp = "^(DV-)\\d{4}$", message = "wrong type of id")
-    private String serviceId;
+    private String serviceCode;
     private String serviceName;
     private String serviceArea;
     private String serviceCost;
@@ -33,6 +40,9 @@ public class Service {
     private String numberOfFloors;
     private String freeService;
 
+    @OneToMany(mappedBy = "service")
+    @JsonManagedReference
+    private List<Contract> contractList;
 
     @ManyToOne
     @JoinColumn(name = "service_type_id", referencedColumnName = "service_type_id")
@@ -45,6 +55,22 @@ public class Service {
     @JsonBackReference
     private RenType renType;
     public Service() {
+    }
+
+    public List<Contract> getContractList() {
+        return contractList;
+    }
+
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
+    }
+
+    public String getServiceCode() {
+        return serviceCode;
+    }
+
+    public void setServiceCode(String serviceCode) {
+        this.serviceCode = serviceCode;
     }
 
     public String getStandardRoom() {
@@ -104,11 +130,11 @@ public class Service {
         this.renType = renType;
     }
 
-    public String getServiceId() {
+    public int getServiceId() {
         return serviceId;
     }
 
-    public void setServiceId(String serviceId) {
+    public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
 
@@ -144,4 +170,16 @@ public class Service {
         this.serviceMaxPeople = serviceMaxPeople;
     }
 
+//    @Override
+//    public boolean supports(Class<?> clazz) {
+//        return false;
+//    }
+//
+//    @Override
+//    public void validate(Object target, Errors errors) {
+//        Service service = (Service) target;
+//        if(!service.serviceId.matches("^(DV-)\\\\d{4}$")){
+//            errors.reject("serviceId", "service.id.format");
+//        }
+//    }
 }

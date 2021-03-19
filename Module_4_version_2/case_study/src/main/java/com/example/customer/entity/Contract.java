@@ -4,6 +4,7 @@ import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.util.Set;
 
 @Entity
@@ -12,10 +13,10 @@ public class Contract {
     private String contractId;
     private String contractStartDate;
     private String contractEndDate;
+    @Min(value = 0)
     private String contractDeposit;
+    @Min(value = 0)
     private String contractTotalMoney;
-
-
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -27,7 +28,8 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name = "service_id")
-    private Service serviceId;
+    @NotFound(action = NotFoundAction.IGNORE)
+    private Service service;
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
@@ -101,12 +103,11 @@ public class Contract {
         this.contractTotalMoney = contractTotalMoney;
     }
 
-
-    public Service getServiceId() {
-        return serviceId;
+    public Service getService() {
+        return service;
     }
 
-    public void setServiceId(Service serviceId) {
-        this.serviceId = serviceId;
+    public void setService(Service service) {
+        this.service = service;
     }
 }

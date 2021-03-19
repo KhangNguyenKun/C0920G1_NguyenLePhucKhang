@@ -119,13 +119,13 @@ public class Customer implements Validator {
     public void validate(Object target, Errors errors) {
         Customer customer = (Customer) target;
         if(!customer.customerId.matches("^(KH-)\\d{4}$")){
-            errors.reject("customerId", "customer.id.format");
+            errors.rejectValue("customerId", "customer.id.format");
         }
         if(!customer.customerPhone.matches("(090|091|\\(84\\)\\+90|\\(84\\)\\+91)\\d{7}")){
-            errors.reject("customerPhone", "customer.phone.format");
+            errors.rejectValue("customerPhone", "customer.phone.format");
         }
         if(!customer.customerIdCard.matches("^\\d{9}|\\d{12}$")){
-            errors.reject("customerIdCard", "customer.IdCard.format");
+            errors.rejectValue("customerIdCard", "customer.IdCard.format");
         }
     }
 }

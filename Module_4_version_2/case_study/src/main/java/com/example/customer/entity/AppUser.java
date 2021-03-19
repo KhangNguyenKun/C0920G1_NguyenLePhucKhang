@@ -4,30 +4,28 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "App_User", //
-        uniqueConstraints = { //
-                @UniqueConstraint(name = "APP_USER_UK", columnNames = "User_Name") })
-public class AppUser {
+public class AppUser  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "User_Id", nullable = false)
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
-    @Column(name = "user_Name", length = 36, nullable = false)
+    @Column(name = "user_name", length = 36, nullable = false)
 
     private String userName;
 
-    @Column(name = "Encryted_Password", length = 128, nullable = false)
+    @Column(name = "encryted_password", length = 128)
     private String encrytedPassword;
 
-    @Column(name = "Enabled", length = 1, nullable = false)
+    @Column(name = "enabled", length = 1, nullable = false)
     private boolean enabled;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user")
     @JsonManagedReference
     private List<Employee> employeeList;
 

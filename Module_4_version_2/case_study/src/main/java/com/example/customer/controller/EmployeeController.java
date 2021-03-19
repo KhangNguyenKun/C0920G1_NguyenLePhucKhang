@@ -54,16 +54,20 @@ public class EmployeeController {
         return "employee/create";
     }
     @PostMapping("/save")
-    public String save(@Valid @ModelAttribute Employee employee, BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String save(@Valid @ModelAttribute Employee employee, BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes){
         if (bindingResult.hasErrors()){
+            model.addAttribute("educationDegree", educationDegreeRepository.findAll());
+            model.addAttribute("positionList", positionService.findAll());
+            model.addAttribute("divisionList", divisionRepository.findAll());
+            model.addAttribute("userList", userRepository.findAll());
             return "/employee/create";
         }
-        if (!employeeService.checkEmailUnique(employee.getEmployeeEmail())){
-            redirectAttributes.addFlashAttribute("message_unique", "your email is exist");
-            return "/employee/create";
-        }
+//        if (!employeeService.checkEmailUnique(employee.getEmployeeEmail())){
+//            redirectAttributes.addFlashAttribute("message_unique", "your email is exist");
+//            return "/employee/create";
+//        }
         employeeService.save(employee);
-        redirectAttributes.addFlashAttribute("message","create success");
+//        redirectAttributes.addFlashAttribute("message","create success");
         return "redirect:/employee";
     }
     @GetMapping("{id}/update")

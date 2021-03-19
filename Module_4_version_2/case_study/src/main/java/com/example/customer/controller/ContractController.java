@@ -27,9 +27,9 @@ public class ContractController {
     @GetMapping("")
     public String showContract(Model model, Pageable pageable) {
         model.addAttribute("contractList", contractService.findAll());
-        model.addAttribute("employeeList", employeeRepository.findAll());
-        model.addAttribute("customerList", customerTypeRepository.findAll(pageable));
-        model.addAttribute("serviceList", serviceRepository.findAll());
+//        model.addAttribute("employeeList", employeeRepository.findAll());
+//        model.addAttribute("customerList", customerTypeRepository.findAll(pageable));
+//        model.addAttribute("serviceList", serviceRepository.findAll());
         return "/contract/list";
     }
 

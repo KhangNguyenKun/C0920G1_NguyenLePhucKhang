@@ -104,8 +104,9 @@
             </div>
         </label>
         <label>
-            <p class="label-txt">ENTER YOUR NAME</p>
+            <p class="label-txt">ENTER YOUR ID CARD</p>
             <input type="text" class="input" th:field="*{employeeIdCard}">
+            <div style="color: red" th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}"></div>
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -113,6 +114,7 @@
         <label>
             <p class="label-txt">ENTER YOUR SALARY</p>
             <input type="text" class="input" th:field="*{employeeSalary}">
+            <div style="color: red" th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}"></div>
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -120,7 +122,8 @@
         <label>
             <p class="label-txt">ENTER YOUR MAIL</p>
             <input type="text" class="input" th:field="*{employeeEmail}">
-            <span th:if="${message_unique}" th:text="${message_unique}" style="color: red"></span>
+            <div style="color: red" th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}"></div>
+<!--            <span th:if="${message_unique}" th:text="${message_unique}" style="color: red"></span>-->
             <div class="line-box">
                 <div class="line"></div>
             </div>
@@ -155,7 +158,7 @@
         </div>
         <br>
         <div>User name
-            <select class="form-control"  th:field="*{user.userName}">
+            <select class="form-control"  th:field="*{user.userId}">
                 <option th:each="division : ${userList}" th:value="${division.userId}" th:text="${division.userName}">
                 </option>
             </select>

@@ -29,8 +29,8 @@ public class ServiceController {
     @GetMapping("")
     public String showService (Model model){
         model.addAttribute("serviceList", serviceService.findAll());
-        model.addAttribute("renTypeList", rentTypeService.findAll());
-        model.addAttribute("serviceTypeList", serviceTypeService.findAll());
+//        model.addAttribute("renTypeList", rentTypeService.findAll());
+//        model.addAttribute("serviceTypeList", serviceTypeService.findAll());
         return "/service/show";
     }
     @GetMapping("/createHouse")
@@ -59,11 +59,12 @@ public class ServiceController {
 
         if (bindingResult.hasErrors()){
             model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            model.addAttribute("renTypeList", rentTypeService.findAll());
             return "service/createHouse";
         } else {
             serviceService.save(service);
             redirectAttributes.addFlashAttribute("message", "create success");
-            return "redirect:/";
+            return "redirect:/service";
         }
     }
     @PostMapping("/saveRoom")
@@ -71,11 +72,12 @@ public class ServiceController {
 
         if (bindingResult.hasErrors()){
             model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            model.addAttribute("renTypeList", rentTypeService.findAll());
             return "service/createRoom";
         } else {
             serviceService.save(service);
             redirectAttributes.addFlashAttribute("message", "create success");
-            return "redirect:/";
+            return "redirect:/service";
         }
     }
     @PostMapping("/saveVilla")
@@ -83,15 +85,16 @@ public class ServiceController {
 
         if (bindingResult.hasErrors()){
             model.addAttribute("serviceTypeList",serviceTypeService.findAll());
+            model.addAttribute("renTypeList", rentTypeService.findAll());
             return "service/createVilla";
         } else {
             serviceService.save(service);
             redirectAttributes.addFlashAttribute("message", "create success");
-            return "redirect:/";
+            return "redirect:/service";
         }
     }
     @GetMapping("{id}/update")
-    public String showUpdate(@PathVariable String id, Model model){
+    public String showUpdate(@PathVariable int id, Model model){
         model.addAttribute("service",serviceService.findById(id));
         model.addAttribute("renTypeList", rentTypeService.findAll());
         model.addAttribute("serviceTypeList", serviceTypeService.findAll());
@@ -105,12 +108,12 @@ public class ServiceController {
         return "redirect:/service";
     }
     @GetMapping("/view")
-    public String showServiceById(@PathVariable String id, Model model){
+    public String showServiceById(@PathVariable int id, Model model){
         model.addAttribute("service", serviceService.findById(id));
         return "service/view";
     }
     @GetMapping("/delete")
-    public String deleteCategory(@RequestParam String id, RedirectAttributes redirectAttributes) {
+    public String deleteCategory(@RequestParam int id, RedirectAttributes redirectAttributes) {
         serviceService.remove(id);
         redirectAttributes.addFlashAttribute("message","Delete Success!!!");
         return "redirect:/service";

@@ -3,23 +3,30 @@ package com.example.customer.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class Employee {
+public class Employee  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int employeeId;
     private String employeeName;
     private String employeeBirthday;
+    @Pattern(regexp = "^\\d{9}|\\d{12}$", message = "wrong format ID card")
     private String employeeIdCard;
+    @Min(value = 0)
     private String employeeSalary;
     private String employeePhone;
+    @Email
     private String employeeEmail;
     private String employeeAddress;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     @JsonBackReference
     private AppUser user;
 
