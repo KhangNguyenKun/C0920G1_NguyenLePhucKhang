@@ -1,0 +1,11 @@
+<div class="card" style="width:400px">
+<!--  <img class="card-img-top" src="" alt="Card image">-->
+  <div class="card-body">
+    <h4 class="card-title">ID : {{ student.id }}</h4>
+    <h4 class="card-title">Name : {{ student.name }}</h4>
+    <h4 class="card-title">Age : {{ student.age }}</h4>
+    <h4 class="card-title">Mark : {{ student.mark }}</h4>
+  </div>
+</div>
+<input type="text" placeholder="input your mark" [(ngModel)]="value">
+<button class="btn btn-dark" (click)="riseUp()">Button</button>

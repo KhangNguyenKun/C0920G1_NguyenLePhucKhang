@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8dfff170-6d68-45d3-b63a-d3543d2b751e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/java/com/example/study/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/java/com/example/study/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/java/com/example/study/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/java/com/example/study/model/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/resources/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/resources/templates/service/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4/Case_study/src/main/resources/templates/service/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/controller/ContractDetailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/controller/ContractDetailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/entity/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/entity/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/entity/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/java/com/example/customer/entity/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/contract/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/customer/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/customer/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/service/show.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/service/show.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../../Module_4_version_2/case_study/src/main/resources/templates/template.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
+  </component>
+  <component name="ProjectId" id="1qERjTQsSwZB02GSjZAkOTL6sNQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../array/typescript-demo-master" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="E:\C0920G1_NguyenLePhucKhang\Module_5\_2_typescript\thuc-hanh\if-forEach\typescript-demo-master\node_modules\typescript\lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8dfff170-6d68-45d3-b63a-d3543d2b751e" name="Default Changelist" comment="" />
+      <created>1616642897643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616642897643</updated>
+      <workItem from="1616642898802" duration="1536000" />
+      <workItem from="1616723559940" duration="2368000" />
+      <workItem from="1616726348248" duration="765000" />
+      <workItem from="1616727133644" duration="1287000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1616729625904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1616729625904" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1616644489402">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616644489402" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1616644489402">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616644489402" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1616644489402">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616644489402" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1616644489402">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616644489402" />
+  </component>
+</project>
