@@ -1,0 +1,172 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "idCustomerType": 1,
+      "name": "Nguyen Khang",
+      "birthday": "1998-01-02",
+      "identification": "654686301",
+      "phoneNumber": "09166484635",
+      "mail": "phuckhang@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 2,
+      "idCustomerType": 1,
+      "name": "Nguyen Khang",
+      "birthday": "1998-01-02",
+      "identification": "654686301",
+      "phoneNumber": "09166484635",
+      "mail": "phuckhang@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 3,
+      "idCustomerType": 1,
+      "name": "Nguyen Khang",
+      "birthday": "1998-01-02",
+      "identification": "654686301",
+      "phoneNumber": "09166484635",
+      "mail": "phuckhang@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 4,
+      "idCustomerType": 1,
+      "name": "Nguyen Khang",
+      "birthday": "1998-01-02",
+      "identification": "654686301",
+      "phoneNumber": "09166484635",
+      "mail": "phuckhang@gmail.com",
+      "address": "Da Nang"
+    }
+  ],
+  "employee": [
+    {
+      "id": 1,
+      "name": "Nguyen Van A",
+      "positionId": 1,
+      "degreeId": 1,
+      "divisionId": 1,
+      "birthday": "1999-02-15",
+      "identification": 3158416,
+      "salary": 1200,
+      "phoneNumber": 8491616461,
+      "email": "abc@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 2,
+      "name": "Nguyen Van A",
+      "positionId": 1,
+      "degreeId": 1,
+      "divisionId": 1,
+      "birthday": "1999-02-15",
+      "identification": 3158416,
+      "salary": 1200,
+      "phoneNumber": 8491616461,
+      "email": "abc@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 3,
+      "name": "Nguyen Van A",
+      "positionId": 1,
+      "degreeId": 1,
+      "divisionId": 1,
+      "birthday": "1999-02-15",
+      "identification": 3158416,
+      "salary": 1200,
+      "phoneNumber": 8491616461,
+      "email": "abc@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 1,
+      "name": "Nguyen Van A",
+      "positionId": 1,
+      "degreeId": 1,
+      "divisionId": 1,
+      "birthday": "1999-02-15",
+      "identification": 3158416,
+      "salary": 1200,
+      "phoneNumber": 8491616461,
+      "email": "abc@gmail.com",
+      "address": "Da Nang"
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "employeeId": 1,
+      "customerId": 2,
+      "serviceId": 1,
+      "startContractDate": "2021-10-10",
+      "endContractDate": "2021-10-10",
+      "deposit": 1000,
+      "totalMoney": 2000
+    },
+    {
+      "id": 2,
+      "employeeId": 1,
+      "customerId": 2,
+      "serviceId": 1,
+      "startContractDate": "2021-10-10",
+      "endContractDate": "2021-10-10",
+      "deposit": 1000,
+      "totalMoney": 2000
+    },
+    {
+      "id": 3,
+      "employeeId": 1,
+      "customerId": 2,
+      "serviceId": 1,
+      "startContractDate": "2021-10-10",
+      "endContractDate": "2021-10-10",
+      "deposit": 1000,
+      "totalMoney": 2000
+    },
+    {
+      "id": 4,
+      "employeeId": 1,
+      "customerId": 2,
+      "serviceId": 1,
+      "startContractDate": "2021-10-10",
+      "endContractDate": "2021-10-10",
+      "deposit": 1000,
+      "totalMoney": 2000
+    }
+  ],
+  "service": [
+    {
+      "id": 1,
+      "name": "House",
+      "area": 122,
+      "floor": 10,
+      "maxPeople": 15,
+      "cost": 1000,
+      "serviceTypeId": 1,
+      "status": "status"
+    },
+    {
+      "id": 1,
+      "name": "House",
+      "area": 122,
+      "floor": 10,
+      "maxPeople": 15,
+      "cost": 1000,
+      "serviceTypeId": 1,
+      "status": "status"
+    },
+    {
+      "id": 1,
+      "name": "House",
+      "area": 122,
+      "floor": 10,
+      "maxPeople": 15,
+      "cost": 1000,
+      "serviceTypeId": 1,
+      "status": "status"
+    }
+  ]
+}

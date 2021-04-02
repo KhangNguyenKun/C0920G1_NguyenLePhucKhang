@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {IStudent} from '../model/IStudent';
+import {student} from '../model/StudentRepo';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-student-information',
@@ -7,21 +9,24 @@ import {IStudent} from '../model/IStudent';
   styleUrls: ['./student-information.component.css']
 })
 export class StudentInformationComponent implements OnInit {
-  student: IStudent = {
-    id : 1,
-    name: 'Kan',
-    age: 23,
-    mark: 10
-  }
-  value: number;
+  @Input()
+  studentIn: IStudent;
 
-  constructor() { }
+
+
+  value = 5;
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
+  studentForm: any;
   riseUp() {
-    this.student.mark = this.value;
+    this.studentIn.mark = this.value;
   }
+
+
 }
